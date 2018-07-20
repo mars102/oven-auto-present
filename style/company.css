@@ -37,15 +37,15 @@
 	border-color: #000;
 }
 .company-border{
-	border:1px solid #acacac;
+	border: 1px solid #acacac;
 	background: #fafafa;
 	
 }
 .company-check{
-	padding: 15px;
+	padding: 0 15px;
 	font-size: 16px;
 }
-.company-check .title{
+.company-check .title, .vigoda .title{
 	font-size: 18px;
 	font-weight: bold;
 	font-family: Renault;
@@ -55,6 +55,9 @@
 	padding-bottom: 5px;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #acacac;
+}
+.vigoda .title{
+	margin-top: 20px;
 }
 .company-check div{
 	pointer-events: none;
@@ -67,7 +70,6 @@
 	float: right;
 	font-size: 16px;
 	color: #000;
-	font-weight: bold;
 }
 .company-check .car-price{
 	width: 100%;float:left;border-bottom: 1px dashed #acacac;padding-bottom: 3px;margin-bottom: 3px;
@@ -77,5 +79,21 @@
 }
 
 .total-company{
-	padding: 15px;
+	padding: 0 15px;
+}
+
+.vigoda{
+	padding: 0 15px;
+	float: left;
+	width: 100%;
+}
+.vigoda div{
+	width: 100%;
+}
+.vigoda .type_company{
+	display: none;
+}
+.vigoda .checkcompany{
+	border: 0px !important;
+	color: green !important;
 }

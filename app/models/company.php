@@ -333,7 +333,7 @@ Class company extends \app\core\Model
     ?>
         <div class="container block" style="padding-top: 0px;">
             <div class="row">
-                <div class="col-sm-8" style="padding:0px;">
+                <div class="col-sm-8 company-area" style="padding:0px;">
                 <?php if(is_array($company)) : ?>
                     <?php foreach ($company as $key => $value) : ?>
                         <?=$value->getBlock($car);?>
@@ -341,40 +341,43 @@ Class company extends \app\core\Model
                 <?php endif;?>
                 </div>
                 <div class="col-sm-4">
-                    <div class="company-border" style="float: left;">
-                        <div class="company-check">
+                    <div class="company-border" style="float: left;padding-top:15px;">
+                        <div class="company-check" style="float: left;">
                             <div class="title">
-                                Ваши выгоды
+                                Ваш автомобиль
                             </div>
 
-                            <div class="car-price" style="">
-                                <span class="left-block">Цена базы:</span>
+                            <div class="car-price" style="float: left;">
+                                <span class="left-block">Комплектация:</span>
                                 <span class="right-block"> <?=number_format($car->complect->price,0,'',' ');?> руб.</span>
                             </div>
 
-                            <div class="car-price" style="">
-                                <span class="left-block">Цена опций:</span>
+                            <div class="car-price" style="float: left;">
+                                <span class="left-block">Опции:</span>
                                 <span class="right-block"><?=number_format($car->getPackPrice(),0,'',' ');?> руб.</span>
                             </div>
 
-                            <div class="car-price" style="">
-                                <span class="left-block">Цена доп. оборудования:</span>
+                            <div class="car-price" style="float: left;">
+                                <span class="left-block">Аксессуары:</span>
                                 <span class="right-block"><?=number_format($car->dopprice,0,'',' ');?> руб.</span>
                             </div>
-
-                            <div class="total-company " style="width: 100%;float: left;">
-                                <span class="left-block">Итого:</span>
-                                <span class="right-block ">
-                                    <span class="company-total-price"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
-                                    <span class="def-price" style="display: none;"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
-                                    <span>руб.</span>
-                                </span>
-                            </div>
-
                         </div>
 
-                        
+                        <div class="total-company " style="width: 100%;float: left;">
+                            <span class="left-block">Итого:</span>
+                            <span class="right-block ">
+                                <span class="company-total-price"><b><?=number_format($car->getCarPrice(),0,'',' ');?></b></span>
+                                <span class="def-price" style="display: none;"><b><?=number_format($car->getCarPrice(),0,'',' ');?></b></span>
+                                <span><b>руб.</b></span>
+                            </span>
+                        </div>
 
+                        <div class="vigoda">
+                            <div class="title">
+                                Ваши плюшки
+                            </div>
+                        </div>
+                        
                         <div style="padding: 15px;float: left;width: 100%">
                             <?=\app\core\Html::modalPay();?>
                         </div>
