@@ -263,10 +263,16 @@ Class company extends \app\core\Model
         if(!empty($this->dop))
             $skidka+=$car->dopprice;
 
+        
+
         $skidka = $skidka*($this->value/100);
-        if( ($skidka>$this->max) && ($this->max!=0) )
+
+        
+
+        if( ($skidka!=0))
         {
-            $skidka = $this->max;
+            if($skidka>$this->max && $this->max!=0)
+                $skidka = $this->max;
             $skidka = round($skidka,-3);
             $skidka = number_format($skidka,0,'',' ')." руб. ";
         }
@@ -274,7 +280,7 @@ Class company extends \app\core\Model
         else{
             $skidka = $this->value."% ";
         }
-
+        
         $bydget = number_format($this->bydget,0,'',' ')." руб. ";
         
 
