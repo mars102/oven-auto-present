@@ -331,7 +331,7 @@
 							</div>
 							<div class="pack-price text-right" style="position: relative;">
 								<div style="border-top:1px dashed #ccc"></div>
-								<p> <span style="font-size: 15px; color: #8c8c8c; position: absolute; bottom: 0; left: 0;"><?= $pack->code;?></span> <?=number_format($pack->price,0,'',' ');?> руб.</p>
+								<p> <span style="font-size: 14px; color: #8c8c8c; position: absolute; left: 0;"><?= $pack->code;?></span> <?=number_format($pack->price,0,'',' ');?> руб.</p>
 							</div>
 						<?php endforeach; ?>
 					<?php endif; ?>

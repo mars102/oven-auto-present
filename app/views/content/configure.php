@@ -213,23 +213,31 @@
               <div class=""><?=$pack->name;?></div>
               <div class="pack-list text-left"><?=$pack->option_list;?></div>
               <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative;">
-                <p style="text-align: left;">
-                  <input 
-                    <?=$check;?>
-                    value="<?=$pack->id;?>" 
-                    type="checkbox" 
-                    name="packs[]" 
-                    class="checkbox " 
-                    id="checkbox<?=$pack->id;?>" 
-                    data-znak='<?=$znak;?>' 
-                    data-price="<?=$pack->price;?>"
-                    form = "userModal"
-                  >
-                  <label style="display: inline;" for="checkbox<?=$pack->id;?>"></label>
-                  <span style="font-size: 15px; color: #8c8c8c;"><?= $pack->code;?></span>
-                  <span style="float: right;"><?=number_format($pack->price,0,'',' ');?> руб.</span>
-                </p>
+              <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
+                <div style="float: left;">
+                  
+                    <input 
+                      <?=$check;?>
+                      value="<?=$pack->id;?>" 
+                      type="checkbox" 
+                      name="packs[]" 
+                      class="checkbox " 
+                      id="checkbox<?=$pack->id;?>" 
+                      data-znak='<?=$znak;?>' 
+                      data-price="<?=$pack->price;?>"
+                      form = "userModal"
+                    >
+                    
+                    <label style="display: inline; " for="checkbox<?=$pack->id;?>"></label>
+                </div>
+                <div class="checkboxlabeldo">  
+                               
+                    <span class="checkboxlabelon"><?= $pack->code;?></span>
+                 
+                </div>
+                <div style="float: right;">
+                    <span style=""><?=number_format($pack->price,0,'',' ');?> руб.</span>
+                </div>
               </div>
               
               <?php unset($model->complect->packs[$key]);?>
@@ -241,23 +249,28 @@
               <div class=""><?=$pack->name;?></div>
               <div class="pack-list text-left"><?=$pack->option_list;?></div>
               <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative;">
-                <p style="text-align: left;">
-                  <input 
-                    <?=$check;?>
-                    value="<?=$pack->id;?>" 
-                    type="checkbox" 
-                    name="packs[]" 
-                    class="checkbox " 
-                    id="checkbox<?=$pack->id;?>" 
-                    data-znak='<?=$znak;?>'
-                    data-price="<?=$pack->price;?>"
-                    form = "userModal"
-                  >
-                  <label style="display: inline;" for="checkbox<?=$pack->id;?>"></label>
-                  <span style="font-size: 15px; color: #8c8c8c;"><?= $pack->code;?></span>
-                  <span style="float: right;"><?=number_format($pack->price,0,'',' ');?> руб.</span>
-                </p>
+              <div class="pack-price text-right " style="position: relative; display: inline-block;">
+                <div style="float: left;">
+                   <input 
+                      <?=$check;?>
+                      value="<?=$pack->id;?>" 
+                      type="checkbox" 
+                      name="packs[]" 
+                      class="checkbox " 
+                      id="checkbox<?=$pack->id;?>" 
+                      data-znak='<?=$znak;?>' 
+                      data-price="<?=$pack->price;?>"
+                      form = "userModal"
+                    >
+                    
+                    <label style="display: inline; " for="checkbox<?=$pack->id;?>"></label>
+                </div>
+                <div class="checkboxlabeldo">   
+                  <span class="checkboxlabelon"><?= $pack->code;?></span>
+                </div>
+                <div style="float: right;">
+                  <span><?=number_format($pack->price,0,'',' ');?> руб.</span>
+                </div> 
               </div>
               
               <?php unset($model->complect->packs[$key]);?>
@@ -280,8 +293,8 @@
               <div class=""><?=$pack->name;?></div>
               <div class="pack-list text-left"><?=$pack->option_list;?></div>
               <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative;">
-                <p style="text-align: left;">
+              <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
+                <div style="float: left;">
                   <input 
                     <?=$check;?>
                     value="<?=$pack->id;?>" 
@@ -294,9 +307,13 @@
                     form = "userModal"
                   >
                   <label style="display: inline;" for="checkbox<?=$pack->id;?>"></label>
-                  <span style="font-size: 15px; color: #8c8c8c;"><?= $pack->code;?></span>
+                </div>
+                <div class="checkboxlabeldo">   
+                  <span class="checkboxlabelon"><?= $pack->code;?></span>
+                </div>
+                <div style="float: right;"> 
                   <span style="float: right;"><?=number_format($pack->price,0,'',' ');?> руб.</span>
-                </p>
+                </div>
               </div>
           <?php endforeach; ?>
         </div>

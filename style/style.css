@@ -1528,6 +1528,21 @@ a:focus{text-decoration: none; color: inherit;}
 Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
 в них все нижеследующие стили не сработают. */
 
+/*Подписи к чекбоксам выравниваем по центру*/
+.checkboxlabeldo {
+	float: left; 
+	position: relative;
+
+}
+
+
+.checkboxlabelon {
+	position: absolute; 
+	top: 5px; 
+	font-size: 14px; 
+	color: #8c8c8c;
+}
+
 /* Прячем оригинальный чекбокс. */
 .checkbox:not(checked) {
   position: absolute;

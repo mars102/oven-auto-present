@@ -191,6 +191,7 @@
 					<a><span class="filter-message">Больше параметров</span> <span class="fa-angle-down fa"></span></a>
 				</div>
 				<div class="col-xs-12 option-form-list" style="margin-bottom: 20px; float:left;">
+				ффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф
 				  	<div class="column" >
 				 	<!--FORM OPTION PARAMETERS-->
 						<?php $i = 1;?>
@@ -213,7 +214,7 @@
 									id="checkbox<?=$obj;?>" 
 									name="option[]" 
 									value="<?=$obj;?>"/>
-								<label style="font-weight: normal;" for="checkbox<?=$obj;?>"><?=$key;?></label>
+								<label style="font-weight: normal;" for="checkbox<?=$obj;?>"><?=$key;?></label> 
 							<!--/div-->
 							</span>
 
