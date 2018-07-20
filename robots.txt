@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin
+Disallow: /color
+Disallow: /admincar
+Disallow: /admincardoc
+Disallow: /kredit
+Disallow: /adminnews
+Disallow: /adminpage
+Disallow: /pdf
+Host: https://www.renault.oven-auto.ru

@@ -15,7 +15,7 @@ Class company extends \app\core\Model
             WHERE 
                 (a.vin = '{$car->vin}' or a.model = {$car->id_model} or a.complect = {$car->id_complect}) 
                 and FROM_UNIXTIME(c.day_in) <= CURRENT_DATE() AND FROM_UNIXTIME(c.day_out) >= CURRENT_DATE() AND c.status = 2
-                ORDER BY c.day_in
+                ORDER BY c.razdel,c.day_in
         "; 
         //echo "$sql";
         $data = $this->getCustomSQL($sql);
@@ -267,21 +267,28 @@ Class company extends \app\core\Model
         if( ($skidka>$this->max) && ($this->max!=0) )
         {
             $skidka = $this->max;
+            $skidka = round($skidka,-3);
+            $skidka = number_format($skidka,0,'',' ')." руб. ";
         }
 
-        $skidka = round($skidka,-3);
+        else{
+            $skidka = $this->value."% ";
+        }
+
+        $bydget = number_format($this->bydget,0,'',' ')." руб. ";
+        
 
         $this->title = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->title);
-        $this->title = str_replace("<bydjet>", number_format($this->bydget,0,'',' '), $this->title);
-        $this->title = str_replace("<procent>", number_format($skidka,0,'',' '), $this->title);
+        $this->title = str_replace("<bydjet>", $bydget, $this->title);
+        $this->title = str_replace("<procent>", $skidka, $this->title);
 
         $this->ofer = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->ofer);
-        $this->ofer = str_replace("<bydjet>", number_format($this->bydget,0,'',' '), $this->ofer);
-        $this->ofer = str_replace("<procent>", number_format($skidka,0,'',' '), $this->ofer);
+        $this->ofer = str_replace("<bydjet>", $bydget, $this->ofer);
+        $this->ofer = str_replace("<procent>", $skidka, $this->ofer);
 
         $this->text = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->text);
-        $this->text = str_replace("<bydjet>", number_format($this->bydget,0,'',' '), $this->text);
-        $this->text = str_replace("<procent>", number_format($skidka,0,'',' '), $this->text);
+        $this->text = str_replace("<bydjet>", $bydget, $this->text);
+        $this->text = str_replace("<procent>", $skidka, $this->text);
     ?>
         <div class="col-sm-6 ">
             <div class="company-wrapper">
@@ -351,16 +358,19 @@ Class company extends \app\core\Model
                                 <span class="left-block">Цена доп. оборудования:</span>
                                 <span class="right-block"><?=number_format($car->dopprice,0,'',' ');?> руб.</span>
                             </div>
+
+                            <div class="total-company " style="width: 100%;float: left;">
+                                <span class="left-block">Итого:</span>
+                                <span class="right-block ">
+                                    <span class="company-total-price"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
+                                    <span class="def-price" style="display: none;"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
+                                    <span>руб.</span>
+                                </span>
+                            </div>
+
                         </div>
 
-                        <div class="total-company" style="width: 100%;float: left;">
-                            <span class="left-block">Итого:</span>
-                            <span class="right-block ">
-                                <span class="company-total-price"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
-                                <span class="def-price" style="display: none;"><?=number_format($car->getCarPrice(),0,'',' ');?></span>
-                                <span>руб.</span>
-                            </span>
-                        </div>
+                        
 
                         <div style="padding: 15px;float: left;width: 100%">
                             <?=\app\core\Html::modalPay();?>

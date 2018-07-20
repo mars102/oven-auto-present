@@ -27,7 +27,7 @@
 	padding-top: 15px;
 }
 .company .ofer {
-	padding-top: 15px;
+	padding-top: 5px;
 	font-size: 18px;
 	font-weight: bold;
 	font-family: Renault;
@@ -39,6 +39,7 @@
 .company-border{
 	border:1px solid #acacac;
 	background: #fafafa;
+	
 }
 .company-check{
 	padding: 15px;

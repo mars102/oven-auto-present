@@ -315,9 +315,9 @@ Class Model
 			//Html::prA($sql_values);
 			for($i=0; $i<count($sql_values); $i++)
 			{
-				$result->bindValue($i+1, $sql_values[$i], PDO::PARAM_STR);
+				$result->bindValue($i+1, $sql_values[$i], \PDO::PARAM_STR);
 			}
-			$result->bindValue(count($sql_values)+1, $this->id, PDO::PARAM_INT);
+			$result->bindValue(count($sql_values)+1, $this->id, \PDO::PARAM_INT);
 
 			return $result->execute();
 		}

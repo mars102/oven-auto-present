@@ -101,100 +101,153 @@ Class PdfController extends \app\core\Controller
 	public function actionPrintcar($car_id=NULL,$html = '<html><meta http-equiv="content-type" content="text/html; charset=utf-8" />')
 	{	
 		$html .= "<style>
-				table{width:100%;padding:0px;margin:0px;padding-left:10px;padding-right:10px;}
-				tr{padding:0px;}
-				td{padding:0px; font-size:10px;}	
-				.page{padding-left:10px;padding-right:10px;margin:0px;font-size:14px;background:#eee;}			
+				* { 
+		            font-family: arial !important;
+		            font-size: 14px;
+		            line-height: 14px;
+		        }
+				.grey{
+					padding:15px;
+					background: #000;
+					color:#fff;
+					font-size:20px;
+				}	
+				.black{
+					padding:15px;
+					background: #ddd;
+					color:#333;
+					font-size:20px;
+				}	
+				table{
+					width:100%;
+					border-collapse: collapse; 
+            		border-spacing: 0;
+				}
+				tr{width:100%;}
+				td{width:50%;}
+				.page{
+					padding-top:15px;
+					padding-bottom:5px;
+					margin-bottom:5px;
+					border-bottom:1px solid #000;
+				}
 		</style>";
 		$html .= '<body style="">';
 
 		if( (empty($car_id) ) || (!is_numeric($car_id)) ) header("Location: /myerror");
 		$car = new \app\models\car_available();
 		$car = $car->getAvaCar($car_id);
-		require_once(ROOT.'/app/components/PDF/dompdf/dompdf_config.inc.php');
-		require_once(ROOT.'/app/components/PDF/dompdf/include/functions.inc.php');
+		//require_once(ROOT.'/app/components/PDF/dompdf/dompdf_config.inc.php');
+		//require_once(ROOT.'/app/components/PDF/dompdf/include/functions.inc.php');
 		//name
-		
-		$html .= '<h3 style="text-align:center;">Отдел продаж: 288-588</h3>';
-		$html .= '<div style="width:49%; display:inline-block;">';
-			$html .= '<h4 style="text-align:left;margin:5px;"> Renault '.$car->model->getParam('name').'</h4>';
-			$html .= '<h4 style="text-align:left;margin:5px;"> '.$car->getParam('vin').'</h4>';
-			$html .= '<h4 style="text-align:left;margin:5px;">'.$car->complect->getParam('name').' '.$car->motor->getMotorForUser().'</h4>';
-			$html .= '<h3 style="text-align:left;margin:5px;">'.number_format($car->getCarPrice()-$car->getParam('sale'),0,'',' ').' руб.</h3>';
-		$html .= '</div>';
+		$html .= "<div class='grey'>";
+			$html .= '<div class="title">ООО "ФИРМА "ОВЕН-АВТО"</div>';
+			$html.="<div class='title'> г. Сыктывкар, ул. Гаражная, 1</div>";
+			$html .= '<div class="title">Телефон отдела продаж: 8 (8212) 288 588</div>';
+		$html.="</div>";
 
-		$html .= '<div style="text-align:center; display:inline-block;width:49%;"><img style="background:'.$car->getColorCar()->web_code.';width:200px;" src="'.ROOT.$car->model->getParam('alpha').'"></div>';
+		$html .= "<div class='black'>";
+			$html .= "<table>";
+				$html.="<tr>";
+					$html .= '<td>';
+						$html .= '<div style="font-weight:bold;text-align:left;margin:5px;">Модель: Renault '.$car->model->getParam('name').'</div>';
+						$html .= '<div style="text-align:left;margin:5px;">VIN-номер: '.$car->getParam('vin').'</div>';
+						$html .= '<div style="text-align:left;margin:5px;">Комплектация: '.$car->complect->getParam('name').' '.$car->motor->getMotorForUser().'</div>';
+						$html .= '<div style="text-align:left;margin:5px;">Стоимость: '.number_format($car->getCarPrice()-$car->getParam('sale'),0,'',' ').' руб.</div>';
+					$html .= '</td>';
 
-		$html .= '<h4 class="page">Состав комплектации</h4>';
-		$html .= '<table>';
-		$i=0;
-		foreach ($car->complect->option as $key => $obj) {
-			$i++;
-			$bgcolor="";
-			if($key%2==0) $bgcolor = "";
-			
-			if($key==0) $html .= '<tr>';
-			if( ($key%2 == 0) && ($key != 0))$html .= '</tr><tr>';
-			$html .= '<td >'.$obj->getParam('name').'</td>';
-		}
-		$html .= '</table>';
+					$html .= '<td style="text-align:right;">
+						<img style="width:200px;border:1px solid #000;background:'.$car->getColorCar()->web_code.';" src="'.ROOT.$car->model->getParam('alpha').'">';
+					$html .= "</td>";
+				$html.="</tr>";
+			$html .= "</table>";
+		$html.="</div>";
 
-		$html .= '<h4 class="page">Дополнительные опции и аксессуары</h4>';
-		
-		$html .= '<table>';
-		foreach ($car->packs as $obj) {
-			if(!empty($obj->name))
-				$name = $obj->name."<br/>".$obj->getParam('option_list');
-			else
-				$name = $obj->getParam('option_list');
-			$money = \app\core\Html::money($obj->getParam('price'));
-			$html .= "<tr>
-				<td>{$name}</td>
-				<td>{$money} руб.</td>
-			</tr>";
-		}
-		$html .= '</table>';
-
-		$total = \app\core\Html::money($car->getCarPrice());
-		$html .= "
-			<table style='padding:0px;border-collapse: collapse; '>
+		$html .= '<div class="page">
+			<table>
 				<tr>
-					<td><h4 class='page'>Итого коммерческое предложение</h4></td>
-					<td><h4 class='page'>{$total} руб.</h4></td>
+					<td>Состав базовой комплектации</td>
+					<td style="text-align:right;"> Цена в базе: '.number_format($car->complect->price,0,'',' ').' руб.</td>
 				</tr>
 			</table>
-		";
+		</div>';
+		$html .= '<table>';
+		$i=0;
 
-		/*$html .= '<table style="width:100%;">';
-			$html .= '<tr style="">';
-				$html .= '<td collspan="2" style="font-size:12px;vertical-align:top;width:100%;">';
-					$html .= '<h4 style="margin:0px;">Технические характеристики</h4>';
+		$step = round(count($car->complect->option)/3);
+
+		$col1 = 0 + $step;
+		$col2 = $col1 + $step;
+		$col3 = count($car->complect->option);
+			$html .= "<tr>";
+
+
+				$html .= "<td  style='vertical-align:top; width:33%; font-size:10px;'>";
+					for($i=0;$i<$col1+1;$i++){
+						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
+					}
 				$html .= "</td>";
-			$html .= "</tr>";
-			
-				foreach ($car->current_ttx as $obj) {
-					$html .= "<tr>";
-						$html .= '
-								<td style="font-size:12px;width:50%;border-bottom:1px solid #ddd;">'.
-									$obj->getParam('name').'
-								</td>
-								<td style="font-size:12px;width:50%;border-bottom:1px solid #ddd;">'.
-									$obj->getParam('value').'
-								</td>';
-					$html .= '</tr>';
-				
-				}
-			
-		$html .= '</table>';*/
 
-		$install = $car->getParam('install');
-		if(!empty($install)) :
+
+				$html .= "<td style='vertical-align:top;width:33%; font-size:10px;'>";
+					for($i=$col1+1;$i<$col2+2;$i++){
+						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
+					}
+				$html .= "</td>";
+
+
+				$html .= "<td  style='vertical-align:top;width:33%; font-size:10px;'>";
+					for($i=$col2+2;$i<$col3-1;$i++){
+						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
+					}
+				$html .= "</td>";
+
+
+			$html .= "</tr>";
+		$html .= '</table>';
+
+		
+		
+		
+		if(is_array($car->packs)) :
+			
+			$html .= '<div>';
+			$html .= '<div class="page">
+				<table>
+					<tr>
+						<td>Опционное оборудование</td>
+						<td style="text-align:right;"> Цена опций: '.number_format($car->getPackPrice(),0,'',' ').' руб.</td>
+					</tr>
+				</table>
+			</div>';
+			foreach ($car->packs as $obj) {
+				if(!empty($obj->name))
+					$name = $obj->name."<br/>".'<span style="font-size:10px;">'.$obj->getParam('option_list').'</span>';
+				else
+					$name = $obj->getParam('option_list');
+				$money = \app\core\Html::money($obj->getParam('price'));
+				$html .= "
+				<div>
+					<div style='display:inline-block;width: 10%;vertical-align:top;'>".$obj->code."</div>
+					<div style='display:inline-block;width: 65%;vertical-align:top;'>".$name."</div>
+					<div style='display:inline-block;width: 25%;vertical-align:top;text-align:right;'>".number_format($obj->price,0,'',' ')." руб.</div>
+				</div>";
+			}
+			$html .= '</div>';
+		endif;
+		
+
+		
+		if(!empty($car->install)) :
+			$html .= '<div class="page">
+				<table>
+					<tr>
+						<td>Дополнительное оборудование</td>
+						<td style="text-align:right;"> Цена в допов: '.number_format($car->dopprice,0,'',' ').' руб.</td>
+					</tr>
+				</table>
+			</div>';
 			$html .= '<table style="width:100%;">';
-				$html .= '<tr style="">';
-					$html .= '<td style="font-size:12px; vertical-align:top;width:100%;">';
-						$html .= '<h4 style="margin:0px;">Дополнительное оборудование</h4>';
-					$html .= "</td>";
-				$html .= "</tr>";
 				foreach (explode(PHP_EOL, $car->getParam('install')) as $value) {
 					if($value!="") :
 						$html.="<tr>";
@@ -206,6 +259,22 @@ Class PdfController extends \app\core\Controller
 			$html .= '</table>';
 		endif;
 
+		//\app\core\Html::prA($car);
+
+		$total = \app\core\Html::money($car->getCarPrice());
+		$html .= "
+		<div style='margin-top:80px;'>
+			<table style='padding:0px;border-collapse: collapse; '>
+				<tr>
+					<td style='font-size:50px;'><b><i style='font-size:50px;'>Итого:</i></b> {$total} руб.</td>
+				</tr>
+			</table>
+		</div>
+		";
+
+
+		
+
 
 		//echo $car->current_complect->getParam('name');
 		//Html::prA($car);
@@ -213,9 +282,19 @@ Class PdfController extends \app\core\Controller
 
 		$html .= '</body></html>';
 		
-		$dompdf = new \DOMPDF();
+		include_once ROOT . '/app/components/PDF/dompdf/autoload.inc.php';
+		$dompdf = new \Dompdf\Dompdf();
+		$dompdf->loadHtml($html, 'UTF-8');
+		$dompdf->setPaper('A4', 'portrait');
+		$dompdf->render();
 
-		$dompdf->load_html($html);
+		// Вывод файла в браузер:
+		$dompdf->stream('schet-10'); 
+
+		// Или сохранение на сервере:
+		$pdf = $dompdf->output(); 
+		file_put_contents(ROOT . '/schet-10.pdf', $pdf); 
+		/*$dompdf->load_html($html);
 		//$dompdf->load_html($html)
 		$dompdf->render();
 		//Html::prA($dompdf);
