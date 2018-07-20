@@ -186,18 +186,19 @@ class Html{
 				?>
 				<?php if(!empty($price)) : ?>
 					<span id="total-price" style="<?=$class_sale;?> "><?=number_format($price,'0','',' ');?></span> 
-					<span style="<?=$class_sale;?>">руб.</span>
+					<span style="<?=$class_sale;?>">&nbsp;руб.</span>
 					<?php 
 						if(!empty($sale)) $str = "Цена по прайсу ".number_format($price+$sale,0,'',' ')."руб. Цена со скидкой ".number_format($price,0,'',' ')." руб.";
 						else $str = "Цена по прайсу ".number_format($price,0,'',' ')." руб.";
 					?>
-					<i data-toggle="tooltip" title="<?=$str;?>" class="fa fa-question-circle myhelp" aria-hidden="true"></i>
+					
 				<?php else : ?>
 					
 					<?=Html::modalTest();?>
 
 				<?php endif;?>
 				
+
 				
 				</div>
 

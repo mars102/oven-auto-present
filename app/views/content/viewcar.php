@@ -141,11 +141,11 @@
 		<div class="col-sm-12" style="border-bottom: 1px solid #dfdfdf;">
 			<h3 data-status='1' class="complect-name-link" style="padding-bottom:0px;font-family: renault-regular; font-weight: normal; " id="opencharlist">
 				
-				<b class="visible-xs" style="font-size: 15px; float:left;">Технические характеристики</b>
+				<b class="visible-xs" style="font-size: 15px; float:left;">Характеристики</b>
 				<i style="font-size: 14px; float: right; color: #777;padding-right: 2px; " class="fa fa-angle-down visible-xs"></i>	
 				<br>
 
-				<b class="hidden-xs" style="">Технические характеристики</b>
+				<b class="hidden-xs" style="">Характеристики</b>
 				<i style="float: right;color: #777;padding-right: 2px; font-size: 28px" class="fa fa-angle-down hidden-xs"></i>
 				
 
@@ -322,16 +322,16 @@
 							<b>Опционное оборудование</b>
 						</div>
 						<?php foreach ($complect->packs as $key => $pack) : ?>
-
 							<div class="pack-list">
 								<?= $pack->name;?>
+							
 							</div>
 							<div class="pack-list text-left">
 								<?= $pack->option_list;?>
 							</div>
-							<div class="pack-price text-right">
+							<div class="pack-price text-right" style="position: relative;">
 								<div style="border-top:1px dashed #ccc"></div>
-								<p ><?=number_format($pack->price,0,'',' ');?> руб.</p>
+								<p> <span style="font-size: 15px; color: #8c8c8c; position: absolute; bottom: 0; left: 0;"><?= $pack->code;?></span> <?=number_format($pack->price,0,'',' ');?> руб.</p>
 							</div>
 						<?php endforeach; ?>
 					<?php endif; ?>
@@ -516,7 +516,7 @@
 	</div>
 	<br>
 	<div style="float: left ;width: 50%; text-align: center;">
-		<a id="call" class="phone iconsize pulsar-2" href="tel:+8(8212)288-588">
+		<a id="call" class="phone iconsize pulsar-2" href="tel:+78212288588">
 			<span style="color: #71c766;"  class="fa fa-phone" aria-hidden="true"></span>
 		</a>
 		<div class="phone-desc">Позвонить сейчас</div>

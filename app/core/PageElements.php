@@ -30,7 +30,7 @@
 				//\app\core\Html::prA($param['menus']);
 				$data = "";
 
-				$data .= "<li class='dropdown' style='padding-left: 20px'>";
+				$data .= "<li class='dropdown' style=''>";
 				$data .= "<a 	href='#' 
 								class='dropdown-toggle' 
 								data-toggle='dropdown' 
@@ -149,7 +149,7 @@
 		   
 				  
 		          <!--Меню для планшетов -->
-				  <a class="navbar-brand visible-sm visible-md" style="float:left;" href="/"><i class="fa fa-home"></i></a>
+				  <a class="navbar-brand hidden-xs" style="float:left;" href="/"><i class="fa fa-home"></i></a>
 
 				  
 				  <div class="visible-sm visible-md" >
@@ -430,38 +430,38 @@
 		?>
 			<div class="container " style="">
 				<div class="row vidget">
-					<div class="col-sm-6 text-left">
-						<img  src="/images/form/testdrive.jpg">
+					<div class="col-sm-4 text-left">
+						<img  src="/images/form/testdrive.jpg" style="width: 100%;">
 					</div>
 
-					<div class="col-sm-6" style="">
+					<div class="col-sm-8" style="">
 						<p class="vidgets_head hidden-xs"><b>Испытай в движении Renault <?=$model->name;?> </b></p>
 						<p class="vidgets_title">Пробная поездка</p>
-						<p class="vidgets_content">
+
+				
+						<p class="vidgets_content" style="text-align: justify;">
 							
-								Комплектация автомобиля <?=$complect->name;?>
-								<br/>
-								Двигатель 
+								Комплектация автомобиля <?=$complect->name;?> 
+								
+								включает в себя:
 								<span class="low">
 									<?=\app\models\car_3_motor::getTypeForMotor($motor->type);?> 
-									<?=$motor->valve;?> клапанный
-								</span>
-								<br/>
-								Рабочий объем 
+									<?=$motor->valve;?> клапанный двигатель
+								</span> c рабочии объемом 
 								<span class="low">
 									<?=($motor->size);?> л. 
 									(<?=($motor->power);?> л.с.)
 								</span>
-								<br/>
+								;
 		    					КПП
 		    					<span class="low">
 		    						<?=\app\models\car_3_motor::getTransmissionName($motor->transmission);?>
 		     					</span>
-			     				<br/>
+			     				;
 		    					Привод 
 		    					<span class="low">
 		    						<?=$motor->getSummaryPrivod();?>
-		    					</span>
+		    					</span>;
 		    				
 						</p>
 						<div class="col-sm-6 but-block" >
@@ -508,10 +508,10 @@
 				<div class="slick-center " style="width:100%;padding-top: 0px; margin-bottom: 0px;">
 					<?php foreach($programms as $t => $programm) : ?>
 						<div class=" vidget" >
-							<div class="col-sm-6 col text-left banner-kredit">
-								<img src="http://admin.oven-auto.ru<?=$programm->banner;?>">
+							<div class="col-sm-4 col text-left banner-kredit">
+								<img src="http://admin.oven-auto.ru<?=$programm->banner;?>" style="width: 100%;">
 							</div>
-							<div class="col-sm-6 " style="">
+							<div class="col-sm-8 " style="">
 								<p class="vidgets_head hidden-xs"><b>Кредит на Renault <?=$model->name;?></b></p>
 								<p class="vidgets_content hidden-xs">
 									Кредитные предложения от Renault Finance помогут Вам приобрести Renault <?=$model->name;?> на выгодных условиях и обеспечат качественную страховую защиту. 

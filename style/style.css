@@ -576,10 +576,12 @@ a:focus{text-decoration: none; color: inherit;}
 .tab-block a:hover < .count-car{
 	color: #e5b700;
 }
-.tab-block .count-car:hover{
-	text-decoration: underline;
-	color: rgb(204, 51, 51);
-	background: rgb(252, 251, 177) !important;
+@media screen and (min-width: 600px) {
+	.tab-block .count-car:hover{
+		text-decoration: underline;
+		color: rgb(204, 51, 51);
+		background: rgb(252, 251, 177) !important;
+	}
 }
 
 .my-renault img{
@@ -1533,7 +1535,7 @@ a:focus{text-decoration: none; color: inherit;}
 }
 .checkbox:not(checked) + label {
   position: relative; /* будем позиционировать псевдочекбокс относительно label */
-  padding: 2px 0 0 60px; /* оставляем слева от label место под псевдочекбокс */
+  padding: 0 0 0 40px; /* оставляем слева от label место под псевдочекбокс */
 }
 /* Оформление первой части чекбокса в выключенном состоянии (фон). */
 .checkbox:not(checked) + label:before {

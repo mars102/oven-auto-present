@@ -33,7 +33,7 @@ Class car_7_pack extends \app\core\Model
 
 	public function getPackListByComplectId($id)
 	{
-		$sql = "SELECT p.id,p.name,p.price,GROUP_CONCAT(DISTINCT l.name ORDER BY l.parent ASC SEPARATOR ' | ') AS option_list
+		$sql = "SELECT p.code,p.id,p.name,p.price,GROUP_CONCAT(DISTINCT l.name ORDER BY l.parent ASC SEPARATOR ' | ') AS option_list
 						FROM car_7_pack as p
 						join car_7_pack_value as v
 						on v.id_pack = p.id

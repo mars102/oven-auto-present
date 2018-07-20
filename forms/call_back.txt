@@ -1,9 +1,15 @@
 <?php
 return '
+	<style>
+		@media screen and (min-width: 600px) {
+			#phoneform {border-left:0px !important;}
 
+		}
+	</style>
 	<div class="col-sm-8" style="padding:0px;"><input type="text" name="name" placeholder="Как к Вам обращаться?" id="name" required="true"></div>
 	
-	<div class="col-sm-4" style="padding:0px;"><input style="!important;" type="text" name="phone" placeholder="Ваш телефон" class="phone" required="true"></div>
+	<div class="col-sm-4" style="padding:0px; "><input style="" id="phoneform" type="text" name="phone" placeholder="Ваш телефон" class="phone" required="true"></div>
+
 	
 	<textarea required="true" name="comment" placeholder="Ваш комментарий"></textarea>
 	<div class="row">
@@ -15,7 +21,7 @@ return '
 					Отправляя запрос в ООО "Фирма "Овен-Авто" я даю согласие на обработку своих персональных данных.
 				</label>
 			</div>
-			
+				
 			<div class="col-sm-12 personal-check visible-xs" style="padding-bottom:50px; padding-top:10px; ">
 				<div style="width:7%; float:left;">
 					<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
