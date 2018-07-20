@@ -54,7 +54,7 @@ Class car_2_model extends \app\core\Model
 		$pack = new \app\models\car_7_pack();
 		$palette = new \app\models\car_color();
 
-		$sql = "SELECT * FROM {$complect->table} WHERE id_model = ? and status = 1 ORDER BY sort";
+		$sql = "SELECT * FROM {$complect->table} WHERE id_model = ? and status = 1 ORDER BY sort,price";
 		$array = array($this->id);
 		$data = $complect->getCustomSQL($sql,$array);
 		$this->complect = $data;
