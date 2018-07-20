@@ -281,14 +281,17 @@ Class company extends \app\core\Model
         $this->title = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->title);
         $this->title = str_replace("<bydjet>", $bydget, $this->title);
         $this->title = str_replace("<procent>", $skidka, $this->title);
+        $this->title = str_replace("<vin>", $car->vin, $this->title);
 
         $this->ofer = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->ofer);
         $this->ofer = str_replace("<bydjet>", $bydget, $this->ofer);
         $this->ofer = str_replace("<procent>", $skidka, $this->ofer);
+        $this->ofer = str_replace("<vin>", $car->vin, $this->ofer);
 
         $this->text = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->text);
         $this->text = str_replace("<bydjet>", $bydget, $this->text);
         $this->text = str_replace("<procent>", $skidka, $this->text);
+        $this->text = str_replace("<vin>", $car->vin, $this->text);
     ?>
         <div class="col-sm-6 ">
             <div class="company-wrapper">
