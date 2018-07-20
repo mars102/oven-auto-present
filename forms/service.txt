@@ -1,0 +1,45 @@
+<?php
+$cars = \app\models\car_2_model::ModelArray();
+		
+		
+
+		$form = '<input required="" type="text" name="name" placeholder="Ваше имя">';
+				
+		$form .= '<input required="" type="text" class="phone" name="phone" placeholder="Ваш телефон">';
+
+		$form .= '<input type="text" name="mail" placeholder="Адрес Вашей электронной почты (необязательно)" id="mail">';
+
+		$form .= '<select required="" name="service" >';
+			
+			$form .= '<option required="" disabled="" selected="">выберите автомобиль</option>';
+		
+			foreach ($cars as $key => $car) : 
+				$form .= '<option value="'.$key.'">'.$car.'</option>';
+			endforeach;
+			
+			$form .= '<option value="none">Другой</option>';
+		
+		$form .= '</select>';
+
+		$form .= '<input type="text" class="date_" required="" name="date" placeholder="Выберите дату" value=""/>';
+
+		$form .= '<textarea required="" name="comment" placeholder="Комментарии"></textarea>';
+
+		$form .= '	<div class="row">
+			
+							<div class="col-sm-12 personal-check" style="padding-bottom:15px;">
+								<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
+								<i class="fa fa-circle-thin check-client" aria-hidden="true"></i>
+								<label for="check-client" >
+									Отправляя запрос в ООО "Фирма "Овен-Авто" я даю согласие на обработку своих персональных данных.
+								</label>
+							</div>
+								
+							
+							<div class="col-sm-4 col-sm-offset-8">
+								<button type="button" id="submit-button" class="button button-black">Отправить<i class="fa fa-angle-right"></i></button>
+							</div>
+					</div>';
+
+		return $form;
+			

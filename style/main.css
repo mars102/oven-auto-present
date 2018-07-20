@@ -1,0 +1,74 @@
+body{
+    font-family: renault-regular;
+}
+
+/*.sub-title{
+    font-size: 30px;
+    color: #000;
+    padding: 15px 0;
+}*/
+
+.model-tab{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Renault';
+    color: #333;
+    font-size: 18px;
+}
+.model-tab img{
+    width: 100%;
+}
+.model-tab .name{
+    font-family: 'Renault-regular';
+}
+.model-tab .begin-price{
+    display: block;
+    font-size: 14px;
+    color: #777;
+}
+.model-tab .count-car{
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    font-family: 'Renault-regular';
+    color: #000;
+    padding: 3px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 5px;
+    color: rgb(204, 51, 51);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: normal;
+    font-family: 'renault-regular';
+    display: block;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+}
+
+.action-slide{
+    padding: 0 15px;
+}
+.action-slide img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+.action-slide .name{
+    font-size: 20px;
+    font-weight: bold;
+}
+.newslist .newslist-block{
+    margin: 1px 0;
+    border:1px solid #ccc;
+    padding: 1px;
+}
+.newslist img{
+    width: 100%;
+}
+.newslist .news-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 0px;
+}

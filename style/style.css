@@ -1,0 +1,2160 @@
+@font-face{
+	font-family: 'Renault';
+	src: url('../fonts/RenaultLifeCyWeb-Bold.ttf');
+}
+@font-face{
+	font-family: 'Renault-regular';
+	src: url('../fonts/RenaultLifeCyWeb-Light.ttf');
+}
+::-webkit-input-placeholder {color:#555; opacity:1;}/* webkit */
+::-moz-placeholder          {color:#555; opacity:1;}/* Firefox 19+ */
+:-moz-placeholder           {color:#555; opacity:1;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#555; opacity:1;}/* IE */
+
+input,textarea{
+	-webkit-appearance: none;
+	border-radius: 0px !important;
+}
+body{
+	background: #fefefe;
+	color: #333;
+	font-family: Renault-regular;
+	overflow-x: hidden;
+
+}
+a:hover{text-decoration: none;}
+a:focus{text-decoration: none; color: inherit;}
+
+
+.navbar-fixed-top {
+	padding-right: 15px !important;
+	padding-left: 15px !important;
+}
+.navbar{
+	padding-left: 15px !important;
+}
+.navbar-fixed-top{
+	padding: 0px !important;
+}
+
+@media (max-width: 767px){
+	.navbar-nav .open .dropdown-menu {
+		background: #fff !important;
+	}
+}
+@media (max-width: 1350px) {
+	.navbar-nav{
+		z-index: 999;
+	}
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+		top: 0;
+		border-width: 0 0 1px;
+	}
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+		margin-top: 7.5px;
+	}
+	.navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+  		display:block !important;
+	}
+}
+/*както надумал выравнивание по центру*/
+.mysd{
+	display: flex;
+}
+
+.ad-btn {
+	display: inline-block;
+	padding: 5px 20px;
+	border:0px;
+	min-height: 26px; 
+	border-radius: 5px;
+	font-size: 16px;
+	text-decoration: none;
+}
+.ad-btn:hover{
+	text-decoration: none;
+}
+.add-button{
+	margin-right: 100px;
+}
+.add-button2{
+	margin-right: 20px;
+}
+.banner-main{
+	padding: 0px;
+}
+.banner-main .car-slider{
+	position: relative;
+	height: 400px;
+	width: 100%;
+	background-repeat:no-repeat; 
+	background-position: center right;
+	background-size:cover;
+}
+@media screen and (min-width: 1400px){
+	.banner-main .car-slider{
+		height: 600px;
+	}
+}
+@media screen and (min-width: 700px) and (max-width: 1399px){ 
+	.banner-main .car-slider{
+		width: 400px;
+	}
+	.banner-main img{
+		width: 100%;
+		margin-top:-5%;
+	}
+}
+@media screen and (max-width: 699px){
+	.banner-main img{
+		width: 100%;
+	}
+}
+.btn{
+	border-radius: 0px 0px !important;
+	font-weight: bold;
+	background: linear-gradient(to top,#ffcd00,#faf87d);
+	box-shadow: 0 0 3px #bbb;
+	font-size: 16px;
+	font-family: renault-regular;
+	color: #555;
+	text-align: center;
+	margin-right: 1px !important;
+	width: 100%;
+	margin-bottom: 5px;
+	border:0px;
+	transition: 0.6s background, .3s color,box-shadow .6s;  
+}
+.btn:hover{
+	background: linear-gradient(to bottom,#ffcd00,#faf87d);
+	color: #333;
+	box-shadow: 0 0 3px #999;
+}
+/*header admin*/
+.btn-mn{
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+#top{
+	border: 50px solid transparent; border-right: 50px solid rgba(255, 204, 51, 0.7); border-bottom: 50px solid rgba(255, 204, 51, 0.7);
+	position:fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 999;
+	display: none;
+	cursor:pointer;
+}
+#top i{
+	position:absolute;font-size: 50px;color:#fff;
+}
+
+
+.obertka{
+	/*border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;*/
+	position: relative;
+	padding: 0px;
+	/*box-shadow: 0 0 15px #999;*/
+	overflow-x: hidden;
+}
+
+
+.top-header{
+	background: #ddd;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.top-header ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+.top-header ul li{
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.top-header ul li a{
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+	text-transform: uppercase;
+	font-family: Renault;
+	color: #555;
+	margin: 0 10px;
+	text-shadow: 1px 1px 1px silver,-1px 1px 1px silver;
+}
+.top-header ul li a:hover{
+	color: #e5b700;
+	text-shadow: none;
+}
+.top-header .left{
+	float: left;
+}
+.top-header .right{
+	float: right;
+}
+
+.mid-header{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #222;
+}
+.mid-header img{
+	height: 50px;
+}
+.mid-header .name, .mid-header .phone{
+	font-family: Renault;
+	font-size: 25px;
+	display: block;
+}
+.mid-header .slogan, .mid-header .address{
+	font-family: Renault;
+}
+@media screen and (max-width: 500px){
+	.mid-header img{
+		height: 40px;
+	}
+	.mid-header .name, .mid-header .phone{
+		font-family: Renault;
+		font-size: 15px;
+		display: block;
+	}
+	.mid-header .slogan, .mid-header .address{
+		font-family: Renault;
+	}
+}
+
+@media screen and (min-width: 501px) and (max-width: 900px){
+	.mid-header img{
+		height: 40px;
+	}
+	.mid-header .name, .mid-header .phone{
+		font-family: Renault;
+		font-size: 20px;
+		display: block;
+	}
+	.mid-header .slogan, .mid-header .address{
+		font-family: Renault;
+		font-size: 12px;
+	}
+}
+
+.bot-header{
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+	background: rgba(50,50,50,1);
+}
+/*.bot-header .navbar{
+	border:0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 100%;
+}*/
+.soc-icons{
+	font-size: 30px;
+	padding-top: 5px;
+}
+.soc-icons a{
+	color: #444;
+}
+
+/*navbar*/
+.navbar{
+	margin:0px;
+	border-radius: 0px;
+	border:0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 100%;
+	z-index: 999;
+}
+.navbar-toggle{
+	color: #fff;
+	background: #000;
+}
+.navbar a{
+	color: #fff ;
+}
+.navbar ul li a{
+	font-size: 18px;
+	font-weight: 300;
+	font-family: 'Renault-regular', sans-serif;
+	color: #fff;
+}
+.navbar ul li a:hover,.navbar ul li a:focus{
+	color: #333 !important;
+}
+.navbar  .icon-bar{color: #fff;background: #fff;}
+.dropdown-menu li a{font-family: Renault-regular !important; color: #777 !important;}
+
+/*CAR PAGE VIEW	
+.block-banner{
+	padding: 0px;
+	overflow: hidden;
+	max-height: 400px;
+}
+.block-banner img{
+	width: 100%;
+	animation: 20s pulsar-banner infinite ease-in-out;
+}
+@keyframes pulsar-banner{
+	from{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(1.1,1.1);
+	}
+	to{
+		transform: scale(1,1);
+	}
+}
+/**/
+
+
+/*slider*/
+.block-slider{
+	padding: 0px;
+	overflow: hidden;
+}
+.block-slider img{
+	animation: 10s pulsar-slider infinite ease-in-out;
+}
+.banner-content{
+	position: absolute;
+	left: 5%;
+	top: 0px;
+	background: rgba(250,250,250,0.8);
+	border-radius: 0px 0px 10px 10px;
+	padding: 15px;
+	box-shadow: 0 0 30px #333;
+}
+@media screen and (min-width: 1201px){
+	.banner-content{max-width: 40%;}
+}
+@media screen and (min-width: 600px) and (max-width: 1200px){
+	.banner-content{max-width: 60%;}
+}
+@media screen and (max-width: 599px){
+	.banner-content{max-width: 90%; left: 5%;}
+}
+
+
+
+.banner-title{
+	font-size: 30px;
+	font-weight: bold;
+	text-align: left;
+}
+.banner-text{
+	font-size: 20px;
+	text-align: left;
+}
+
+@keyframes pulsar-slider{
+	from{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(1.2,1.2);
+	}
+	to{
+		transform: scale(1,1);
+	}
+}
+
+
+@media screen and (max-width: 800px){
+	.top-header ul li{
+		display: block;
+	}
+	.top-header .left, .top-header .right{
+		float: none;
+	}
+	.mid-header{
+		text-align: center;
+	}
+	
+	.block-slider img{
+		max-width: 1000px !important;
+		width: 1000px !important;
+		float: right;
+		margin-right: -100px;
+	}
+}
+
+.bg-ccc{
+	background: #eee;
+}
+.block{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) { /* это будет показано при разрешении монитора до 930 пикселей */
+  		.block {padding-top: 25px;
+  				padding-bottom: 50px;
+
+
+  			} /* основное содержимое занимает всё пространство окна */
+}
+
+
+
+.block-title{
+	font-family: 'Renault';
+	text-align: center;
+	font-size: 30px;
+	text-transform: uppercase;
+	padding-bottom: 25px;
+	padding-top: 25px;
+}
+
+@media screen and (max-width: 700px){
+	.block-title{
+		font-size: 18px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+}
+
+.block-title span{
+	color: #de8d00;
+
+}
+.border-bottom{
+	border-bottom: 1px solid #bbb;
+	padding-bottom: 50px;
+}
+.border-right{
+	border-right: 1px solid #ccc;
+}
+.sub-title{
+	color: #555;
+	font-size: 16px;
+	display: block;
+	font-style: normal;
+}
+.about-car{
+	font-size: 20px;
+}
+
+.black-bg{
+	color: #333;
+	border-bottom: 0px solid #bbb;
+	background: #fff;
+}
+#tabs
+{
+	padding-top: 10px;
+	text-align: center;
+	position: relative;
+	top: 1px;
+}
+
+#tabs div{
+	padding: 0px;
+	margin:0px;
+}
+
+#tabs a
+{
+	background: #fff;
+    text-decoration: none;
+	font-family: 'Renault-regular';
+	font-size: 20px;
+	color: #777;
+	width: 100%;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#tabs a:hover
+{
+  	color: #e5b700;
+}
+
+#tabs a:focus
+{
+    outline: 0;
+}
+
+@media screen and (min-width: 700px){
+	#tabs #current a
+	{
+	    color: #000;
+	    border-radius: 10px 10px 0 0;
+	    position: relative;
+	    top: -30px;
+	    padding-bottom: 27px;
+	    border-bottom: 0px;
+	    border-bottom: 3px solid #FFCD00;
+	}
+}
+@media screen and (max-width: 500px){
+	#tabs #current a
+	{
+	    color: #de8d00;
+	    border-radius: 10px 10px 0 0;
+	    background: #fff;
+	    border-bottom: 0px;
+	}
+}
+
+.pic img{
+	width: 100%;height: auto;
+}
+#content
+{
+   width: 100%;
+   position: relative;
+   margin-top: 10px;
+}
+
+#content div
+{
+
+}
+
+.icon-text{
+	font-size: 14px;
+	display: block;
+	color: #000;
+	width: 100%;
+	text-align: center;
+	font-weight: normal;
+	font-family: Renault-regular;
+}
+
+.tab-block a.tab-car{
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Renault';
+	color: #333;
+	font-size: 18px;
+	margin-bottom: 5px;
+	/*transition: 0.4s linear transform;*/
+}
+.tab-block img{
+	width: 90%;
+}
+.tab-block a:hover{
+	color: #e5b700;
+}
+.tab-block a:hover < .count-car{
+	color: #e5b700;
+}
+.tab-block .count-car:hover{
+	text-decoration: underline;
+	color: rgb(204, 51, 51);
+	background: rgb(252, 251, 177) !important;
+}
+
+.my-renault img{
+	width: 100%;
+}
+.my-renault a{
+	display: inline-block;
+	background: #fdb515;
+	padding: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #000;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-family: 'Renault';
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.info-car{
+	background: #fff	;
+	border-bottom: #fd3 solid 5px;
+}
+
+.border-navbar{
+	border-bottom: 3px solid #fd3; background: rgba(50,50,50,1);
+}
+.send-form input[type="text"], .send-form input[type="submit"], .send-form  select{
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 5px;
+	/*background: transparent;*/
+	padding-left: 5px;
+	border: 1px solid #888;
+}
+.send-form textarea{
+	max-width: 100%;
+	min-width: 100%;
+	width: 100%;
+	min-height: 125px;
+}
+.enter{
+	width: 100%;
+	text-align: center;
+}
+
+.twocolumn {display:block;width:49%;float:left; height: auto;}
+
+
+.list-open{
+	font-size: 20px;
+	cursor: pointer;
+	padding-top: 10px;
+	display: block;
+}
+
+
+.slick-prev{
+	position: absolute;top: 45%; left: 50px;
+	z-index: 100;
+}
+.slick-next{
+	position: absolute;top: 45%; right: 50px;
+	z-index: 100;
+}
+.carousel-control .glyphicon{font-size: 14px;}
+.slick-prev,.slick-next,.carousel-control .glyphicon{opacity: 0.4;z-index: 100;background: #333;border:0px;color: #fff;border-radius: 100%;width: 50px;height: 50px;line-height: 50px;}
+.slick-prev:hover,.slick-next:hover,.carousel-control .glyphicon:hover{opacity: 1;background: #ffcd00;color: #000;opacity: 0.9;}
+
+.begin-price{
+	display: block;
+	font-size: 14px;
+	color: #777;
+}
+.autoplay .price{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: Renault;
+	font-size: 25px;
+	text-align: center;
+	color: #e59100;
+}
+.autoplay .podr{
+	width: 70%;
+	background: transparent;
+	border:3px solid #333;
+	padding: 10px;
+	font-size: 20px;
+	font-family: Renault;
+}
+
+
+.main_icons img{display: block; width: 80%; margin:auto;}
+.main_icons div div{
+	display:block;
+	height: 100%;
+	text-decoration: none;
+	color: #333; 
+	font-size: 20px; 
+	border-radius: 10px;
+	border:0px solid #eee;
+
+	transition: transform 0.3s, background 0.5s, box-shadow 0.5s, border .3s;}
+.main_icons div div:hover{ transform: scale(1.1,1.1);box-shadow: 0 0 0px #aaa; border: transparent;}
+.main_icons a{text-decoration: none;color: #555;}
+
+
+.news-on-main{
+	
+}
+.news-block{
+	margin-bottom: 2px;
+	padding: 0px;
+	padding-right: 1px;
+}
+.news-block:nth-child(2n){
+	padding: 0px;
+	padding-left: 1px;
+}
+.news-on-main img{
+	width: 100%;
+}
+.news-on-main h2{
+	margin-top: 0px;
+}
+/*.news-on-main h2 i{
+	float: right;
+	font-style: normal;
+	font-size: 14px;
+}*/
+.news-date {
+	position: absolute;
+	top: -12px;
+	right: 5px;
+	font-style: normal;
+	font-family: renault-regular;
+	font-weight: normal;
+	font-size: 10px;
+}
+.news-on-main p{
+	text-align: left;
+}
+.news-link{
+	padding-bottom: 10px;
+}
+.news-link a{
+	background: #FFCD00;
+	padding: 5px 25px;
+	color: #000;
+	margin-bottom: 15px;
+	text-decoration: none;
+}
+
+@media screen and (min-width: 600px){ 
+	.news-img-block{height: 100px;position: relative;}
+	.news-img-block img{position: absolute;margin: auto;left: 15px;top: 0;bottom: 0;right: 0;}
+}
+
+.news_link{
+	color: inherit;
+	padding: 15px;
+	display: block;
+	border:1px solid #ccc;
+	transition: 0.3s background,transform 0.3s;
+	text-transform: none;
+	z-index: 1;
+	position: relative;
+}
+.news_link:hover{
+	color: inherit;
+	text-transform: none;
+	text-decoration: none;
+	transform: scale(1.01,1.01);
+	z-index: 999;
+	box-shadow: 0 0 15px #999;
+}
+.news-title{
+	font-weight: bold;font-size:16px;margin-top: 0px;
+}
+.news-parag{
+	font-size: 16px;
+}
+.see-all-news{
+	text-decoration:none;font-size:20px;line-height: 100px;
+}
+.see-all-news:hover{
+	text-decoration: none;
+}
+.car-top-button{
+	display: inline-block;
+	width: 45%;
+	height: 50px;
+	line-height: 50px;
+	font-family: Renault;
+	font-size: 16px;
+}
+.btn-renault{
+
+}
+.btn-clear{
+	background: linear-gradient(to top,#ccc,#fff);
+	box-shadow: 0 0 3px #999;
+}
+
+.complect-row {background: linear-gradient(to top, #ddd, #fff); height: 3px;width: 95%;margin: 0 auto;}
+.complect-hidden{display: none;}
+.grey-fill{background: #eee;}
+.open_complect{float: right;cursor: pointer; font-size: 28px;  color: #777;}
+.open_complect:hover{text-decoration: none;color: #333;}
+.option-list{padding-left: 0px; margin: 0px;}
+.option-list li{padding: 0 /*5px*/; margin: 0px;list-style-type: none;}
+.tech-list li:nth-child(2n){background: linear-gradient(to left, #eee, #fff);}
+
+.dop-option-block{}
+.dop-option-block .pack-name{padding: 0; color: #666;}
+.pack-price{font-size: 20px;}
+.dop-option-block .pack-list{padding: 0 /*5px*/;}
+
+.complect-button{margin-top: 20px;padding: 0px;}
+
+.complect-button i {float: left;}
+
+.button-view-car{
+	background: #000;color: #fff; font-size: 16px; padding: 5px 10px; font-family: Renault;
+}
+.button-quest{
+	font-size: 16px; padding: 5px 10px; font-family: Renault; color: #000;
+}
+.button-view-car:hover{text-decoration: none;color: #fff; background: #333;}
+.button-quest:hover{text-decoration: none; color: #333;}
+.specification{/*float: left;*/background: #f5f5f5;padding: 15px 0;border-radius: 5px;/*width: 100%;*/}
+.icon-img {height: 60px; width:auto;  z-index: 150;}
+.carList .icon-img{margin-top: -15px;}
+.car_title{font-size: 20px;}
+.car_name{font-size: 30px; font-family: Renault;}
+.car_name a {width: auto;background: #333;}
+.car_name a:hover{text-decoration: none;color: #000; }
+.car_name a:hover .icon-text{color: #000; }
+.car_name a:hover {background-color: #ff0000; }
+.car_code{color: #333; padding: 10px;}
+.car_sale{color: #cc0000; font-size: 20px;}
+.available {padding-top: 20px; padding-top: 20px;}
+.available-title{font-size: 24px; padding-bottom: 20px; padding-top: 20px; color: #333;}
+.available-title span{color: #999;}
+.available-car a{color: #666;width: 100%;height: auto; display: block; }
+.available-div {margin-bottom: 20px;transition: 0.5s transform linear;border-right: 5px solid #ffca3f;}
+.available-div:hover{transform: scale(1.05,1.05);}
+.available-car .local{font-size: 14px;}
+.available-car .carinfo{font-family: Renault;font-size: 20px; color: #333;}
+.available-car .carinfo .through{text-decoration: line-through;}
+.available .car-name-color{font-size: 18px;}
+.available-car .motorinfo{font-size: 16px; color: #333;}
+.car-name-color{color: #000 ;}
+
+@media screen and (max-width:700px){
+	.available .car-name-color{font-size: 14px;}
+	.available-car .motorinfo{font-size: 12px;}
+}
+
+.available-star {color: #999; }
+.available-star i{}
+/*.available-star i:hover{}*/
+#car_price td, #car_price span{/*font-size: 24px; /*font-family: renault-regular;*/}
+.available-car-info {font-size: 21px; color: #333;}
+.available-car-block{
+	transition: transform 0.3s linear;
+	border-bottom: 1px solid #fff;
+}
+.available-car-block:hover{
+	transform: scale(1.01,1.01);
+}
+@keyframes star-light{
+	0%{
+		transform: rotate(72deg);
+	}
+	25%{
+		transform: rotate(144deg);
+		color: #ff9900;
+	}
+	50%{
+		transform: rotate(216deg);
+		color: #ffcd00;
+	}
+	75%{
+		transform: rotate(288deg);
+		color: #ffca3f;
+	}
+	100%{
+		transform: rotate(360deg);
+		
+	}
+}
+
+/*.available-star img{height: 50px;width: 50px !important; padding: 0px; margin: 0px;}*/
+.available-star small{display:block; font-size: 20px;padding: 0px; margin: 0px; }
+.filter{position: fixed;top: 0px; left: 0px;}
+.flash-hover:hover{background: #eee;}
+
+.car-block{padding: 20px 0;}
+
+
+.srav td{font-size: 16px;}
+.srav img{width: 150px;}
+.srav .small{font-size: 12px;width: 400px; display: block;}
+
+
+.option{margin: 0px; padding: 0px;}
+
+
+
+
+#available-button{
+	background: #fc3;
+	color: #333;
+	text-decoration: none;
+	margin-right: 20px;
+}
+#available-button:hover{
+	background: #fd3;
+}
+
+#test-drive-button{
+	background: #333;
+	color: #fff;
+	text-decoration: none;
+	margin-left: 20px;
+}
+#test-drive-button:hover{
+	background: #777;
+}
+
+@media screen and (max-width: 600px){
+	.car-top-button{
+		width: 100%;
+	}
+	#available-button,#test-drive-button{
+		margin: 0px;
+	}
+}
+.document-car{
+	font-family: Renault;
+}
+.document-block {
+	overflow: hidden;
+	display: block;
+	margin-bottom: 20px;
+}
+.document-car img{
+	width: 100%;
+	border-radius: 5px;
+	transition: 1s transform linear;
+}
+.document-car img:hover{
+	transform: scale(1.3,1.3);
+}
+
+
+
+#loaded_img img{
+	height: 100px;
+}
+
+
+.padding-top{
+	margin-top: 10px;
+}
+.complect img{width: 100%;}
+.complect-title{
+	font-family: Renault-regular;
+	font-size: 30px;
+	padding-left: 20px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
+.character{
+	margin-bottom: 20px;
+}
+.character-title{
+	font-weight: bold;
+	font-size: 18px;
+}
+.motor{
+	background: #fc3;
+	font-size: 18px;
+	min-height: 40px;
+	line-height: 40px;
+}
+
+.price{
+	background: #333;
+	color: #fff;
+	font-size: 18px;
+	text-align: right;
+	min-height: 40px;
+	line-height: 40px;
+}
+.comp-code{
+	background: #666;
+	color: #fff;
+	font-size: 10px;
+	min-height: 40px;
+	line-height: 40px;
+}
+.config-button{
+	color: #aaa;
+	display: inline-block;
+	margin-right: 15px;
+}
+.complect-list{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+.complect-list li{
+	display: block;
+    width: 100%;
+}
+
+.complect-icon {
+}
+.complect-icon .col-sm-4{
+	padding: 0px;
+	padding-right: 2px;
+}
+.complect-icon i{
+
+	font-size: 20px;
+}
+
+.exemple{
+	display: block;
+	padding-bottom: 10px;
+}
+
+.icon-btn{
+	padding: 0px;
+	color: #333;
+	font-weight: bold;
+	text-align: left;
+	background: #fc3;
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.icon-test{
+	background: #ffcd00;
+
+}
+.icon-kredit{
+	background: #f8b500;
+}
+.icon-btn:hover{
+	text-decoration: none;
+	background: #333;
+	color: #fff;
+}
+.icon-btn i{
+	padding-top: 10px;
+}
+
+@media screen and (max-width: 500px){
+	.complect-icon{
+		padding: 0px;
+	}
+	.complect-title{
+		padding-left: 0px;
+		padding-top: 20px;
+	}
+	.icon-btn{
+		display: block;
+		border-bottom: 1px solid #666;
+	}
+	.price{
+		font-size: 24px;
+	}
+	.motor{
+		font-size: 22px;
+	}
+
+}
+
+.intresting {
+	background: #fff;
+	font-family: Renault;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.contacts{
+	font-size: 16px;
+}
+.contacts-man-block{
+	padding-bottom: 15px;
+}
+.contacts-man-block span{
+	display: block;
+}
+.contacts-man-block .prof{
+	font-family: Renault;
+	color: #333;
+}
+.contact-title{
+	font-family: Renault;
+	display: block;
+	font-size: 20px;
+}
+.contact-param{
+	font-size: 18px;
+}
+
+
+.block-price{
+	padding-top: 20px;
+}
+.small-price-info{
+	display: block;
+	font-size: 18px;
+}
+.big-price{
+	display: block;
+	font-family: Renault;
+	font-size: 30px;
+}
+
+.present {
+	margin-bottom: 20px;
+	padding: 0px;
+	background: red;
+}
+.present img{
+	width: 100%;
+}
+#text-color{
+	padding-bottom: 15px;
+}
+.color-block button{
+	width: 20px;
+	height: 20px;
+	border:0px;
+	border-radius: 100%;
+	box-shadow: 0 0 5px #000;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.btn input{
+	padding: 0px;
+}
+
+
+
+
+/*FORMS*/
+.personal-check{
+	display: flex;
+	align-items: center;
+}
+.personal-check label{
+	margin: 0px; padding: 0px;
+	margin-top: 4px;
+	margin-left: 10px !important;
+	font-weight: normal;
+	font-size: 14px;
+}
+.form-list  label{
+	font-size: 15px;
+	line-height: 15px;
+}
+.form-list  label input{
+	height: 15px;
+	line-height: 15px;
+} 
+
+.client-form{
+	padding-bottom: 30px;
+}
+.client-form label {
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	font-weight: normal !important;
+	padding: 0px !important;
+	
+}
+.form-head{
+	font-size: 24px;
+	padding-left: 5px;
+	font-weight: bold;
+	padding: 20px 0;
+	display: block;
+}
+.client-form input, .client-form select, .client-form textarea, .modal-form input {
+	width: 100%;
+	padding: 5px;
+	font-size: 18px;
+	margin-bottom: 2px;
+	margin-top: 0px;
+	border:1px solid #ccc;
+}
+.client-form select{
+	border: 1px solid #ccc ;
+	border-radius: 3px;
+}
+.client-form textarea {
+	height: 150px;
+}
+.client-form input[type='checkbox']{
+	margin: 0px !important;
+}
+#check{
+	width: auto;
+}
+.modal-btn{
+	display: block;
+	width: 50%;
+	margin: 10px auto;
+	padding: 5px;
+	font-size: 18px;
+	text-transform: uppercase;
+	background: linear-gradient(to top,rgba(180,180,180,1),rgba(200,200,200,1));
+	border:0px;
+	color: #333;
+	text-align: center;
+	font-weight: bold;
+}
+.modal-btn-active{background: linear-gradient(to top,#FFCD00,#ff9900);}
+.modal-btn {text-decoration: none;}
+.modal-btn-active:hover{text-decoration: none;background: linear-gradient(to bottom,#FFCD00,#ff9900);color: #333;}
+.modal-body form input,.modal-body form textarea{ 
+	border:1px solid #ccc !important;
+	padding: 5px;
+	border-radius: 0 !important;
+}
+.modal-body form textarea{
+	height: 100px !important;
+}
+/*END FORMS*/
+
+/*ПЕРЕНОС СТРОКИ*/
+@media screen and (min-width:1200px)
+{
+	.forbr{
+		display: none;
+	}
+}
+@media screen and (max-width:1199px)
+{
+	.forbr{
+		display: block;
+	}
+}
+/*news*/
+
+/*end news*/
+
+
+.footer{
+	background: #222;
+	color: #ddd;
+}
+.footer h4{
+	font-family: Renault;
+}
+.footer ul{
+	list-style-type: none;
+	padding-left: 0px;
+}
+.footer ul a{
+	color: #999;
+}
+.footer ul a:hover{
+	color: #fff;
+}
+
+
+
+
+
+
+
+.service{
+	font-size: 16px;
+}
+.service-form-block{
+	padding-bottom: 50px;
+	background: url('/images/service/service_banner.jpg');
+	background-size: cover;
+}
+
+
+
+/*Кнопки на главной*/
+.button-main-page{
+	background: #FFCD00;
+	color: #333;
+	width: 100%;
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 20px;
+	font-family: 'Renault-regular';
+	text-decoration: none;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.button-main-page:hover{
+	text-decoration: none;
+	color: #000;
+	background: #FFbb00;
+}
+.button-main-page i{
+	float: left;
+	padding-left: 10px;
+	font-size: 30px;
+
+}
+/*******************/
+.admin-area{
+	overflow-x: hidden;
+}
+.admin-area input, .admin-area select{
+	font-size: 20px;
+}
+.title-admin-block{
+	background: #ccc;
+}
+.complect-btn{
+	color: #990000;
+	width: 100%;
+	display: block;
+}
+.complect-btn b{
+	color: #333;
+}
+.complect-btn:hover{
+	text-decoration: none;
+}
+.action-btn{
+	text-align: left;
+}
+.action-btn a{
+	margin:0 10px;
+	display: inline-block;
+}
+.adminlist{
+	font-size: 16px; padding: 10px; border-bottom: 1px solid #deedee;
+	user-select: none;
+}
+.adminlist label{
+	height: 100%;
+}
+.admin-border{
+	border-bottom: 1px solid #ccc;
+	padding: 5px 0;
+}
+.hovered img{
+	height: 50px;
+}
+.hovered{
+	background: #fff;
+}
+.hovered:hover{
+
+	
+	z-index: 999;
+	background: #ddd;
+	color: #000;
+}
+.blink:hover{
+	background: #eee;
+}
+.hovered:hover a{
+	color: #333;
+}
+.hovered:hover b{
+	color: #000044;
+}
+.red-td{
+	background: rgba(250,0,0,0.3);
+}
+.login{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.update{
+	padding-bottom: 50px;
+	padding-top: 50px;
+}
+.update label, .create label{
+	display: block;
+}
+.login input{
+	width: 100%;
+	display: block;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+
+.update input[type="text"], .update select, .create input, .create select{
+	width: 100%;
+	display: block;
+	margin-bottom: 5px;
+	padding: 10px;
+}
+.update textarea, .create textarea{
+	width: 100%;
+	height: 200px;
+}
+.update .banner, .create .banner{
+	width: 100%;
+}
+.update .icon, .create .icon{
+	width: 300px;
+	display: block;
+}
+.update input[type="file"], .create input[type="file"]{
+	display: inline;
+	width: 50%;
+}
+
+.bg-td{
+	background: #333;
+	color: #fff;
+	padding: 0px;
+}
+.complect-table{
+	width: 100%;
+	text-align: center;
+}
+.complect-table td{
+	padding-left: 10px;
+}
+.add-td{
+}
+.full-td{
+}
+
+
+
+
+.admin-table{
+	font-size: 25px;
+}
+.admin-table img{
+	width: 300px;
+}
+.red-cross{
+	color: red;
+}
+
+
+
+.filter-form label {font-weight: 400;}
+.filter-form input[type="text"],.filter-form select{
+	width: 100%;
+	border-radius: 0px;
+	border:1px solid #ccc;
+	height: 30px;
+	padding: 0px;
+	padding-left: 5px;
+	line-height: 30px;
+	/*background: #fff;*/
+	box-shadow: 0px 0px 0px #fff;
+	color: #555;
+}
+
+.accordion-wrap {
+  font-size: 14px;
+}
+
+.accordion-wrap input[type=checkbox] {
+  display: none;
+}
+
+.accordion-wrap label {
+  border: solid 1px #ddd;
+  border-bottom: 0px;
+  display: block;
+  padding: 10px;
+  margin-top: 0px;
+  font-weight: normal;
+  font-size: 16px;
+  padding-right: 7px;
+}
+
+.accordion-wrap label:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 10px;
+  margin-top: -5px;
+  -webkit-transition: all .5s linear;
+  -moz-transition: all .5s linear;
+  -ms-transition: all .5s linear;
+  -o-transition: all .5s linear;
+  transition: all .5s linear;
+  border: solid 1px #ddd;
+  border-top:0px;
+  color: #000;
+}
+
+.accordion-wrap input[type=checkbox]:checked ~ .accordion-content {
+  max-height: 500px;
+  -webkit-transition: all 1.5s linear;
+  -moz-transition: all 1.5s linear;
+  -ms-transition: all 1.5s linear;
+  -o-transition: all 1.5s linear;
+  transition: all 1.5s linear;
+}
+
+.accordion-wrap input[type=checkbox]:checked ~ label {
+  background: #333;
+  color: #fff;
+  border-color:#333;
+}
+
+
+
+.modal-body{
+	font-size: 16px;
+}
+
+
+
+
+/*checkbox*/
+/* Cначала обозначаем стили для IE8 и более старых версий
+т.е. здесь мы немного облагораживаем стандартный чекбокс. */
+.checkbox {
+  vertical-align: middle;
+  margin: 0 0px 0 0;
+}
+/* Это для всех браузеров, кроме совсем старых, которые не поддерживают
+селекторы с плюсом. Показываем, что label кликабелен. */
+.checkbox + label {
+  cursor: pointer;
+}
+
+/* Далее идет оформление чекбокса в современных браузерах, а также IE9 и выше.
+Благодаря тому, что старые браузеры не поддерживают селекторы :not и :checked,
+в них все нижеследующие стили не сработают. */
+
+/* Прячем оригинальный чекбокс. */
+.checkbox:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox:not(checked) + label {
+  position: relative; /* будем позиционировать псевдочекбокс относительно label */
+  padding: 2px 0 0 60px; /* оставляем слева от label место под псевдочекбокс */
+}
+/* Оформление первой части чекбокса в выключенном состоянии (фон). */
+.checkbox:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 30px;
+  height: 15px;
+  border-radius: 5px;
+  background: #CDD1DA;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+/* Оформление второй части чекбокса в выключенном состоянии (переключатель). */
+.checkbox:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background: #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: all .2s; /* анимация, чтобы чекбокс переключался плавно */
+}
+/* Меняем фон чекбокса, когда он включен. */
+.checkbox:checked + label:before {
+  background: #9FD468;
+}
+/* Сдвигаем переключатель чекбокса, когда он включен. */
+.checkbox:checked + label:after {
+  left: 15px;
+}
+/* Показываем получение фокуса. */
+.checkbox:focus + label:before {
+  box-shadow: 0 0 0 3px rgba(255,255,0,.5);
+}
+
+/*SELECT*/
+select {
+    border-radius: 0px;
+    -webkit-appearance: none;
+    border:0px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    background:#fff url('../images/arrow.png') no-repeat 99% center ;
+	line-height: 1em;
+    /* for FF */
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    /* for IE */
+    -ms-appearance: none;
+	appearance: none!important;
+	/*padding-left: 0px !important;*/
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/*animation cart*/
+@keyframes pulsar-cart{
+	from{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(2,2);
+		opacity: 0.2;
+	}
+	to{
+		transform: scale(1,1);
+		opacity: 1;
+	}
+}
+
+@keyframes pulsar-cart-2{
+	from{
+		transform: scale(1,1);
+	}
+	50%{
+		transform: scale(2,2);
+		opacity: 0.2;
+	}
+	to{
+		transform: scale(1,1);
+		opacity: 1;
+	}
+}
+
+.fixed-car-price{
+	position: fixed;
+	/*left: 0px;*/
+	top:50px;
+	background: rgba(240,240,240,0.8);
+	border-bottom: 1px solid #eee;
+	z-index: 500;
+	border-radius:0 0 10px 10px ;
+	box-shadow: 0 0 15px #888;
+}
+
+.head-filter{font-size:20px;font-family: Renault;margin:0px;padding-left: 5px;margin-bottom: 10px;}
+
+/*fixed-filter*/
+@media screen and (min-width: 800px){
+	.fixed-filter{position: fixed; top:70px;}
+	.fix{
+		position: fixed;
+		background: #fff;
+		padding: 0px;
+		z-index: 999;
+		text-align: center;
+	}
+	.fix span{
+		border-bottom: 1px dotted #ddd;
+	}
+}
+@media screen and (max-width: 799px){
+	.fixed-filter{}
+	.fix{display: none;}
+}
+
+.upercase{text-transform: uppercase;}
+
+#select-change{
+	width: 100%;
+	font-size: 22px;
+	border: 1px solid #aaa; 
+	padding: 15px; 
+	margin: 50px 0;
+	overflow: hidden;
+}
+#select-change:hover{
+	
+}
+@-webkit-keyframes tremor {
+    0%, 20%,40%,60%,80%,100% {
+        left: -1px;
+        top:-1px;
+        -webkit-transform: translateX(-1%);
+        transform: translateX(-1%);
+    }
+    10%,30%,50%,70%,90% {
+        left: 1px;
+        top: 1px;
+        -webkit-transform: translateX(1%);
+        transform: translateX(1%);
+    }
+}
+@-moz-keyframes tremor {
+    0%, 20%,40%,60%,80%,100% {
+        left: -1px;
+        -webkit-transform: translateX(-1%);
+        transform: translateX(-1%);
+    }
+    10%,30%,50%,70%,90% {
+        left: 1px;
+        -webkit-transform: translateX(1%);
+        transform: translateX(1%);
+    }
+}
+@-ms-keyframes tremor {
+    0%, 20%,40%,60%,80%,100% {
+        left: -1px;
+        -webkit-transform: translateX(-1%);
+        transform: translateX(-1%);
+    }
+    10%,30%,50%,70%,90% {
+        left: 1px;
+        -webkit-transform: translateX(1%);
+        transform: translateX(1%);
+    }
+}
+@-o-keyframes tremor {
+    0%, 20%,40%,60%,80%,100% {
+        left: -1px;
+        -webkit-transform: translateX(-1%);
+        transform: translateX(-1%);
+    }
+    10%,30%,50%,70%,90% {
+        left: 1px;
+        -webkit-transform: translateX(1%);
+        transform: translateX(1%);
+    }
+}
+@keyframes tremor {
+    0%, 20%,40%,60%,80%,100% {
+        left: -1px;
+        -webkit-transform: translateX(-1%);
+        transform: translateX(-1%);
+    }
+    10%,30%,50%,70%,90% {
+        left: 1px;
+        -webkit-transform: translateX(1%);
+        transform: translateX(1%);
+    }
+}
+
+
+.change-form{
+	display: none;
+	padding-bottom: 30px;
+}
+
+.pagination > li > a, .pagination > li > span{
+	border:0px;
+	color: #333;
+}
+.pagination .current{display:inline-block;background: #ffcd00; border-radius: 100%;color: #333;font-weight: bold; margin: 0 5px; width: 30px; height: 30px; text-align: center;}
+
+
+
+
+
+.admin-form {
+	width: 100%;
+}
+.admin-form select{
+
+}
+.admin-form input[type="text"],.admin-form select,.admin-form input[type="file"], .admin-form textarea{
+	margin: 20px;
+	font-size: 18px;
+	height: 40px;
+	border:1px solid #ccc;
+	padding: 0px 10px;
+}
+.admin-form textarea{
+	height: 150px;
+}
+.admin-form input[type="text"]:hover,.admin-form select:hover,.admin-form input[type="file"]:hover, .admin-form textarea:hover{
+	color: #000;
+	box-shadow: 0 0 10px #bbb;
+}
+.admin-form input[type="file"]{
+	padding-left: 0px;
+}
+.admin-form input[type="text"]:focus,.admin-form select:focus,.admin-form input[type="file"]:focus, .admin-form textarea:focus{
+	color: #000;
+	box-shadow: 0 0 10px #bbb;
+}
+.admin-button{
+	margin-top: 20px;
+	padding-right: 0px;
+}
+.admin-status #view_icon{
+	width: 50%;
+	margin: auto;
+}
+.admin-status img{
+	width: 100%;
+}
+
+.model-link{cursor: pointer;}
+.model-link:hover .kredit-begin-price{color:#ff9900;}
+.kredit-begin-price{font-family: renault;color:#777;}
+.programm {font-size: 16px; margin-bottom: 30px;}
+.programm p{font-size: 16px;}
+.programm img{width: 100%; padding-bottom: 10px;}
+ .why{padding-bottom: 15px;}
+ .why h2{margin: 0px;}
+.why h3{font-weight: bold;}
+.block-kredit h2{margin: 0px;margin: 5px; font-size: 22px;}
+.block-kredit h3{color: #990000;margin: 5px;}
+.block-kredit h4{color: #000;margin: 5px; font-size: 20px;}
+.disklamer{padding-top: 10px; color: #333; }
+.banner-kredit img{width: 84%;}
+.srok{
+	color: #999;
+}
+.border-bottom{
+	border-bottom: 1px solid #ccc;
+}
+.border-bottom:last-child{
+	border-bottom: 2px solid #fc3;
+}
+
+.vidget{margin-bottom: 20px;display: flex;align-items: center; }
+.vidget img{width: 80%;}
+.vidgets_head{}
+@media screen and (min-width: 1100px){
+	.vidgets_head{font-size: 25px;}
+	.vidgets_title{font-size: 40px;}
+	.vidgets_content{font-size: 20px;}
+	.vidgets_bottom{padding-top: 5px; color: #888;}
+}
+@media screen and (min-width: 800px) and (max-width: 1099px){
+	.vidgets_head{font-size: 20px;}
+	.vidgets_title{font-size: 25px;}
+	.vidgets_content{font-size: 16px;}
+	.vidgets_bottom{padding-top: 15px; color: #888;}
+	.vidget img{width: 100%;}
+}
+@media screen and (max-width: 799px){
+	.vidget{display: block;}
+	.vidgets_head{font-size: 16px;}
+	.vidgets_title{font-size: 20px;padding-bottom: 0px;margin: 0px !important;}
+	.vidgets_content{font-size: 12px;}
+	.vidgets_bottom{padding-top: 15px; color: #888;}
+	.vidget img{width: 100%;}
+}
+
+.action-link{
+	display: block;
+	padding-top: 20px;
+	color: #000;
+	font-size: 16px;
+	text-decoration: none;
+}
+.action-summary{
+	font-size: 16px;
+	padding-bottom: 15px;
+}
+
+@media screen and (min-width: 1000px){
+	.action-title{
+		padding: 20px 0;font-size: 20px; color: #000;
+	}
+	.block-sub-title{
+		font-size: 30px;color: #000; padding-bottom: 15px;
+	}
+}
+@media screen and (max-width: 999px){
+	.action-title{
+		padding: 20px 0;font-size: 18px; color: #000;
+	}
+	.block-sub-title{
+		font-size: 20px;color: #000; padding-bottom: 15px;
+	}
+}
+
+.car-name{
+	font-family: 'Renault-regular';
+}
+.count-car{
+	/*display:block;font-size: 12px;font-weight: normal;font-family: 'Renault-regular'; color: #000; border:1px solid #ccc; padding: 3px;margin-top: 5px;margin-bottom: 20px;*/
+	
+    vertical-align: super;
+    font-size: 14px;
+    padding: 5px;
+    color: rgb(204, 51, 51);
+    border-radius: 5px;
+    cursor: pointer;	
+    font-weight: normal;
+    font-family: 'renault-regular';
+    display: block;
+    margin-bottom: 30px;
+    text-transform: lowercase;
+}
+
+.totalcars-block-open:hover, #available-car-id:hover,.ava-cars:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+
+.carList {
+	border-bottom: 1px solid #dfdfdf;
+}
+.carList:last-child{
+	background: red;
+	border-bottom: 0px;
+}
+@media screen and (min-width: 900px){
+	.carList{
+		float: left;width: 100%;display: flex;align-items: center; padding: 10px 0;
+	}
+	.car_name{
+		display: flex;align-items: center;
+	}
+	
+	.carList:last-child{
+		background: red;
+		border-bottom: 0px;
+	}
+}
+@media screen and (max-width: 899px){
+	.carList{
+		float: left;width: 100%;display: block;align-items: center;
+	}
+	.car_name{
+		display: block;
+		text-align: center;
+	}
+	.carList:last-child{
+		background: red;
+		border-bottom: 0px;
+	}
+	.uperavacarinfo{
+		text-align: center;
+	}
+	.button-padding{
+		padding-top: 10px;
+	}
+}
+
+.tooltip{
+	z-index: 999 !important;
+}
+
+.complect-name-link{
+	margin: 10px 0;
+}
+.smallcount a{
+	display:inline-block;background:#fcfbb1;vertical-align: super; font-size: 14px;padding: 5px; color: #cc3333; border-radius: 5px;
+}
+@media screen and (max-width:700px){
+	.complect-name-link{font-size: 14px;}
+	.smallcount a{font-size: 10px;display: inline;}
+	.open_complect{font-size: 14px;}
+	.open_complect .fa{font-size: 14px;}
+}
+.myhelp{
+	color: #aaa;
+	display: inline !important;
+	margin-left: 5px;
+}
+.myhelp:hover{
+	color: #fc3;
+}
+.color-button{
+	width: 30px; height: 30px; display: inline-block;border-radius: 15px;border: 2px solid #ccc;
+}
+.color-button:hover{
+	border-color: #333;
+}
+
+@media screen and (max-width: 300px){
+	*{
+		font-size: 100% !important;
+	}
+}
+.click-option-complect{
+	display: block;
+}
+.click-option-complect .fa
+{
+	font-family:renault-regular;float: right;margin-right: 0px;color:#337ab7; padding: 3px;
+}
+
+.option-list-disabled{
+	display: none;
+}
+.low{
+	text-transform: lowercase;
+}
+@media screen and (max-width:1300px){
+	.top-header{
+		padding-left: 0px; 
+	}
+	.mid-header{
+		padding-left: 0px;
+	}
+	.cbp-vimenu{
+		display: none;
+	}
+	.footer{
+		padding-left: 0px;
+	}
+	.maps{
+		padding: 0px;
+		padding-left: 0px;
+	}
+}
+@media screen and (min-width:1301px){
+	.top-header{
+		padding-left: 50px; 
+	}
+	.mid-header{
+		padding-left: 50px;
+	}
+	.cbp-vimenu{
+		display: block;
+	}
+	.footer{
+		padding-left: 50px;
+	}
+	.maps{
+		padding: 0px;
+		padding-left: 50px;
+	}
+}
+
+#postavka .p1{
+	animation:blur 1.5s ease-out infinite;
+}
+#postavka .p2{
+	animation:blur 1.5s ease-out infinite;
+	animation-delay: 0.5s;
+}
+#postavka .p3{
+	animation:blur 1.5s ease-out infinite;
+	animation-delay: 1s;
+}
+@keyframes blur{
+	from{
+		color: #333;
+	}
+	25%{
+		color: #fff;
+	}
+	75%{
+		color: #333;
+	}
+}
+
+.carcolormodal{
+	font-size: 16px;
+}
+.dashed{
+	margin: 3px 0px;
+	border-bottom: dashed 1px #aaa;
+}
+.divprice{
+	font-size: 14px;
+	color: #777;
+}
+.bigblack b{
+	font-size: 18px;
+	font-family: renault;
+	font-weight: normal;
+}
+
+.modal-car{
+	display: flex;
+	align-items: center;
+	padding-bottom: 20px;
+}
+
+.marbot{
+	margin-bottom: 20px;
+}
+
+.marlboro{
+	width: 70px;
+	height: 100px;
+	position:absolute;
+	right:15px;
+	top:166px;
+	background: linear-gradient(45deg, rgba(250,0,0,0.7),rgba(250,90,90,0.7));
+	-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 70%, 0 100%, 0 0);
+	-webkit-clip-path: url("#clip-shape"); 
+	clip-path: url("#clip-shape");
+	color: #fff;
+	font-size: 20px;
+	line-height: 70px;
+	font-weight: bold;
+	cursor: pointer;
+	z-index: 900;
+}
+.marlboro a{
+	text-transform: none;color: inherit;
+}
+.marlboro:hover{
+	background: linear-gradient(45deg,#f66,#f00);
+}
+.marlboro-fixed{
+	position: fixed;
+	right: 15px;
+	top: 51px;
+}
+
+.delete-car-cart{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	border:0px;
+	background: transparent;
+}
+.delete-car-cart:hover{
+	color:#f00;
+}
+
+.color-visible{
+	color:#fff;
+}
+
+.background-red{
+	background: #ff3b30;color: #fff;padding: 1px 5px; border-radius: 2px;font-size: 12px;
+}
+
+.car-color-name{
+	font-size: 20px;
+}
+@media screen and (max-width:700px){
+	.car-color-name{
+		font-size: 14px;
+	}
+}
+
+#filter-block{
+	float:left;width:100%;padding: 15px 0;margin: 20px 0;z-index: 1; background: #f5f5f5; border-radius: 10px;
+}
+@media screen and (max-width:700px){
+	#filter-block{
+		margin: 0px;
+	}
+}
+.block-but1{
+	padding: 0px;padding-right: 10px;
+}
+.block-but2{
+	padding: 0px;padding-left: 15px;
+}
+.footer-text{
+	font-size:15px;
+}
+@media screen and (max-width:700px){
+	.block-but1{
+		padding: 0px;
+	}
+	.block-but2{
+		padding: 0px;
+	}
+	.action-name {
+		font-size: 14px !important;
+	}
+	.footer-text{
+		font-size:10px;
+	}
+}

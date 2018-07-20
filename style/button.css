@@ -1,0 +1,214 @@
+	@media screen and (min-width: 768px){	
+		.but-block:first-child, .but-block-1:first-child
+		{
+			padding: 0px;
+			padding-left: 10px;
+		}
+		.but-block:nth-child(2n), .but-block-1:nth-child(2n)
+		{
+			padding: 0px;
+			padding-right: 10px
+		}
+	}
+	@media screen and (max-width: 767px){	
+		.but-block, .but-block-1{
+			padding: 0px;
+		}
+	}
+	.button{
+		font-size: 16px;
+		padding: 5px;
+		border:0px;
+		width: 100% !important;
+		text-align: center;
+		position: relative;
+		display: block;
+		cursor: pointer;
+		margin-bottom: 5px;
+		font-family: renault-regular;
+	}
+	.button-line{
+		font-size: 16px;
+		padding: 5px 15px;
+		border:0px;
+		display: inline-block;
+		position: relative;
+		display: inline-block;
+		width: auto;
+		padding-right: 30px;
+		cursor: pointer;
+	}
+	.button-yellow{
+		background: #fc3 !important;
+		color: #333;
+	}
+	.button-yellow:hover{
+		background: #fd7;
+		color: #555 !important;
+	}
+	.button-black{
+		background: #333;
+		color: #fff;
+	}
+
+	.button-black:hover{
+		background: #666;
+		color: #ccc;
+	}
+
+	.button-gray{
+		background: #ccc;
+		color: #000;
+	}
+
+	.button-gray:hover{
+		background: #ddd;
+		color: #333;
+	}
+	.button i,.button-line i{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding: 8px;
+	}
+
+	.filter-sort{
+		border: none;
+		background: #f5f5f5;;
+		font-size: 16px;
+		/*padding: 10px;*/
+		color:#333;
+		border-radius: 5px;
+		/*border-left: #ccc 1px solid;*/
+		padding: 10px 10px;
+		text-align: left;
+	}
+	.filter-sort i{
+		color: #fc3;
+	}
+	.filter-sort:hover{
+		color: #a00;
+	}
+	.non-border{
+		border:0px;
+	}
+
+	@media screen and (max-width:700px){
+		.filter-sort{
+			font-size: 12px;
+			padding: 5px;
+		}
+	}
+
+	.compare-main-button{
+		font-size: 20px;
+		color: #333;
+		background: transparent;
+		border:0px;
+		width: 33%;
+	}
+	.compare-main-button .fa{
+		display: block;
+		font-size: 60px;
+	}
+	.compare-main-button:hover{
+		color: rgb(150, 150, 150);
+	}
+
+	.locationcell{
+		display:block;font-size: 50px;background: #fff;color:#ddd;
+	}
+	.locationcell .icon-text{
+		color:#ddd;
+	}
+	.locationcell:hover{
+		color:#333;
+	}
+	.locationcell:hover .icon-text{
+		color:#333;
+	}
+
+.deletext{
+	width:15%;position:absolute; right:0px;top:0px;text-align:center;padding:5px 0;cursor:pointer;color:#666 !important;
+}
+.check-client{
+	font-size: 30px;color:#666;cursor: pointer;
+}
+.check-client:hover{
+	color: #000;
+}
+.checked-client{
+	color: #008000;
+}
+
+.small-dis-button{
+	display:block
+}
+@media screen and (min-width:1101px){
+	.small-dis-button{
+		display:none;
+	}
+}
+@media screen and (max-width:1100px) and (min-width:750px){
+	.small-dis-button{
+		display:block;
+	}
+	.marlboro{
+		display: none;
+	}
+	.navbar-collapse{
+		padding-left: 0px !important;
+	}
+	.nav > li > a {
+		padding-left: 0px !important;
+	}
+}
+.iconsize{
+	width: 100px !important;
+	height: 100px !important;
+	display: flex;
+	align-items: center;
+	padding: 0px;
+	margin: 0px auto !important;
+	background: transparent;
+	border-radius: 100%;
+	border:solid 4px #71c766;
+	text-align: center;
+	text-decoration: none;
+}
+.iconsize span{
+	text-align: center;
+	display: block;
+	width: 100%;
+	font-size: 70px;
+}
+.phone-desc{
+	text-decoration: none;color: #333;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.pulsar-1{
+	animation: pulsar 2s linear infinite;
+}
+.pulsar-2{
+	animation: pulsar 2s linear infinite;
+	animation-delay: 0.75s;
+}
+.pulsar-3{
+	animation: pulsar 2s linear infinite;
+	animation-delay: 1.75s;
+}
+@keyframes pulsar{
+	from{
+	transform: scale(1,1);
+	}
+	15%{
+	transform: scale(1.1,1.1);
+	}
+	30%{
+	transform: scale(1,1);
+	}
+	to{
+	transform: scale(1,1);
+	}
+}

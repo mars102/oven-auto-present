@@ -1,0 +1,57 @@
+<?php
+$cars = \app\models\car_2_model::ModelArray();
+		
+		
+
+		$form = '<input type="text" required="" name="name" placeholder="Ваше имя">';
+
+		$form .= '<input type="text" required="" class="phone" name="phone" placeholder="Ваш телефон">';
+
+		$form .= '<select required="" name="service" >';
+			
+			$form .= '<option disabled="" selected="">выберите автомобиль</option>';
+		
+			foreach ($cars as $key => $car) : 
+				$form .= '<option value="'.$key.'">'.$car.'</option>';
+			endforeach;
+			
+			$form .= '<option value="none">Другой</option>';
+		
+		$form .= '</select>';
+
+		$form .= '<input required="" type="text" name="part" placeholder="Название запчасти">';
+
+		$form .= '<textarea required="" name="comment" placeholder="Комментарии"></textarea>';
+
+		$form .= '	<div class="row">
+			
+							<div class="col-sm-12 personal-check hidden-xs" style="padding-bottom:15px;">
+								<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
+								<i class="fa fa-circle-thin check-client" aria-hidden="true"></i>
+								<label for="check-client" >
+									Отправляя запрос в ООО "Фирма "Овен-Авто" я даю согласие на обработку своих персональных данных.
+								</label>
+							</div>
+						    
+							<div class="col-sm-12 personal-check visible-xs" style="padding-bottom:50px; padding-top:10px; ">
+								<div style="width:7%; float:left;">
+									<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
+									<i class="fa fa-circle-thin check-client" aria-hidden="true" style="font-size: 20px; margin-top: 5px;"></i>
+								</div>
+								<div style="width:93%; float:left;">
+									<label for="check-client" style="font-size: 10px; margin-top: 4px;
+				    					margin-left: 6px !important;
+				    					font-weight: normal;">
+										Отправляя запрос в ООО "Фирма "Овен-Авто" я даю согласие на обработку своих персональных данных.
+									</label>
+								</div>
+							</div>	
+								
+							
+							<div class="col-sm-4 col-sm-offset-8">
+								<button type="button" id="submit-button" class="button button-black">Отправить<i class="fa fa-angle-right"></i></button>
+							</div>
+					</div>';
+
+		return $form;
+			
