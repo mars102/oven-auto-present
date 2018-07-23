@@ -452,7 +452,7 @@
 		    						<?=$motor->getSummaryPrivod();?></span>.
 		    				
 						</p>
-						<div class="col-sm-6 but-block" >
+						<div class="col-sm-6 but-block hidden-xs" >
 							<a class="button button-black" href="/content/testdrivecar/<?=$id;?>">Подробнее о тест-драйве<i class="fa fa-angle-right"></i></a>
 						</div>
 						<div class="col-sm-6 but-block" >
@@ -526,7 +526,7 @@
 									<?php endif;?>
 								</p>
 
-								<div class="col-sm-6 block-but1" style="">
+								<div class="col-sm-6 block-but1 hidden-xs" style="">
 									<a class="button button-black" href="/content/kreditlist/" style="">
 										Подробнее о кредитах<i class="fa fa-angle-right"></i>
 									</a>
