@@ -114,7 +114,6 @@
         $model->complect->price
       );
     ?>
-
     <div class="col-sm-4 hidden-xs">
       <!--AGREGAT-->
       <?php \app\core\Html::viewAgregat($model->complect->motor,$model->complect->code);?>

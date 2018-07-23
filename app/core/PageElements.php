@@ -525,6 +525,20 @@
 										| <?=$programm->dopoption;?>
 									<?php endif;?>
 								</p>
+								<div class="col-sm-6  text-justify disklamer visible-xs" style="padding-top: 15px;">
+								<div class="accordion-wrap">
+
+								    <section class="accordion-item">
+								    <input type="checkbox" id="accordion-one<?=$t;?>" name="accordion-group">
+								    <label for="accordion-one<?=$t;?>" onclick="">Юридическая информация<i style="float:right;padding-top: 3px;" class="fa fa-angle-down"></i></label>
+
+								      <div class="accordion-content">
+								        <p class="text-justify disklamer"><?=$programm->disklamer;?></p>
+								      </div><!-- .accordion-content -->
+								    </section><!-- .accordion-item -->
+
+								</div>
+							</div>
 
 								<div class="col-sm-6 block-but1 hidden-xs" style="">
 									<a class="button button-black" href="/content/kreditlist/" style="">
@@ -537,7 +551,7 @@
 
 							</div>
 
-							<div class="col-sm-12  text-justify disklamer" style="padding-top: 15px;">
+							<div class="col-sm-12  text-justify disklamer hidden-xs" style="padding-top: 15px;">
 								<div class="accordion-wrap">
 
 								    <section class="accordion-item">

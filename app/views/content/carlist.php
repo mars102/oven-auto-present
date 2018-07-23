@@ -196,7 +196,8 @@
 						<?php $i = 1;?>
 						<?php foreach ($filter as $key => $obj) : ?>
 							<?php $i++;?>
-							<span style="display: inline-block; width: 100%;">
+							<span style="display: inline-block; width: 100%; position: relative;">
+								
 								<?php $check="";?>
 								<?php if(isset($checkfilter['option'])) : ?>
 									
@@ -213,8 +214,9 @@
 									id="checkbox<?=$obj;?>" 
 									name="option[]" 
 									value="<?=$obj;?>"/>
-								<label style="font-weight: normal;" for="checkbox<?=$obj;?>"><?=$key;?></label> 
+								<label style="font-weight: normal;" for="checkbox<?=$obj;?>"><?=$key;?> </label> 
 							<!--/div-->
+						
 							</span>
 
 						<?php endforeach;?>
