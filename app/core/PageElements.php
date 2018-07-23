@@ -525,7 +525,8 @@
 										| <?=$programm->dopoption;?>
 									<?php endif;?>
 								</p>
-								<div class="col-sm-6  text-justify disklamer visible-xs" style="padding:15px 0 15px 0;">
+								
+								<div class="col-sm-6  text-justify disklamer" id="mobiledelite"  style="padding:5px 0 15px 0;">
 									<div class="accordion-wrap">
 
 									    <section class="accordion-item">
@@ -539,6 +540,12 @@
 
 									</div>
 								</div>
+								<script>
+							        if(window.innerWidth > 700) {
+							            document.getElementById("mobiledelite").remove();
+							            
+							        }
+    							</script>
 
 								<div class="col-sm-6 block-but1 hidden-xs" style="">
 									<a class="button button-black" href="/content/kreditlist/" style="">
@@ -559,7 +566,7 @@
 
 								    <section class="accordion-item">
 								    <input type="checkbox" id="accordion-one<?=$t;?>" name="accordion-group">
-								    <label for="accordion-one<?=$t;?>" onclick="">Юридическая информация<i style="float:right;padding-top: 3px;" class="fa fa-angle-down"></i></label>
+								    <label for="accordion-one<?=$t;?>" onclick="" style="text-align: center;"><span>Юридическая информация</span><i style="float:right;padding-top: 3px;" class="fa fa-angle-down"></i></label>
 
 								      <div class="accordion-content">
 								        <p class="text-justify disklamer"><?=$programm->disklamer;?></p>
