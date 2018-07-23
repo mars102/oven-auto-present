@@ -227,7 +227,9 @@ class Html{
 								<i class="fa fa-angle-right" aria-hidden="true"></i>
 							</a>
 				<?php else : ?>
+					<div style ="padding-bottom: 10px;">
 					<?php Html::modalPay();?>
+					</div>
 				<?php endif;?>
 		</div>
 		<!--КОНЕЦ БЛОК КНОПОК-->
