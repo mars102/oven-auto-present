@@ -344,11 +344,11 @@
 			<div class="col-sm-12 text-right " style=" padding: 15px 0;float: left;width: 100%;">
 					<!--a class="button-quest">Не стесняйся задать вопрос </a--> 
 					<!--span style="font-size: 18px;margin-right: 10px;">или</span--> 
-					<div class="col-sm-4" style="">
+					<div class="col-sm-4 hidden-xs" style="">
 						<?php \app\core\Html::modalQuestion();?>
 					</div>
 
-					<div class="col-sm-4" style="">
+					<div class="col-sm-4 hidden-xs" style="">
 						<?php \app\core\Html::modalTest();?>
 					</div>
 
