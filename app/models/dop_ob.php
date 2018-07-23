@@ -34,13 +34,14 @@ Class dop_ob extends \app\core\Model
     				$mas[] = $value['name'];
     			}
     			$last = array_pop($mas);
-    			if(count($mas)>=1)
-    			{
+
+    			if(count($mas)!=0)
+    			{	echo count($mas);
     				$res = implode(", ", $mas);
     				$res.= " и ".$last;
     			}
     			else{
-    				$res.= $last;
+    				$res = $last;
     			}
     		}
     		return $res;
