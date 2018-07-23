@@ -34,7 +34,7 @@ Class dop_ob extends \app\core\Model
     				$mas[] = $value['name'];
     			}
     			$last = array_pop($mas);
-    			if(count($mas)>0)
+    			if(count($mas)>=1)
     			{
     				$res = implode(", ", $mas);
     				$res.= " и ".$last;
