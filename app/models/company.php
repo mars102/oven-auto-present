@@ -309,10 +309,10 @@ Class company extends \app\core\Model
             
             <div class="company-wrapper">
                 <div class="company">
-                    <div class="title">
+                    <div class="title hidden-xs">
                         <?=$this->title;?>
                     </div>
-                    <div class="description">
+                    <div class="description hidden-xs">
                         <?=$this->text;?>
                     </div>
                     <div class="ofer">
