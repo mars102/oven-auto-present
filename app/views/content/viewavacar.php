@@ -98,7 +98,7 @@
 						<?php 
 							foreach($_SESSION['cart'] as $key => $par) :
 								$check="#000;";
-								if($par==$car->id) {$color="#a55";$status="true";}
+								if($par==$car->id) {$color="#ff3b30";$status="true";}
 							endforeach;
 						?>
 						<div 
