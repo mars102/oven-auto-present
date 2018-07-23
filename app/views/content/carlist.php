@@ -191,7 +191,6 @@
 					<a><span class="filter-message">Больше параметров</span> <span class="fa-angle-down fa"></span></a>
 				</div>
 				<div class="col-xs-12 option-form-list" style="margin-bottom: 20px; float:left;">
-				ффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффффф
 				  	<div class="column" >
 				 	<!--FORM OPTION PARAMETERS-->
 						<?php $i = 1;?>
@@ -253,8 +252,8 @@
 
 
 
-		<div class="hidden-xs">
-			<div class="col-sm-6">
+		<div class="hidden-xs col-sm-12" style=" padding: 0 0 25px 0;">
+			<div class="col-sm-6" >
 
 				<button style="<?=$_SESSION['cartcolor'];?>" class="filter-sort non-border" form="filter-form" name="selectedcars" type="submit">
 					<i class="fa fa-star-o" aria-hidden="true"></i> Только выбранные (<span class="cart-from"><?=\app\core\Html::getCountCart();?></span>)
@@ -269,7 +268,7 @@
 				<?php endif;?>
 
 			</div>
-			<div class="col-sm-6 text-right">
+			<div class="col-sm-6 text-right" >
 				<button style="<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
 					<i class="fa fa-sort-amount-asc"></i> Сначала дешёвые
 				</button>
@@ -302,12 +301,12 @@
 
 				<div class="container visible-xs" style="display:block; padding-top: 10px;">
 					<div class="row " style="padding: 0px;">
-						<div class="col-xs-6" style="padding:5px 5px 5px 0px;">
+						<div class="col-xs-6" style="padding:15px 5px 5px 15px;">
 							<button style="width:100%;display:block; text-align: center;<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
 								<i class="fa fa-sort-amount-asc"></i> Сначала дешёвые
 							</button>
 						</div>
-						<div class="col-xs-6" style="padding:5px 0px 5px 5px;">
+						<div class="col-xs-6" style="padding:15px 15px 5px 5px;">
 							<button style="width:100%;text-align: center; <?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
 								<i class="fa fa-sort-amount-desc"></i> Сначала дорогие
 							</button>
