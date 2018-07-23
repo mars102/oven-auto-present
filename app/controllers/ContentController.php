@@ -82,6 +82,7 @@ Class ContentController extends \app\core\Controller
 		$form = $form->getFormsData(array(1));
 		$mas = trim($car->install,',');
 		$mas1 = explode(',',$mas);
+		$car->install_num = $mas1;
 		if(is_numeric($mas1[0]))
 			$car->install = (\app\models\dop_ob::getDop($car->install));
 

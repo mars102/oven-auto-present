@@ -15,6 +15,7 @@ Class company extends \app\core\Model
             WHERE 
                 (a.vin = '{$car->vin}' or a.model = {$car->id_model} or a.complect = {$car->id_complect}) 
                 and FROM_UNIXTIME(c.day_in) <= CURRENT_DATE() AND FROM_UNIXTIME(c.day_out) >= CURRENT_DATE() AND c.status = 2
+                GROUP BY c.id
                 ORDER BY c.razdel,c.day_in
         "; 
         //echo "$sql";
@@ -262,7 +263,6 @@ Class company extends \app\core\Model
             $skidka+=$car->getPackPrice();
         if(!empty($this->dop))
             $skidka+=$car->dopprice;
-
         
 
         $skidka = $skidka*($this->value/100);
@@ -280,26 +280,33 @@ Class company extends \app\core\Model
         else{
             $skidka = $this->value."% ";
         }
-        
+
         $bydget = number_format($this->bydget,0,'',' ')." руб. ";
+
+        //$mas = explode(",", $car->install);
+        //\app\core\Html::prA($car->install_num);
         
 
         $this->title = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->title);
         $this->title = str_replace("<bydjet>", $bydget, $this->title);
         $this->title = str_replace("<procent>", $skidka, $this->title);
         $this->title = str_replace("<vin>", $car->vin, $this->title);
+        $this->title = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->title);
 
         $this->ofer = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->ofer);
         $this->ofer = str_replace("<bydjet>", $bydget, $this->ofer);
         $this->ofer = str_replace("<procent>", $skidka, $this->ofer);
         $this->ofer = str_replace("<vin>", $car->vin, $this->ofer);
+        $this->ofer = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->ofer);
 
         $this->text = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->text);
         $this->text = str_replace("<bydjet>", $bydget, $this->text);
         $this->text = str_replace("<procent>", $skidka, $this->text);
         $this->text = str_replace("<vin>", $car->vin, $this->text);
+        $this->text = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->text);
     ?>
         <div class="col-sm-6 ">
+            
             <div class="company-wrapper">
                 <div class="company">
                     <div class="title">
@@ -337,6 +344,7 @@ Class company extends \app\core\Model
     public static function getContainerCompany($company,$car)
     {
     ?>
+        
         <div class="container block" style="padding-top: 0px;">
             <div class="row">
                 <div class="col-sm-8 company-area" style="padding:0px;">
