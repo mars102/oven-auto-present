@@ -531,7 +531,7 @@
 
 									    <section class="accordion-item">
 									    <input type="checkbox" id="accordion-one<?=$t;?>" name="accordion-group">
-									    <label for="accordion-one<?=$t;?>" onclick="">Юридическая информация<i style="float:right;padding-top: 3px;" class="fa fa-angle-down"></i></label>
+									    <label for="accordion-one<?=$t;?>" onclick="" style="text-align: center; padding: 5px;">Юридическая информация<i style="float:right;padding-top: 3px;" class="fa fa-angle-down"></i></label>
 
 									      <div class="accordion-content">
 									        <p class="text-justify disklamer"><?=$programm->disklamer;?></p>
