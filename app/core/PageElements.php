@@ -541,7 +541,8 @@
 									</div>
 								</div>
 								<script>
-							        if(window.innerWidth > 700) {
+								
+							        if(document.documentElement.clientWidth > 700) {
 							            document.getElementById("mobiledelite").remove();
 							            
 							        }
