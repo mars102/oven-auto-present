@@ -362,7 +362,7 @@ Class company extends \app\core\Model
             </style>
 
             <div class="smallcompany">
-                <div class="col-xs-2 text-center">
+                <div class="col-xs-1 text-left" style="padding-left: 5px;">
                     <div 
                         data-main="<?=$this->main;?>"
                         data-skidka="<?=$skidka;?>"
@@ -375,7 +375,7 @@ Class company extends \app\core\Model
                         style="border:1px solid #ccc;width:25px;height: 25px;cursor: pointer;font-size: 18px;">
                     </div>
                 </div>
-                <div class="col-xs-10" >
+                <div class="col-xs-11" >
                     <span class="ofer" style="font-size: 14px;font-weight: bold;"><?=$this->ofer;?></span>
                 </div>
             </div>
