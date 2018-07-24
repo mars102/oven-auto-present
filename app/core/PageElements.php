@@ -71,7 +71,7 @@
 						$data .= $cont;;
 					}
 					elseif($menu['name']=='Владельцам'){
-						$cont = "<li class='dropdown'>";
+						$cont = "<li class='dropdown hidden-xs'>";
 						$cont .= "<a 	href='#' 
 										class='dropdown-toggle' 
 										data-toggle='dropdown' 
@@ -116,7 +116,7 @@
 				endforeach;
 				
 				$data .= "<li><a href='/content/newslist'><i class='icofont icofont-mega-phone'></i> Новости</a></li>";
-				$data .= "<li><a  href='/content/actionlist'><i class='icofont icofont-rocket'></i> Акции</a></li>";
+				$data .= "<li><a class='hidden-xs'  href='/content/actionlist'><i class='icofont icofont-rocket'></i> Акции</a></li>";
 				$data .= "<li><a href='/content/contact'><i class='icofont icofont-location-pin'></i> Контакты</a></li>";
 
 				
@@ -541,7 +541,7 @@
 									</div>
 								</div>
 								<script>
-								
+
 							        if(document.documentElement.clientWidth > 700) {
 							            document.getElementById("mobiledelite").remove();
 							            
