@@ -119,7 +119,7 @@ class Html{
 					</span>
 					<span id='hid' style='display:none'>
 						Прогноз <span id='datechange'>".date('d.m.Y',strtotime("+33 days"))."</span> 
-						<i data-toggle='tooltip' title='".$conf_title."' class='fa fa-question-circle myhelp' aria-hidden='true'></i>
+						<i data-toggle='tooltip' data-placement='top' title='".$conf_title."' class='fa fa-question-circle myhelp' aria-hidden='true'></i>
 					</span>
 				</span>";
 				
@@ -135,7 +135,7 @@ class Html{
 	    	.car-head .car_name{font-size: 22px;}
 	    }
 	    </style>
-	<div class="car-head" style="overflow:hidden;">
+	<div class="car-head" style="">
 	    <div id="car_price">
 		    <div class="col-sm-4 " >
 				<div class=" uperavacarinfo">
