@@ -95,7 +95,7 @@
 							<button data-del-id="<?=$car->id;?>" class="delete-car-cart " style="margin-bottom: 5px;" >
 								<i class="icofont icofont-close-line"></i>
 							</button>
-							<a target="_blank" class="button button-yellow" href="/content/viewavacar/<?=$car->id;?>">
+							<a target="" class="button button-yellow" href="/content/viewavacar/<?=$car->id;?>">
 								Подробнее<i class="fa fa-angle-right"></i>
 							</a>
 						</div>

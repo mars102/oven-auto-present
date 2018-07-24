@@ -13,7 +13,7 @@
 
 			<!--Количесво машин в продаже данной марки-->
 			<div class="col-sm-4 col-xs-4 hidden-xs" style="padding: 0px;">
-				<a target="_blank" href="/content/viewcar/<?=$car->model->link;?>">
+				<a target="" href="/content/viewcar/<?=$car->model->link;?>">
 						<i 
 							class="hovicon effect-3 sub-b icofont icofont-auto-mobile"
 							style="display:block;margin:auto;margin-top:0px;" 
@@ -102,7 +102,7 @@
 							endforeach;
 						?>
 						<div 
-							class=" text-center icon-hover-smal" 
+							class=" text-center icon-hover" 
 							id="car-select"
 							style="padding: 0px; " 
 							check="<?=$status;?>" 
