@@ -26,6 +26,7 @@
 	font-size: 12px;
 	padding-top: 15px;
 }
+
 .company .ofer {
 	padding-top: 5px;
 	font-size: 18px;
@@ -96,4 +97,11 @@
 .vigoda .checkcompany{
 	border: 0px !important;
 	color: green !important;
+}
+.addingcompany .fa{
+	float: right;
+	color:#0a0;
+}
+.smallcompany .ofer{
+	color: #000;
 }

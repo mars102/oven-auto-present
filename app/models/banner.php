@@ -8,7 +8,7 @@ Class banner extends \app\core\Model
 	public function getBannerView()
 	{
 		$brand = BRAND;
-		$banners = $this->getCustomSQL("SELECT * FROM {$this->table} WHERE brand = {$brand}");
+		$banners = $this->getCustomSQL("SELECT * FROM {$this->table} WHERE brand = {$brand} ORDER by sort");
 		//echo "SELECT * FROM {$this->table} WHERE brand = {$brand}";
 		$data ='';
 		$data .= '<div class="banner-main hidden-xs">';

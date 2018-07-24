@@ -36,7 +36,7 @@ Class dop_ob extends \app\core\Model
     			$last = array_pop($mas);
 
     			if(count($mas)!=0)
-    			{	echo count($mas);
+    			{	//echo count($mas);
     				$res = implode(", ", $mas);
     				$res.= " и ".$last;
     			}
