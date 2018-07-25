@@ -323,6 +323,7 @@ Class company extends \app\core\Model
                         <div style="width: 100%;float: left;" class="tosmall">
                             <?=$this->ofer;?>
                             <div 
+                                data-immortal="<?=$this->immortal;?>"
                                 data-main="<?=$this->main;?>"
                                 data-skidka="<?=$skidka;?>"
                                 data-bydget = "<?=$this->bydget;?>"
@@ -375,6 +376,7 @@ Class company extends \app\core\Model
             <div class="smallcompany">
                 <div class="col-xs-2 text-left" style="padding: 5px;padding-left: 0px;padding-right: 0px;">
                     <div 
+                        data-immortal="<?=$this->immortal;?>"
                         data-main="<?=$this->main;?>"
                         data-skidka="<?=$skidka;?>"
                         data-bydget = "<?=$this->bydget;?>"
