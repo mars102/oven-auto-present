@@ -14,7 +14,7 @@ return '
 	<textarea required="true" name="comment" placeholder="Ваш комментарий"></textarea>
 	<div class="row">
 			
-			<div class="col-sm-12 personal-check " style="padding-bottom:15px;">
+			<div class="col-sm-12 personal-check" style="padding-bottom:15px;">
 				<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
 				<i class="fa fa-circle-thin check-client" aria-hidden="true"></i>
 				<label for="check-client" >
@@ -22,7 +22,7 @@ return '
 				</label>
 			</div>
 				
-			
+
 				
 			
 			<div class="col-sm-12 ">

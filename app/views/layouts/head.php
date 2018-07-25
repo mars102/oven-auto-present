@@ -276,7 +276,7 @@
         success: function(data){
           var obj = jQuery.parseJSON(data);
           var car = '';
-
+          console.log(obj);
           $(".userModal").find(".modal-title").html(obj['header']);
           $(".userModal").find(".modal-body").find("form").html("");
           

@@ -38,19 +38,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 							</label>
 						</div>
 						
-						<div class="col-sm-12 personal-check visible-xs" style="padding-bottom:50px; padding-top:10px; ">
-							<div style="width:7%; float:left;">
-								<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
-								<i class="fa fa-circle-thin check-client" aria-hidden="true" style="font-size: 20px; margin-top: 5px;"></i>
-							</div>
-							<div style="width:93%; float:left;">
-								<label for="check-client" style="font-size: 10px; margin-top: 4px;
-			    					margin-left: 6px !important;
-			    					font-weight: normal;">
-									Отправляя запрос в ООО "Фирма "Овен-Авто" я даю согласие на обработку своих персональных данных.
-								</label>
-							</div>
-						</div>
+						
 							
 						
 						<div class="col-sm-4 col-sm-offset-8">

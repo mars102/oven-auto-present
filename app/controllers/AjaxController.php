@@ -130,7 +130,9 @@ Class AjaxController extends \app\core\Controller
 		
 		if($result)
 		{
+			\app\core\Html::prA($_POST);
 			$saleman = @$_POST['saleman'];
+			echo $saleman;
 			$mmm = $this->getMessage($order,$packs,$sumpack);
 			$headers = "MIME-Version: 1.0\r\n";
 			$headers .= "Content-type: text/html; charset=utf-8\r\n";
