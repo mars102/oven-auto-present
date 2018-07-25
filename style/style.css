@@ -753,15 +753,16 @@ a:focus{text-decoration: none; color: inherit;}
 		font-weight: normal;
 		font-size: 10px;
 	}
-}
-.news_link:hover{
+	.news_link:hover{
 	color: inherit;
 	text-transform: none;
 	text-decoration: none;
 	transform: scale(1.01,1.01);
-	z-index: 999;
+	z-index: 300;
 	box-shadow: 0 0 15px #999;
 }
+}
+
 
 @media screen and (max-width: 600px){ 
 	.news-main {padding-right: 0px; padding-left: 0px;}
