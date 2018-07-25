@@ -104,3 +104,14 @@
 .smallcompany .ofer{
 	color: #000;
 }
+.bigblack .vigoda{
+	padding: 0px;
+	font-size: 12px;
+}
+.bigblack .title{
+	font-size: 12px;
+	text-align: left;
+	width: 100%;
+	border-bottom: 1px dashed #ccc;
+}
+.bigblack

@@ -217,6 +217,8 @@
   
   <script src="/lib/height.js"></script>
 
+  <script src="/lib/company.js"></script>
+
   <script src="/lib/open_block.js"></script>
   
   <script src="/lib/form.js"></script>
@@ -275,7 +277,10 @@
             car.append(carformodal);
 
           if(typeof(carformodaltext)!='undefined' && carformodaltext !== null)
+          {
             car.append(carformodaltext);
+            $(".bigblack").append($(".vigoda").clone());
+          }
 
           $(".userModal").find(".modal-body").find("form").append(obj['html']);
           
