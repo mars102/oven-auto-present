@@ -142,9 +142,15 @@
     <div class="row footer-text"  style="color: #fff;padding: 15px 0; ">
       <div class="col-sm-6">
         2006-<?=date('Y');?> © ООО «Фирма Овен-Авто».
-      <div class="visible-xs" style="text-align: left;">
-        <i class="icofont icofont-computer" style="font-size: 15px"></i> <span>Больше возможностей в версии для ПК</span>
+           
       </div>
+      <div class="col-sm-12">
+        <div class="visible-xs" style="float: left;">
+          <i class="icofont icofont-computer" style="font-size: 15px"></i> 
+        </div>
+        <div class="visible-xs" style="float: left; ">
+          <span style="padding: 4px;">Больше возможностей в версии для ПК</span>
+        </div>
       </div>
       <div class="col-sm-12 text-justify hidden-xs" style="font-size: 12px; padding-top: 15px;">
         Обращаем Ваше внимание на то, что сайт <?=$_SERVER['HTTP_HOST'];?> носит исключительно информационный характер и ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 (2) Гражданского кодекса Российской Федерации. Для получения подробной информации, Вы можете связаться с нашими специалистами.
