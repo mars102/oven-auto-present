@@ -130,6 +130,7 @@ Class AjaxController extends \app\core\Controller
 		
 		if($result)
 		{
+			$saleman = @$_POST['saleman'];
 			$mmm = $this->getMessage($order,$packs,$sumpack);
 			$headers = "MIME-Version: 1.0\r\n";
 			$headers .= "Content-type: text/html; charset=utf-8\r\n";
@@ -149,6 +150,9 @@ Class AjaxController extends \app\core\Controller
 				</head>
 				<body>
 					{$mmm}
+					<div>
+						{$saleman}
+					</div>
 				</body>
 			</html>";
 			$send = mail($to, $subject, $htmlHead, $headers); 
