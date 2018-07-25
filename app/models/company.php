@@ -359,10 +359,21 @@ Class company extends \app\core\Model
                         display: none;
                     }
                 }
+              
+                @media screen and (max-width: 320px){
+                    .iphone4{
+                        font-size: 14px;font-weight: normal;
+                    }
+                }
+                @media screen and (min-width: 321px){
+                    .iphone4{
+                        font-size: 14px;font-weight: bold;
+                    }
+                }
             </style>
 
             <div class="smallcompany">
-                <div class="col-xs-1 text-left" style="padding-left: 5px;">
+                <div class="col-xs-2 text-left" style="padding: 5px;padding-left: 0px;padding-right: 0px;">
                     <div 
                         data-main="<?=$this->main;?>"
                         data-skidka="<?=$skidka;?>"
@@ -372,11 +383,13 @@ Class company extends \app\core\Model
                         data-input="0" 
                         class="checkcompany text-center" 
                         data-id="<?=$this->id;?>" 
-                        style="border:1px solid #ccc;width:25px;height: 25px;cursor: pointer;font-size: 18px;">
+                        style="width:100%;cursor: pointer;display: flex;align-items: center;"
+                    >
+                        <div class="" style="font-size: 18px;width: 25px; height: 25px; border:1px solid #acacac;margin: auto;"></div>
                     </div>
                 </div>
-                <div class="col-xs-11" >
-                    <span class="ofer" style="font-size: 14px;font-weight: bold;"><?=$this->ofer;?></span>
+                <div class="col-xs-10" >
+                    <span class="ofer iphone4" style=""><?=$this->ofer;?></span>
                 </div>
             </div>
 
