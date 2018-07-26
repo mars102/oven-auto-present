@@ -395,7 +395,7 @@ Class company extends \app\core\Model
                         <div class="" style="font-size: 18px;width: 25px; height: 25px; border:1px solid #acacac;margin: auto;"></div>
                     </div>
                 </div>
-                <div class="col-xs-10" >
+                <div class="col-xs-10" style="padding-left: 0px;">
                     <span class="ofer iphone4" style=""><?=$this->ofer;?></span>
                 </div>
             </div>
