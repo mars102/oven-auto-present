@@ -754,7 +754,6 @@ a:focus{text-decoration: none; color: inherit;}
 		font-size: 10px;
 	}
 	.news_link:hover{
-	color: inherit;
 	text-transform: none;
 	text-decoration: none;
 	transform: scale(1.01,1.01);
@@ -763,7 +762,9 @@ a:focus{text-decoration: none; color: inherit;}
 }
 }
 
-
+.news_link:hover{
+	color: inherit;
+}
 @media screen and (max-width: 600px){ 
 	.news-main {padding-right: 0px; padding-left: 0px;}
 	.news_link {
@@ -784,6 +785,9 @@ a:focus{text-decoration: none; color: inherit;}
 		font-weight: normal;
 		font-size: 10px;
 	}
+
+	.news-img-block{display:inline; position: relative; background-color: fff}
+	.news-img-block img{width: 100%; position: relative;}
 }
 
 .news-title{
