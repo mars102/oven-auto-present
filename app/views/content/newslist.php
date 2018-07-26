@@ -11,12 +11,12 @@
 			<div class="col-sm-6 news-block">
 				<a class="news_link" href="/content/viewnew/<?= $item->id;?>">
 				<div class="row">
-					<div class="col-sm-3 news-img-block" style="">
+					<div class="col-sm-4 news-img-block" style="">
 						<?php $perem =$item->main_pic; if(!empty($perem)) $file = $item->main_pic;
 							else $file = "/images/logonews.png";?>
 						<img src="http://admin.oven-auto.ru<?=$file;?>" style="">
 					</div>
-					<div class="col-sm-9 news-content" style="">
+					<div class="col-sm-8 news-content" style="overflow:hidden; padding-bottom: 10px">
 						<i class="news-date"><?= $item->getDateIn();?></i>
 						<h3 class="news-title">
 							<?= $item->title; ?>
@@ -24,10 +24,10 @@
 						<p class="news-parag hidden-xs">
 							<?php 
 							if($item->summary!="") :
-								echo mb_substr(strip_tags($item->summary),0,100,"UTF-8").'...';
+								echo mb_substr(strip_tags($item->summary),0,80,"UTF-8").'...';
 							
 							else :
-								echo mb_substr(strip_tags($item->text),0,100,"UTF-8").'...';
+								echo mb_substr(strip_tags($item->text),0,80,"UTF-8").'...';
 							endif;
 							?>
 						</p>

@@ -726,13 +726,18 @@ a:focus{text-decoration: none; color: inherit;}
 	text-decoration: none;
 }
 
-@media screen and (min-width: 600px){ 
-	.news-img-block{height: 100px;position: relative;}
-	.news-img-block img{position: absolute;margin: auto;left: 15px;top: 0;bottom: 0;right: 0;}
+@media screen and (min-width: 769px){ 
+	.news-img-block{position: relative;}
+	.news-img-block img{
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;}
 }
 
 
-@media screen and (min-width: 600px){ 
+@media screen and (min-width: 769px){ 
 	.news_link{
 		color: inherit;
 		padding: 15px;
@@ -743,11 +748,9 @@ a:focus{text-decoration: none; color: inherit;}
 		z-index: 1;
 		position: relative;
 	}
-	.news-content{padding-left: 30px;}
+	.news-content{padding-left: 0px;}
 	.news-date {
-		position: absolute;
-		top: -12px;
-		right: 5px;
+
 		font-style: normal;
 		font-family: renault-regular;
 		font-weight: normal;
@@ -765,7 +768,7 @@ a:focus{text-decoration: none; color: inherit;}
 .news_link:hover{
 	color: inherit;
 }
-@media screen and (max-width: 600px){ 
+@media screen and (max-width: 768px){ 
 	.news-main {padding-right: 0px; padding-left: 0px;}
 	.news_link {
 
