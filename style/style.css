@@ -790,7 +790,7 @@ a:focus{text-decoration: none; color: inherit;}
 	}
 
 	.news-img-block{ }
-	.news-img-block img{width: 100%;}
+	.news-img-block img{width: 100%; height: auto;}
 }
 
 .news-title{
