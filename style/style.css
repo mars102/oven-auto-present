@@ -726,11 +726,13 @@ a:focus{text-decoration: none; color: inherit;}
 	text-decoration: none;
 }
 
-@media screen and (min-width: 769px){ 
+@media screen and (min-width: 600px){ 
+	.news-img-block{position: relative;}
+	.news-img-block img{width: 100%; }
+}
 
 
-
-@media screen and (min-width: 769px){ 
+@media screen and (min-width: 600px){ 
 	.news_link{
 		color: inherit;
 		padding: 15px;
@@ -743,7 +745,9 @@ a:focus{text-decoration: none; color: inherit;}
 	}
 	.news-content{padding-left: 0px;}
 	.news-date {
-
+		position: absolute;
+		top: -12px;
+		right: 5px;
 		font-style: normal;
 		font-family: renault-regular;
 		font-weight: normal;
@@ -756,12 +760,16 @@ a:focus{text-decoration: none; color: inherit;}
 	z-index: 300;
 	box-shadow: 0 0 15px #999;
 }
+
+.news-title{
+	font-weight: bold;font-size:16px;margin-top: 0px;
+}
 }
 
 .news_link:hover{
 	color: inherit;
 }
-@media screen and (max-width: 768px){ 
+@media screen and (max-width: 600px){ 
 	.news-main {padding-right: 0px; padding-left: 0px;}
 	.news_link {
 
@@ -773,7 +781,7 @@ a:focus{text-decoration: none; color: inherit;}
 		text-transform: none;
 		z-index: 1;
 		position: relative;}
-	.news-content {padding-left: 20px; padding-top:5px;}
+	.news-content {padding-left: 20px; padding-top:5px; padding-bottom: 0px;}
 	.news-date {
 		
 		font-style: normal;
@@ -782,12 +790,15 @@ a:focus{text-decoration: none; color: inherit;}
 		font-size: 10px;
 	}
 
+	.news-img-block{ }
+	.news-img-block img{width: 100%;}
 
+	.news-title {
+	font-weight: bold;font-size:16px; margin: 0px;
+}
 }
 
-.news-title{
-	font-weight: bold;font-size:16px;margin-top: 0px;
-}
+
 .news-parag{
 	font-size: 16px;
 }

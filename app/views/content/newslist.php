@@ -16,18 +16,18 @@
 							else $file = "/images/logonews.png";?>
 						<img src="http://admin.oven-auto.ru<?=$file;?>" style="">
 					</div>
-					<div class="col-sm-8 news-content" style="overflow:hidden; padding-bottom: 10px">
+					<div class="col-sm-8 news-content" style="overflow:hidden;">
 						<i class="news-date"><?= $item->getDateIn();?></i>
 						<h3 class="news-title">
 							<?= $item->title; ?>
 						</h3>
-						<p class="news-parag hidden-xs">
+						<p class="news-parag hidden-xs" style="margin: 0;">
 							<?php 
 							if($item->summary!="") :
-								echo mb_substr(strip_tags($item->summary),0,80,"UTF-8").'...';
+								echo mb_substr(strip_tags($item->summary),0,65,"UTF-8").'...';
 							
 							else :
-								echo mb_substr(strip_tags($item->text),0,80,"UTF-8").'...';
+								echo mb_substr(strip_tags($item->text),0,65,"UTF-8").'...';
 							endif;
 							?>
 						</p>
