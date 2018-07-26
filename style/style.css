@@ -786,8 +786,8 @@ a:focus{text-decoration: none; color: inherit;}
 		font-size: 10px;
 	}
 
-	.news-img-block{display:inline; position: relative; background-color: fff}
-	.news-img-block img{width: 100%; position: relative;}
+	.news-img-block{ }
+	.news-img-block img{width: 100%;}
 }
 
 .news-title{
