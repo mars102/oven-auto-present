@@ -463,23 +463,41 @@ Class car_available extends \app\core\Model
 	}
 
 	public function checkSale()
-	{
+	{	
 		$sql = "
 			SELECT com.id as cid FROM company as com 
 				JOIN company_car as cc on com.id = cc.id_company
 				WHERE 
 					com.status = 2 AND 
 					com.razdel = 1 and 
+
 					(cc.vin = ? OR cc.vin='') AND 
 					(cc.model = ? OR cc.model=0 ) AND 
-					(cc.complect = ? OR cc.complect=0)
+					(cc.complect = ? OR cc.complect=0) AND 
+					(cc.location = ? OR cc.location=0) AND 
+					(cc.transmission = ? OR cc.transmission=0) AND
+					(cc.privod = ? OR cc.privod=0) AND
+					(cc.pricestart <= ? OR cc.pricestart = 0) AND 
+					(cc.pricefinish >= ? OR cc.pricefinish = 0) AND 
+
+					cc.type = 1
 		";
-		$data = $this->getCustomSQLNonClass($sql,array($this->vin,$this->id_model,$this->id_complect));
+		$data = $this->getCustomSQLNonClass($sql,
+			array(
+				$this->vin,
+				$this->id_model,
+				$this->id_complect,
+				$this->location,
+				$this->complect->motor->transmission,
+				$this->complect->motor->privod,
+				$this->getCarPrice(),
+				$this->getCarPrice()
+			)
+		);
 		if(!empty($data))
 			return true;
 		else
 			return false;
-		//\app\core\Html::prA($data);
 	}
 
 	public function checkGift()
@@ -490,11 +508,30 @@ Class car_available extends \app\core\Model
 				WHERE 
 					com.status = 2 AND 
 					com.razdel = 2 and 
+
 					(cc.vin = ? OR cc.vin='') AND 
 					(cc.model = ? OR cc.model=0 ) AND 
-					(cc.complect = ? OR cc.complect=0)
+					(cc.complect = ? OR cc.complect=0) AND 
+					(cc.location = ? OR cc.location=0) AND 
+					(cc.transmission = ? OR cc.transmission=0) AND
+					(cc.privod = ? OR cc.privod=0) AND
+					(cc.pricestart <= ? OR cc.pricestart = 0) AND 
+					(cc.pricefinish >= ? OR cc.pricefinish = 0) AND 
+
+					cc.type = 1
 		";
-		$data = $this->getCustomSQLNonClass($sql,array($this->vin,$this->id_model,$this->id_complect));
+		$data = $this->getCustomSQLNonClass($sql,
+			array(
+				$this->vin,
+				$this->id_model,
+				$this->id_complect,
+				$this->location,
+				$this->complect->motor->transmission,
+				$this->complect->motor->privod,
+				$this->getCarPrice(),
+				$this->getCarPrice()
+			)
+		);
 		if(!empty($data))
 			return true;
 		else

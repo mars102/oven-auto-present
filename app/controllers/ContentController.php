@@ -41,6 +41,7 @@ Class ContentController extends \app\core\Controller
 		
 		$models->getDocuments();
 		$models->getComplect();
+		//\app\core\Html::prA($models);
 		$kredit = new \app\models\kredit();
 		$kredit = $kredit->getKreditByIdCar($models->id);
 		$test = \app\models\testdrive::getTestCar($models->id);

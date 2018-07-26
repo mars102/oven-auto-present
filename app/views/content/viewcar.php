@@ -232,6 +232,7 @@
 				<div class="col-sm-12 avacarblock" style="padding:0px;" id="available-car"  >
 					<?php if(is_array($complect->cars)) : ?>
 						<?php foreach($complect->cars as $obj) : ?>
+							<?php $obj->complect = $complect;?>
 							<?php \app\models\car_available::getCarForList($obj,$models,$complect,$complect->motor);?>			
 						<?php endforeach; ?>
 					<?php endif; ?>
