@@ -59,6 +59,15 @@ Class AjaxController extends \app\core\Controller
 			    return;
 			}
 		}
+
+		$saleman = @str_replace("\\n", "", $_POST['saleman']); 
+		$saleman = @str_replace("\"", "", $saleman);
+		$saleman = @str_replace("Ваши персональные условия", "<br/>Персональные условия<hr/>", $saleman);
+		$saleman = @str_replace("Акция", "", $saleman);
+		$saleman = @str_replace("Сервис", "", $saleman);
+		$saleman = @str_replace("Скидка", "", $saleman);
+		$saleman = @str_replace("Подарок", "", $saleman);
+
 		$model = new \app\models\car_2_model();
 		$complect = new \app\models\car_6_complect();
 		$car = new \app\models\car_available();
@@ -130,10 +139,10 @@ Class AjaxController extends \app\core\Controller
 		
 		if($result)
 		{
-			\app\core\Html::prA($_POST);
-			$saleman = @$_POST['saleman'];
-			echo $saleman;
-			$mmm = $this->getMessage($order,$packs,$sumpack);
+			//\app\core\Html::prA($_POST);
+			
+			//echo $saleman;
+			$mmm = $this->getMessage($order,$packs,$sumpack,$saleman);
 			$headers = "MIME-Version: 1.0\r\n";
 			$headers .= "Content-type: text/html; charset=utf-8\r\n";
 			$headers .= "From: ORDER <siterobot@renault.oven-auto.ru>\r\n";
@@ -202,7 +211,7 @@ Class AjaxController extends \app\core\Controller
 		$test = $order->getParam('test');
 		if(!empty($test)) : 
 			$str .= "<div class=''>
-				Интересуемый автомобиль: 
+				Автомобиль: 
 				{$order->car->model->getParam('name')}
 				{$order->car->complect->getParam('name')}
 				{$order->car->complect->motor->getParam('size')} л.
@@ -241,7 +250,7 @@ Class AjaxController extends \app\core\Controller
 		$car = $order->getParam('car'); $test = $order->getParam('test');
 		if(!empty($car) && empty($test)) : 
 			$str .= "<div class=''>
-				Интересуемый автомобиль: 
+				Автомобиль: 
 				{$order->car->model->getParam('name')}
 				{$order->car->complect->getParam('name')}
 				{$order->car->complect->motor->getParam('size')} л.
@@ -251,20 +260,20 @@ Class AjaxController extends \app\core\Controller
 				VIN: {$order->car->getParam('vin')}	
 			</div>
 			<div class=''>
-				Полная стоимость автомобиля: ".number_format($order->car->getCarPrice()-$order->car->sale,0,'',' ')." руб.
+				Полная стоимость: ".number_format($order->car->getCarPrice(),0,'',' ')." руб.
 			</div>
 			<div class=''>
-				Цена базы: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.
+				Комплектация: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.
 			</div>
 			<div class=''>
-				Цена опций: ".number_format($packs,0,'',' ')." руб.
+				Опции: ".number_format($packs,0,'',' ')." руб.
 			</div>
 			<div class=''>
-				Цена доп. оборудования: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.
+				Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.
 			</div>
-			<div class=''>
-				Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб.
-			</div>";
+			<div class=''>".
+				//Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб.
+			"</div>";
 		endif;
 		
 		/*КОМПЛЕКТАЦИЯ*/
@@ -293,7 +302,7 @@ Class AjaxController extends \app\core\Controller
 					$packFORLIST .= $value->getParam('code')." (".number_format($value->getParam('price'),0,'',' ')." руб.), ";	
 				endforeach;
 				$str .= "<div class=''>
-					Итоговая цена сконфигурированного автомобиля: 
+					Полная стоимость сконфигурированного автомобиля: 
 					".number_format($order->complect->getParam('price')+$sumpack,0,'',' ')." руб.
 				</div>";
 			endif;
@@ -314,6 +323,7 @@ Class AjaxController extends \app\core\Controller
 		$str .= "<div>Имя клиента: {$order->client_name}</div>";
 		$str .= "<div>Телефон клиента: {$order->client_phone}</div>";
 		$str .= "<div>Комментарий клиента: {$order->client_comment}</div>";
+		$str .= "<div>".$saleman."</div>";
 		
 		if(!empty($order->complect) && (empty($order->model))) :
 			$str .= "<h3>Для вставки в комментарий рабочего листа</h3>";
@@ -323,7 +333,7 @@ Class AjaxController extends \app\core\Controller
 				' '.$order->complect->motor->getMotorForUser().' '.$order->complect->getParam('code').' '.
 				' ('.number_format($order->complect->getParam('price'),0,' ','').' руб.) '.
 				'. Опции: '.$packFORLIST.
-				' цена автомобиля: '.number_format($order->complect->getParam('price')+$sumpack,0,'',' ').
+				' Полная стоимость: '.number_format($order->complect->getParam('price')+$sumpack,0,'',' ').
 				'. Комментарий: '.$order->client_comment.
 				'. Необходимо оперативно связаться с клиентом.'
 			;
@@ -347,11 +357,11 @@ Class AjaxController extends \app\core\Controller
 				' '.$order->car->complect->motor->getParam('transmission').' '.
 				' '.$order->car->complect->motor->getParam('privod').' VIN: '.$order->car->getParam('vin').
 				". Клиент готов обсудить покупку автомобиля. ".
-				" Полная стоимость автомобиля: ".number_format($order->car->getCarPrice()-$order->car->sale,0,'',' ')." руб.".
-				" Цена базы: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.".
-				" Цена опций: ".number_format($packs,0,'',' ')." руб.".
-				" Цена доп. оборудования: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.".
-				" Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб."
+				" Полная стоимость: ".number_format($order->car->getCarPrice(),0,'',' ')." руб.".
+				" Комплектация: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.".
+				" Опций: ".number_format($packs,0,'',' ')." руб.".
+				" Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб."
+				//" Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб."
 			;
 		}
 		if(!empty($order->test))

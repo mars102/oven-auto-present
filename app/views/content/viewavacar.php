@@ -723,12 +723,12 @@
 		'<span>'.\app\models\car_available::getLocationById($car->location).'<br/></span>'.
 		'<b>'.$car->model->brand->name.' '.$car->model->name.' '.$car->complect->name.'<br/>'.
 		$car->motor->getMotorForUser($car->model->type).'<br/>'.
-		\app\core\Html::money($car->getCarPrice()-$car->sale).' руб.<br/></b>'.
+		\app\core\Html::money($car->getCarPrice()).' руб.<br/></b>'.
 		'<div class="dashed"></div>'.
-		'<div class="divprice">Комплектация <span style="float:right">'.\app\core\Html::money($car->complect->price).' руб.</span></div>'.
-		'<div class="divprice">Опции <span style="float:right">'.\app\core\Html::money($car->getPackPrice()).' руб.</span></div>'.
-		'<div class="divprice">Доп. оборудование <span style="float:right">'.\app\core\Html::money($car->dopprice).' руб.</span></div>'.
-		'<div class="divprice">Скидка <span style="float:right">'.\app\core\Html::money($car->sale).' руб.</span></div>'
+		'<div class="divprice">Комплектация: <span style="float:right">'.\app\core\Html::money($car->complect->price).' руб.</span></div>'.
+		'<div class="divprice">Опции: <span style="float:right">'.\app\core\Html::money($car->getPackPrice()).' руб.</span></div>'.
+		'<div class="divprice">Аксессуары: <span style="float:right">'.\app\core\Html::money($car->dopprice).' руб.</span></div>'
+		//'<div class="divprice">Скидка <span style="float:right">'.\app\core\Html::money($car->sale).' руб.</span></div>'
 		
 	;
 	$pic = 'http://admin.oven-auto.ru'.$car->model->alpha;

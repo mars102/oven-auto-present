@@ -462,6 +462,45 @@ Class car_available extends \app\core\Model
 		}
 	}
 
+	public function checkSale()
+	{
+		$sql = "
+			SELECT com.id as cid FROM company as com 
+				JOIN company_car as cc on com.id = cc.id_company
+				WHERE 
+					com.status = 2 AND 
+					com.razdel = 1 and 
+					(cc.vin = ? OR cc.vin='') AND 
+					(cc.model = ? OR cc.model=0 ) AND 
+					(cc.complect = ? OR cc.complect=0)
+		";
+		$data = $this->getCustomSQLNonClass($sql,array($this->vin,$this->id_model,$this->id_complect));
+		if(!empty($data))
+			return true;
+		else
+			return false;
+		//\app\core\Html::prA($data);
+	}
+
+	public function checkGift()
+	{
+		$sql = "
+			SELECT com.id as cid FROM company as com 
+				JOIN company_car as cc on com.id = cc.id_company
+				WHERE 
+					com.status = 2 AND 
+					com.razdel = 2 and 
+					(cc.vin = ? OR cc.vin='') AND 
+					(cc.model = ? OR cc.model=0 ) AND 
+					(cc.complect = ? OR cc.complect=0)
+		";
+		$data = $this->getCustomSQLNonClass($sql,array($this->vin,$this->id_model,$this->id_complect));
+		if(!empty($data))
+			return true;
+		else
+			return false;
+	}
+
 
 
 
@@ -633,54 +672,56 @@ Class car_available extends \app\core\Model
 					
 					
 				<div class="col-sm-5 aboutcar">
-						<div class="pricesalepriz visible-xs" style="padding-bottom: 0px;display: flex;align-items: center;width: 100%; float:left;">
-								<div style="width: 60%; float: left;">
-									<?php if($car->sale==0 ) : ?>
-										<span style="text-align: right; font-size:18px;">
-											<?=\app\core\Html::money($car->getCarPrice());?> руб.</span>
-									<?php else : ?>
-										<span class="through" style="color: #000;text-decoration: line-through;   font-size:18px;">
-											<?=\app\core\Html::money($car->getCarPrice());?> руб.</span>
-									<?php endif;?>
+					<div class="pricesalepriz visible-xs" style="padding-bottom: 0px;display: flex;align-items: center;width: 100%; float:left;">
+						<div style="width: 60%; float: left;">
+							<?php //if($car->sale==0 ) : ?>
+								<span style="text-align: right; font-size:18px;">
+									<?=\app\core\Html::money($car->getCarPrice());?> руб.
+								</span>
+							<?php /*else : 
+								<span class="through" style="color: #000;text-decoration: line-through;   font-size:18px;">
+									\app\core\Html::money($car->getCarPrice()); руб.</span>
+							 	endif;*/
+							 ?>
 
-									<?php if(!empty($car->sale)) : ?>
-										<i class="icofont icofont-sale-discount"
-											data-toggle="tooltip" 
-										 
-											class="" 
-											src="/images/salemain.png"
-											style="color: #ff3b30; z-index: 999; font-size:22px;  padding-left: 0px;" 
-										>
-										</i>
-									<?php endif;?>
-									<?php if($car->location==1 && $car->dopprice>0) : ?>
-									<i class="icofont icofont-gift"
-										data-toggle="tooltip" 
-										
-										class="" 
-										src="/images/surprise.png"
-										style="color: #ff3b30;z-index: 999; font-size:22px; padding-left: 0px;"
-									>
-									</i>
-									<?php endif;?>
-								</div>
+							<?php if(!empty($car->sale)) : ?>
+								<i class="icofont icofont-sale-discount"
+									data-toggle="tooltip" 
+								 
+									class="" 
+									src="/images/salemain.png"
+									style="color: #ff3b30; z-index: 999; font-size:22px;  padding-left: 0px;" 
+								>
+								</i>
+							<?php endif;?>
+							<?php if($car->location==1 && $car->dopprice>0) : ?>
+							<i class="icofont icofont-gift"
+								data-toggle="tooltip" 
+								
+								class="" 
+								src="/images/surprise.png"
+								style="color: #ff3b30;z-index: 999; font-size:22px; padding-left: 0px;"
+							>
+							</i>
+							<?php endif;?>
+						</div>
 
-								<div  style="width: 40%; float: left; margin: 2px 0;">
-									<span class="background-red" style="background-color:#ff3b30;  float:right;"><?=$car->getLocationById($car->location,$car->adding);?>
-										
-									</span>
-								</div>
-							</div>
+						<div  style="width: 40%; float: left; margin: 2px 0;">
+							<span class="background-red" style="background-color:#ff3b30;  float:right;"><?=$car->getLocationById($car->location,$car->adding);?>
+								
+							</span>
+						</div>
+					</div>
 
 					<div class="available-car-info" style="position:relative;">
 						<div class="hidden-xs" style="padding-bottom: 5px; display: inline-block;">
-							<?php if($car->sale==0 ) : ?>
+							<?php //if($car->sale==0 ) : ?>
 								<?=\app\core\Html::money($car->getCarPrice());?> руб.
-							<?php else : ?>
+							<?php /*else : ?>
 								<span class="through" style="color: #000;text-decoration: line-through;">
 									<?=\app\core\Html::money($car->getCarPrice());?> руб.
 								</span>
-							<?php endif;?>
+							<?php endif;*/?>
 
 						</div>
 
@@ -699,7 +740,8 @@ Class car_available extends \app\core\Model
 
 
 						<span class="hidden-xs">
-							<?php if(!empty($car->sale)) : ?>
+							<?php $car->checkSale();?>
+							<?php if($car->checkSale()) : ?>
 								<i class="icofont icofont-sale-discount"
 									data-toggle="tooltip" 
 									title="На этом автомобиле снижена цена продажи. Чтобы узнать сумму скидки кликните по автомобилю и перейдите на страницу предложения."
@@ -711,7 +753,7 @@ Class car_available extends \app\core\Model
 							<?php endif;?>
 
 
-							<?php if($car->location==1 && $car->dopprice>0) : ?>
+							<?php if($car->checkGift()) : ?>
 							<i class="icofont icofont-gift"
 								data-toggle="tooltip" 
 								title="При покупке этого автомобиля Вы получите подарок. Чтобы узнать, чем Вас порадует автосалон,  кликните по автомобилю и перейдите на страницу предложения." 
@@ -735,13 +777,11 @@ Class car_available extends \app\core\Model
 						<?=$car->year;?>
 						<?=$complect->name;?> 
 						<?=$motor->getMotorForUser($model->type);?> 
-	
 					</div>
 					<!--END Подписи для мобилок-->
 
 					<div class="car-name-color hidden-xs" style="font-size: 16px;">
                         <?= $model->brand->name;?> <?= $model->name;?>  <?=$car->getColorCar()->name;?> <span>(<?=$car->getColorCar()->rn_code;?>)</span>
-						
 					</div>
 				
 					

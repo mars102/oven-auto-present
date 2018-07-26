@@ -320,7 +320,12 @@ Class company extends \app\core\Model
                         <div class="type_company ">
                             <?=$this->getRazdel();?>
                         </div>
-                        <div style="width: 100%;float: left;" class="tosmall">
+                        <style>
+                            .company .checkcompany{
+                                background: #fff;position: absolute;right: 5px; bottom: 5px;
+                            }
+                        </style>
+                        <div style="width: 100%;float: left;position: relative;" class="tosmall">
                             <?=$this->ofer;?>
                             <div 
                                 data-immortal="<?=$this->immortal;?>"
@@ -332,7 +337,7 @@ Class company extends \app\core\Model
                                 data-input="0" 
                                 class="checkcompany text-center" 
                                 data-id="<?=$this->id;?>" 
-                                style="float: right;border:1px solid #ccc;width:25px;height: 25px;cursor: pointer;">
+                                style="border:1px solid #ccc;width:25px;height: 25px;cursor: pointer;">
                             </div>
                         </div>
 
@@ -447,7 +452,7 @@ Class company extends \app\core\Model
 
                         <div class="vigoda">
                             <div class="title">
-                                Ваши персональные условия
+                                Персональные условия
                             </div>
                         </div>
                         
