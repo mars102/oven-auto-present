@@ -727,14 +727,7 @@ a:focus{text-decoration: none; color: inherit;}
 }
 
 @media screen and (min-width: 769px){ 
-	.news-img-block{position: relative;}
-	.news-img-block img{
-    margin: auto;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;}
-}
+
 
 
 @media screen and (min-width: 769px){ 
@@ -789,8 +782,7 @@ a:focus{text-decoration: none; color: inherit;}
 		font-size: 10px;
 	}
 
-	.news-img-block{ }
-	.news-img-block img{width: 100%; height: auto;}
+
 }
 
 .news-title{
