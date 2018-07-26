@@ -316,6 +316,19 @@ Class company extends \app\core\Model
                     <div class="description ">
                         <?=$this->text;?>
                     </div>
+
+                    <?php if($this->timer) : ?>
+                        <div class="timer" data-deadline="<?=date('Y.m.d',$this->day_out);?>">
+                            <div class='timer'>
+                                <div>Осталось</div> 
+                                <span><b>&nbsp</b><br/> &nbsp </span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    <?php endif;?>
+
                     <div class="ofer">
                         <div class="type_company ">
                             <?=$this->getRazdel();?>
@@ -466,3 +479,5 @@ Class company extends \app\core\Model
     <?php
     }
 }
+
+

@@ -93,9 +93,7 @@
 .vigoda .type_company{
 	display: none;
 }
-.checkcompany:hover{
-	background: #aaa;
-}
+
 .vigoda .checkcompany{
 	border: 0px !important;
 	color: green !important;
@@ -126,4 +124,29 @@
 .vigoda .checkcompany{
 	height: 23px !important;
 	float: right;
+}
+.timer{
+	margin:auto;
+	text-align: center;
+}
+.timer span{
+	display: inline-block;
+	text-align: center;
+	padding: 0 3px;
+	color: #777;
+}
+.timer span b{
+	font-size: 22px;
+	color: #333;
+}
+.timer i{
+	font-size: 22px;
+	font-style: normal;
+	vertical-align: top;
+}
+.white i{
+	color: #fff;
+}
+.black i{
+	color: #333;
 }

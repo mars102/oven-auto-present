@@ -480,7 +480,9 @@ Class car_available extends \app\core\Model
 					(cc.pricestart <= ? OR cc.pricestart = 0) AND 
 					(cc.pricefinish >= ? OR cc.pricefinish = 0) AND 
 
-					cc.type = 1
+					cc.type = 1 AND 
+
+					FROM_UNIXTIME(com.day_in) <= CURRENT_DATE() AND FROM_UNIXTIME(com.day_out) >= CURRENT_DATE()
 		";
 		$data = $this->getCustomSQLNonClass($sql,
 			array(
@@ -518,7 +520,11 @@ Class car_available extends \app\core\Model
 					(cc.pricestart <= ? OR cc.pricestart = 0) AND 
 					(cc.pricefinish >= ? OR cc.pricefinish = 0) AND 
 
-					cc.type = 1
+					cc.type = 1 AND
+
+					FROM_UNIXTIME(com.day_in) <= CURRENT_DATE() AND FROM_UNIXTIME(com.day_out) >= CURRENT_DATE()
+
+
 		";
 		$data = $this->getCustomSQLNonClass($sql,
 			array(

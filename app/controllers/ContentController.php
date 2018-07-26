@@ -519,4 +519,6 @@ Class ContentController extends \app\core\Controller
 		echo "/home/www/oven-auto.ru/html/renault/../admin/content/available/12-04-2018-1140-39-86-X7LASRBA660558931";
 		\app\core\Html::prA(\app\core\Image::getImgList("/home/www/oven-auto.ru/html/renault/../admin/content/available/12-04-2018-1140-39-86-X7LASRBA660558931"));	
 	}
+
+
 }
