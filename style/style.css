@@ -797,11 +797,15 @@ a:focus{text-decoration: none; color: inherit;}
 	font-weight: bold;font-size:16px; margin: 0px;
 }
 }
-
-
 .news-parag{
 	font-size: 16px;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 600px) {
+	.news-parag {font-size: 14px;}
+	.news-title {font-size: 14px; margin-bottom:5px;}
+}
+
 .see-all-news{
 	text-decoration:none;font-size:20px;line-height: 100px;
 }
