@@ -62,7 +62,7 @@ Class AjaxController extends \app\core\Controller
 
 		$saleman = @str_replace("\\n", "", $_POST['saleman']); 
 		$saleman = @str_replace("\"", "", $saleman);
-		$saleman = @str_replace("Ваши персональные условия", "<br/>Персональные условия<hr/>", $saleman);
+		$saleman = @str_replace("Персональные условия", "Персональные условия:", $saleman);
 		$saleman = @str_replace("Акция", "", $saleman);
 		$saleman = @str_replace("Сервис", "", $saleman);
 		$saleman = @str_replace("Скидка", "", $saleman);
@@ -125,7 +125,7 @@ Class AjaxController extends \app\core\Controller
 		$packobj = $order->getParam('id_pack');
 		if(!empty($packobj))
 		{
-			$pack = new Pack_model();
+			$pack = new \app\models\car_7_pack();
 			$packs = $pack->getCustomSQL("SELECT * FROM {$pack->getParam('table')} WHERE id in ({$order->getParam('id_pack')})");
 			//$this->data['packs'] = $packs;
 			
@@ -161,9 +161,6 @@ Class AjaxController extends \app\core\Controller
 				</head>
 				<body>
 					{$mmm}
-					<div>
-						{$saleman}
-					</div>
 				</body>
 			</html>";
 			$send = mail($to, $subject, $htmlHead, $headers); 
@@ -184,7 +181,7 @@ Class AjaxController extends \app\core\Controller
 		return;
 	}
 
-	private function getMessage($order,$packs,$sumpack)
+	private function getMessage($order,$packs,$sumpack,$saleman="")
 	{
 		$packFORLIST = "";
 		$str = "<div style='font-size: 20px;'>Тип трафика: 
@@ -204,7 +201,7 @@ Class AjaxController extends \app\core\Controller
 
 		$str .= "<div style='height: 1px;background: #ccc; margin: 15px 0;'></div>";
 		
-		$str .= "<div style='font-size: 20px;'>Отправлено из формы 
+		$str .= "<div style=''>Отправлено из формы 
 			{$order->form}
 		</div>";
 		/*TESTDRIVE*/
@@ -319,14 +316,16 @@ Class AjaxController extends \app\core\Controller
 			<div class=''>Название запчасти: {$order->part}</div>";
 		endif;
 
+		
+
 		$str .= "<div style='height: 1px;background: #ccc; margin: 15px 0;'></div>";
 		$str .= "<div>Имя клиента: {$order->client_name}</div>";
 		$str .= "<div>Телефон клиента: {$order->client_phone}</div>";
 		$str .= "<div>Комментарий клиента: {$order->client_comment}</div>";
-		$str .= "<div>".$saleman."</div>";
+		$str .= "<div>".@$saleman."</div>";
 		
 		if(!empty($order->complect) && (empty($order->model))) :
-			$str .= "<h3>Для вставки в комментарий рабочего листа</h3>";
+			$str .= "<h3>Для вставки в комментарий рабочего листа:</h3>";
 			$str .= $order->getParam('trafic').
 				". Страница конфигуратора ".$order->complect->model->getParam('name').
 				". Клиент готов обсудить покупку автомобиля ".$order->complect->model->getParam('name').' '.$order->complect->getParam('name').' '.
@@ -339,7 +338,7 @@ Class AjaxController extends \app\core\Controller
 			;
 		endif;
 		if(!empty($order->model)) :
-			$str .= "<h3>Для вставки в комментарий рабочего листа</h3>";
+			$str .= "<h3>Для вставки в комментарий рабочего листа:</h3>";
 			$str .= $order->getParam('trafic').
 				". Страница модели ".$order->model->getParam('name').
 				". Клиент готов обсудить модель Renault ".$order->model->getParam('name').
@@ -349,7 +348,7 @@ Class AjaxController extends \app\core\Controller
 		endif;
 		if(!empty($order->car) && (empty($order->test)))
 		{
-			$str .= "<h3>Для вставки в комментарий рабочего листа</h3>";
+			$str .= "<h3>Для вставки в комментарий рабочего листа:</h3>";
 			$str .= $order->getParam('trafic').
 				". Страница автомобиля в продаже Renault ".$order->car->model->getParam('name').' '.$order->car->complect->getParam('name').
 				' '.$order->car->complect->motor->getParam('size').' л. '.
@@ -359,14 +358,15 @@ Class AjaxController extends \app\core\Controller
 				". Клиент готов обсудить покупку автомобиля. ".
 				" Полная стоимость: ".number_format($order->car->getCarPrice(),0,'',' ')." руб.".
 				" Комплектация: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.".
-				" Опций: ".number_format($packs,0,'',' ')." руб.".
-				" Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб."
+				" Опции: ".number_format($packs,0,'',' ')." руб.".
+				" Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.".
+				'. '.strip_tags($saleman);
 				//" Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб."
 			;
 		}
 		if(!empty($order->test))
 		{
-			$str .= "<h3>Для вставки в комментарий рабочего листа</h2>";
+			$str .= "<h3>Для вставки в комментарий рабочего листа:</h2>";
 			$str .= $order->getParam('trafic');
 			$str .= 
 				"Клиент хочет пройти тест-драйв на автомобиле Renault ".$order->car->model->getParam('name').' '.

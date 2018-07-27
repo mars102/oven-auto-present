@@ -382,6 +382,9 @@ Class company extends \app\core\Model
                     <span class="ofer iphone4" style=""><?=$this->ofer;?></span>
                 </div>
             </div>
+            <div class="col-xs-12 company-text" style="font-size: 10px;display: none;">
+                <?=$this->text;?>
+            </div>
         </div>
     <?
     }
