@@ -58,6 +58,7 @@
 }
 .vigoda .title{
 	margin-top: 20px;
+	display: none;
 }
 .company-check div{
 	pointer-events: none;
@@ -149,4 +150,66 @@
 }
 .black i{
 	color: #333;
+}
+.smallcompany{
+    border: 1px solid #dcdcdc;
+    margin-bottom: 5px;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    background: linear-gradient(to right, #fff,#f5f5f5);
+}
+.smallcompany:hover{
+    border-width: 3px;
+}
+@media screen and (min-width: 900px)
+{
+    .company-small {
+        display: none;
+    }
+    .company-wrapper{
+    	display: block;
+    }
+}
+
+@media screen and (max-width: 899px)
+{
+    .company-small {
+        display: block;
+    }
+    .company-wrapper{
+    	display: none;
+    }
+    .vigoda .title, .company-check .title{
+		font-size: 12px !important;
+	}
+	.company-check .left-block, .company-check .right-block{
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px){
+	.company .tosmall{
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+	}
+	.vigoda .title, .company-check .title{
+		font-size: 14px !important;
+	}
+}
+
+
+
+@media screen and (max-width: 320px){
+    .iphone4{
+        font-size: 14px;font-weight: normal;
+    }
+}
+@media screen and (min-width: 321px){
+    .iphone4{
+        font-size: 14px;font-weight: bold;
+    }
 }

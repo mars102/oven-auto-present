@@ -305,7 +305,7 @@ Class company extends \app\core\Model
         $this->text = str_replace("<vin>", $car->vin, $this->text);
         $this->text = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->text);
     ?>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-6 ">
             
             <div class="company-wrapper hidden-xs" >
                 <div class="company hidden-xs" >
@@ -318,6 +318,7 @@ Class company extends \app\core\Model
                     </div>
 
                     <?php if($this->timer) : ?>
+                        <?php //js не всегда парсит дату поэтому формат даты лучше задать через дефисы YYYY-MM-DD?>
                         <div class="timer" data-deadline="<?=date('Y-m-d',$this->day_out);?>">
                             <div class=''>
                                 <div>&nbsp</div> 
@@ -357,40 +358,9 @@ Class company extends \app\core\Model
                     </div>
                 </div>
             </div>
+        </div>
 
-            <style>
-                .smallcompany{
-                    border: 1px solid #dcdcdc;
-                    margin-bottom: 5px;
-                    display: -webkit-flex;
-                    -webkit-align-items: center;
-                    display: flex;
-                    align-items: center;
-                    padding: 5px 0;
-                    background: linear-gradient(to right, #fff,#f5f5f5);
-                }
-                .smallcompany:hover{
-                    border-width: 3px;
-                }
-                @media screen and (min-width: 900px)
-                {
-                    .smallcompany {
-                        display: none;
-                    }
-                }
-              
-                @media screen and (max-width: 320px){
-                    .iphone4{
-                        font-size: 14px;font-weight: normal;
-                    }
-                }
-                @media screen and (min-width: 321px){
-                    .iphone4{
-                        font-size: 14px;font-weight: bold;
-                    }
-                }
-            </style>
-
+        <div class="col-xs-12 company-small">
             <div class="smallcompany">
                 <div class="col-xs-2 text-left" style="padding: 5px;padding-left: 0px;padding-right: 0px;">
                     <div 
@@ -412,7 +382,6 @@ Class company extends \app\core\Model
                     <span class="ofer iphone4" style=""><?=$this->ofer;?></span>
                 </div>
             </div>
-
         </div>
     <?
     }
