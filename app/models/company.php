@@ -319,8 +319,8 @@ Class company extends \app\core\Model
 
                     <?php if($this->timer) : ?>
                         <div class="timer" data-deadline="<?=date('Y.m.d',$this->day_out);?>">
-                            <div class='timer'>
-                                <div>Осталось</div> 
+                            <div class=''>
+                                <div>&nbsp</div> 
                                 <span><b>&nbsp</b><br/> &nbsp </span>
                                 <span></span>
                                 <span></span>
