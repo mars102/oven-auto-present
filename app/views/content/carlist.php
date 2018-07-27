@@ -304,12 +304,12 @@
 				<div class="container visible-xs" style="display:block; padding-top: 10px;">
 					<div class="row " style="padding: 0px;">
 						<div class="col-xs-6" style="padding:15px 5px 5px 15px;">
-							<button style="width:100%;display:block; text-align: center;<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
+							<button style="width:100%;display:block; text-align: center; height: 32px;<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
 								<i class="fa fa-sort-amount-asc"></i> Сначала дешёвые
 							</button>
 						</div>
 						<div class="col-xs-6" style="padding:15px 15px 5px 5px;">
-							<button style="width:100%;text-align: center; <?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
+							<button style="width:100%;text-align: center; height: 32px; <?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
 								<i class="fa fa-sort-amount-desc"></i> Сначала дорогие
 							</button>
 						</div>
