@@ -424,7 +424,7 @@ Class company extends \app\core\Model
                         </div>
 
                         <div class="total-company " style="width: 100%;float: left;">
-                            <span class="left-block">Итого:</span>
+                            <span class="left-block"></span>
                             <span class="right-block ">
                                 <span class="company-total-price"><b><?=number_format($car->getCarPrice(),0,'',' ');?></b></span>
                                 <span class="def-price" style="display: none;"><b><?=number_format($car->getCarPrice(),0,'',' ');?></b></span>

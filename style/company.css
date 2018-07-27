@@ -164,6 +164,17 @@
 .smallcompany:hover{
     border-width: 3px;
 }
+
+.vigoda .title, .company-check .title{
+	text-transform: none;
+	font-size: 18px !important;
+}
+
+
+.total-company b{
+	font-size: 18px;
+	font-family: Renault;
+}
 @media screen and (min-width: 900px)
 {
     .company-small {
@@ -183,10 +194,10 @@
     	display: none;
     }
     .vigoda .title, .company-check .title{
-		font-size: 12px !important;
+		/*font-size: 14px !important;*/
 	}
 	.company-check .left-block, .company-check .right-block{
-		font-size: 12px;
+		font-size: 14px;
 	}
 }
 
@@ -197,7 +208,7 @@
 		font-size: 14px;
 	}
 	.vigoda .title, .company-check .title{
-		font-size: 14px !important;
+		/*font-size: 14px !important;*/
 	}
 }
 
