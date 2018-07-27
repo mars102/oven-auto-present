@@ -10,6 +10,7 @@
 		<?php foreach ($news as $key => $item) { ?>
 			<div class="col-sm-6 news-block">
 				<a class="news_link" href="/content/viewnew/<?= $item->id;?>">
+				<i class="news-date hidden-xs" style=""><?= $item->getDateIn();?></i>
 				<div class="row">
 					<div class="col-sm-4 news-img-block" style="">
 						<?php $perem =$item->main_pic; if(!empty($perem)) $file = $item->main_pic;
@@ -17,8 +18,9 @@
 						<img src="http://admin.oven-auto.ru<?=$file;?>" style="">
 					</div>
 					<div class="col-sm-8 news-content" style="overflow:hidden;">
-						<i class="news-date"><?= $item->getDateIn();?></i>
+						<i class="news-date visible-xs" style=""><?= $item->getDateIn();?></i>
 						<h3 class="news-title">
+							
 							<?= $item->title; ?>
 						</h3>
 						<p class="news-parag hidden-xs" style="margin: 0;">
@@ -30,6 +32,7 @@
 								echo mb_substr(strip_tags($item->text),0,65,"UTF-8").'...';
 							endif;
 							?>
+
 						</p>
 					</div>
 					<!--div class="col-sm-12 text-right news-link"><a href="/content/viewnew/<?= $item->id;?>">Подробнее</a></div-->
