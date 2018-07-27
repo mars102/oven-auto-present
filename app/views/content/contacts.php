@@ -18,7 +18,30 @@
 
 <!--ФОРМЫ-->
 <?php if(is_array($form)) : ?>
-<div class="container-fluid " style="" id="animate-block">
+<!--ФОРМА ДЛЯ МОБИЛЬНЫХ-->  
+  <div class="mobilzvonok visible-xs">
+      <div class="block-title">
+      ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!
+    </div>
+    <br>
+    <div style="float: left ;width: 50%; text-align: center;">
+      <a id="call" class="phone iconsize pulsar-2" href="tel:+78212288588">
+        <span style="color: #71c766;"  class="fa fa-phone" aria-hidden="true"></span>
+      </a>
+      <div class="phone-desc">Позвонить сейчас</div>
+    </div>
+    
+    <div style="float: left ;width: 50%; text-align: center;">
+      <a id="call" style="border:solid 4px #3579b7;" class="phone iconsize pulsar-1 modalButton" data-form='send'>
+        <span style="" class="fa fa-envelope" aria-hidden="true"></span>
+      </a>
+      <div class="phone-desc">Задать вопрос</div>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+ <!--END ФОРМА ДЛЯ МОБИЛЬНЫХ-->
+<div class="container-fluid hidden-xs" style="" id="animate-block">
 	<div class="container" id="question">
 		<div class="block-title">
 			ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!

@@ -10,7 +10,7 @@
 		<img src="http://admin.oven-auto.ru<?= $new->banner; ?>">
 	<?php endif;?>
 </div>
-<div class="container block">
+<div class="container block" style="line-height: 1.42857143;">
 
 	<div class="row">
 		<div class="col-sm-12">

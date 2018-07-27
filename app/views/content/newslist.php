@@ -23,7 +23,7 @@
 							
 							<?= $item->title; ?>
 						</h3>
-						<p class="news-parag hidden-xs" style="margin: 0;">
+						<p class="news-parag hidden-xs news-parag-pre" style="margin: 0;">
 							<?php 
 							if($item->summary!="") :
 								echo mb_substr(strip_tags($item->summary),0,65,"UTF-8").'...';
