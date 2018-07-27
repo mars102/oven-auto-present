@@ -781,7 +781,7 @@ a:focus{text-decoration: none; color: inherit;}
 		text-transform: none;
 		z-index: 1;
 		position: relative;}
-	.news-content {padding-left: 20px; padding-top:5px; padding-bottom: 0px;}
+	.news-content { padding:5px 20px 0 20px; }
 	.news-date {
 		
 		font-style: normal;
