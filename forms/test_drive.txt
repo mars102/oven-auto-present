@@ -23,7 +23,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 		
 		$form .= '</select>';
 
-		$form .= '<input type="text" class="date_" required="" name="date" placeholder="Выберите дату" value=""/>';
+		$form .= '<!--input type="text" class="date_" required="" name="date" placeholder="Выберите дату" value=""/-->';
 
 
 
