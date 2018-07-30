@@ -334,11 +334,7 @@ Class company extends \app\core\Model
                         <div class="type_company ">
                             <?=$this->getRazdel();?>
                         </div>
-                        <style>
-                            .company .checkcompany{
-                                background: #fff;position: absolute;right: 5px; bottom: 5px;
-                            }
-                        </style>
+                        
                         <div style="width: 100%;float: left;position: relative;" class="tosmall">
                             <?=$this->ofer;?>
                             <div 

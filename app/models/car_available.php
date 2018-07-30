@@ -727,7 +727,7 @@ Class car_available extends \app\core\Model
 							 	endif;*/
 							 ?>
 
-							<?php if(!empty($car->sale)) : ?>
+							<?php if($car->checkSale()) : ?>
 								<i class="icofont icofont-sale-discount"
 									data-toggle="tooltip" 
 								 
@@ -737,7 +737,7 @@ Class car_available extends \app\core\Model
 								>
 								</i>
 							<?php endif;?>
-							<?php if($car->location==1 && $car->dopprice>0) : ?>
+							<?php if($car->checkGift()) : ?>
 							<i class="icofont icofont-gift"
 								data-toggle="tooltip" 
 								

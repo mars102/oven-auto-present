@@ -175,6 +175,11 @@
 	font-size: 18px;
 	font-family: Renault;
 }
+
+.company .checkcompany{
+    background: #fff;position: absolute;right: 5px; bottom: 5px;
+}
+                            
 @media screen and (min-width: 900px)
 {
     .company-small {

@@ -386,8 +386,8 @@
 				$car->vin,
 				$car->model->name,
 				$car->complect->name,
-				$car->getCarPrice()-$car->sale,
-				$car->sale,
+				$car->getCarPrice(),
+				"",
 				\app\models\car_available::getLocationById($car->location),
 				$car->getAddres()
 			);
