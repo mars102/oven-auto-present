@@ -248,7 +248,7 @@
               <div class=""><?=$pack->name;?></div>
               <div class="pack-list text-left"><?=$pack->option_list;?></div>
               <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative; display: inline-block;">
+              <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
                 <div style="float: left;">
                    <input 
                       <?=$check;?>
