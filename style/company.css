@@ -145,12 +145,44 @@
 	font-style: normal;
 	vertical-align: top;
 }
-.white i{
+.timer .white i{
 	color: #fff;
 }
-.black i{
+.timer .black i{
 	color: #333;
 }
+
+
+
+
+.timer{
+	margin:auto;
+	text-align: center;
+}
+.nonTimer span{
+	display: inline-block;
+	text-align: center;
+	padding: 0 3px;
+	color: #ccc;
+}
+.nonTimer span b{
+	font-size: 22px;
+	color: #ccc;
+}
+.nonTimer i{
+	font-size: 22px;
+	font-style: normal;
+	vertical-align: top;
+}
+.nonTimer .white i{
+	color: #fff;
+}
+.nonTimer .black i{
+	color: #ccc;
+}
+
+
+
 .smallcompany{
     border: 1px solid #dcdcdc;
     margin-bottom: 5px;
@@ -179,7 +211,7 @@
 .company .checkcompany{
     background: #fff;position: absolute;right: 5px; bottom: 5px;
 }
-                            
+
 @media screen and (min-width: 900px)
 {
     .company-small {

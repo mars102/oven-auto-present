@@ -102,7 +102,7 @@
 
 						<div class="about" data-type="1" style="">
 							<span style="display: block;color: #333;font-size: 16px;"><?=$car->vin;?> </span>
-							<span style="display: block;color: #333;font-size: 16px;"><?=$car->model->name;?> </span>
+							<span style="display: block;color: #333;font-size: 16px;"><?=$car->model->label;?> <?=$car->model->name;?> </span>
 							<span style="display: block;color: #333;font-size: 16px;"><?=$car->complect->name;?></span>
 							<span style="display: block;color: #333;font-size: 16px;"><?=$car->motor->getMotorForUser($car->model->type);?></span>	
 							<span style="display: block;color: #333;font-size: 16px;text-transform: uppercase;"><?=$car->complect->code;?></span>

@@ -36,7 +36,7 @@
 	<div class="row">
 		<div class="about-car col-sm-10 col-sm-offset-1  text-center">
 			<div class="block-title">
-				<?=$models->brand->name;?> <?=$models->name;?>
+				<?=$models->label;?> <?=$models->brand->name;?> <?=$models->name;?>
 				<i class="sub-title hidden-xs">
 					<?= $models->slogan;?>
 				</i>
@@ -543,7 +543,7 @@
 				ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!
 			</div>
 			<div class="col-sm-12 text-center" style="font-size: 20px; ">
-				Мы рады, что Вас заинтересовал <?= $models->brand->name.' '.$models->name;?>. 
+				Мы рады, что Вас заинтересовал <?=$models->label.' '.$models->brand->name.' '.$models->name;?>. 
 				Дополнительную информацию о выбранном автомобиле Вы можете 
 				получить по телефону отдела продаж 8 (8212) 288 588 или задайте вопрос в форме ниже. Наши сотрудники свяжутся с Вами и постараются ответить на все вопросы.
 			</div>
