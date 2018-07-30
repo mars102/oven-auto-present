@@ -99,17 +99,14 @@
   </div>
 </div>
 
-
-
 <div class="container block configure">
-
   <div class="row">
 
     <?php 
       \app\core\Html::carHead(
         $model->complect->motor->getMotorForUser(),
         'Конфигуратор',
-        $model->name,
+        $model->label.' '.$model->brand->name.' '.$model->name,
         $model->complect->name,
         $model->complect->price
       );
@@ -396,7 +393,7 @@
           ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!
         </div>
         <div class="col-sm-12 text-center " style="font-size: 20px;">
-          Мы рады, что Вас заинтересовал Renault <?=$model->name.' в комплектации '.$model->complect->name;?>. Дополнительную информацию о выбранном автомобили Вы можете получить по телефону отдела продаж 8 (8212) 288 588 или задайте вопрос в форме ниже. Наши сотрудники свяжутся с Вами и постараются ответить на все вопросы.
+          Мы рады, что Вас заинтересовал  <?=$model->label;?> <?=$model->brand->name;?> <?=$model->name.' в комплектации '.$model->complect->name;?>. Дополнительную информацию о выбранном автомобили Вы можете получить по телефону отдела продаж 8 (8212) 288 588 или задайте вопрос в форме ниже. Наши сотрудники свяжутся с Вами и постараются ответить на все вопросы.
         </div>
 
         <div class="col-sm-8 col-sm-offset-2" >

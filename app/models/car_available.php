@@ -757,7 +757,7 @@ Class car_available extends \app\core\Model
 					</div>
 
 					<div class="available-car-info" style="position:relative;">
-						<div class="hidden-xs" style="padding-bottom: 5px; display: inline-block;">
+						<div class="hidden-xs" style="padding-bottom: 5px; display: inline-block; <?=($car->checkSale())?"text-decoration: line-through;":"";?>">
 							<?php //if($car->sale==0 ) : ?>
 								<?=\app\core\Html::money($car->getCarPrice());?> руб.
 							<?php /*else : ?>
@@ -783,7 +783,6 @@ Class car_available extends \app\core\Model
 
 
 						<span class="hidden-xs">
-							<?php $car->checkSale();?>
 							<?php if($car->checkSale()) : ?>
 								<i class="icofont icofont-sale-discount"
 									data-toggle="tooltip" 
@@ -813,7 +812,7 @@ Class car_available extends \app\core\Model
 					<!--Подписи для мобилок-->
 
 					<span class="visible-xs" style="">
-						<?= $model->brand->name;?> <?= $model->name;?> VIN <?=$car->vin;?>
+						<?= $model->label;?> <?= $model->brand->name;?> <?= $model->name;?> VIN <?=$car->vin;?>
 					</span>
 				
 					<div class="motorinfo visible-xs" style="padding-bottom: 9px;font-size: 14px;">
@@ -824,7 +823,7 @@ Class car_available extends \app\core\Model
 					<!--END Подписи для мобилок-->
 
 					<div class="car-name-color hidden-xs" style="font-size: 16px;">
-                        <?= $model->brand->name;?> <?= $model->name;?>  <?=$car->getColorCar()->name;?> <span>(<?=$car->getColorCar()->rn_code;?>)</span>
+                        <?= $model->label;?> <?= $model->brand->name;?> <?= $model->name;?>  <?=$car->getColorCar()->name;?> <span>(<?=$car->getColorCar()->rn_code;?>)</span>
 					</div>
 				
 					

@@ -63,10 +63,10 @@ Class AjaxController extends \app\core\Controller
 		$saleman = @str_replace("\\n", "", $_POST['saleman']); 
 		$saleman = @str_replace("\"", "", $saleman);
 		$saleman = @str_replace("Персональные условия", "Персональные условия:", $saleman);
-		$saleman = @str_replace("Акция", "", $saleman);
-		$saleman = @str_replace("Сервис", "", $saleman);
-		$saleman = @str_replace("Скидка", "", $saleman);
-		$saleman = @str_replace("Подарок", "", $saleman);
+		/*$saleman = @str_replace("Акция", 	"", $saleman);
+		$saleman = @str_replace("Сервис", 	"", $saleman);
+		$saleman = @str_replace("Скидка", 	"", $saleman);
+		$saleman = @str_replace("Подарок", 	"", $saleman);*/
 
 		$model = new \app\models\car_2_model();
 		$complect = new \app\models\car_6_complect();
@@ -360,7 +360,7 @@ Class AjaxController extends \app\core\Controller
 				" Комплектация: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.".
 				" Опции: ".number_format($packs,0,'',' ')." руб.".
 				" Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.".
-				'. '.($saleman);
+				'. '.strip_tags($saleman);
 				//" Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб."
 			;
 		}

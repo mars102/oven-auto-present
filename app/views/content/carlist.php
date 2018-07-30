@@ -45,10 +45,10 @@
 			    <div class="col-sm-4" style="padding-right:3px;">
 					<select name="model" style="">
 						<option value="0" selected="">Любая модель</option>
-						<?php foreach (\app\models\car_2_model::ModelArray()as $key => $value) :?>
+						<?php foreach (\app\models\car_2_model::ModelForMenu()as $key => $value) :?>
 							<?php $check = "";?>
-							<?php if($checkfilter['model']==$key) $check = "selected";?>
-							<option <?=$check;?> value="<?=$key;?>"><?=$value;?></option>
+							<?php if($checkfilter['model']==$value['id']) $check = "selected";?>
+							<option <?=$check;?> value="<?=$value['id'];?>"><?=$value['label'].' '.$value['brand'].' '.$value['name'];?></option>
 						<?php endforeach;?>
 					</select>
 				</div>
@@ -94,7 +94,7 @@
 							type="text" 
 							name="pricefrom" 
 							placeholder="Цена от, руб." 
-							value="<?=number_format($checkfilter['pricefrom'],0,'',' ');?>" 
+							value="<?=($checkfilter['pricefrom'])?number_format($checkfilter['pricefrom'],0,'',' '):"";?>" 
 							oninput="this.value = this.value.replace(/\D/g, '')"
 						>
 						<div class="deletext">
@@ -108,7 +108,7 @@
 							type="text" 
 							name="priceto" 
 							placeholder="Цена до, руб." 
-							value="<?=number_format($checkfilter['priceto'],0,'',' ');?>"
+							value="<?=($checkfilter['priceto'])?number_format($checkfilter['priceto'],0,'',' '):"";?>" 
 							oninput="this.value = this.value.replace(/\D/g, '')"
 						>
 						<div class="deletext">

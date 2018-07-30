@@ -167,7 +167,7 @@ class Html{
 
 			<div class="col-sm-4 " >
 		      <div class="uperavacarinfo car_name">
-		        Renault <?=$model_name;?>
+		        <?=$model_name;?>
 		      </div>
 		    </div>
 

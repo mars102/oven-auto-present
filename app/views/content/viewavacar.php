@@ -281,7 +281,7 @@
 								style="font-size:40px;display:block;margin:auto;margin-top:0px;color:"#ddd";" >
 							</i>
 							<span class="icon-text" style="color: #333">
-								Скидка
+								Скидки 
 								<span class="number-circle-min" id="stock">
 									<b><?=$countCompany['company_sale'];?></b>
 								</span>
@@ -303,7 +303,7 @@
 							>
 							</i>
 							<span style="color: #333"  class="icon-text">
-								Подарок
+								Подарки 
 								<span class="number-circle-min" id="stock">
 									<b><?=$countCompany['company_gift'];?></b>
 								</span>
@@ -325,7 +325,7 @@
 							>
 							</i>
 							<span style="color: #333"  class="icon-text">
-								Акция 
+								Акции 
 								<span class="number-circle-min" id="stock">
 									<b><?=$countCompany['company_action'];?></b>
 								</span>
@@ -384,7 +384,7 @@
 			\app\core\Html::carHead(
 				$car->motor->getMotorForUser(),
 				$car->vin,
-				$car->model->name,
+				$car->model->label.' '.$car->model->brand->name.' '.$car->model->name,
 				$car->complect->name,
 				$car->getCarPrice(),
 				"",
@@ -660,7 +660,8 @@
 				ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!
 			</div>
 			<div class="col-sm-12 text-center" style="font-size: 20px;">
-				Мы рады, что Вас заинтересовал Renault <?=$car->model->name?> в комплектации <?=$car->complect->name?> 
+
+				Мы рады, что Вас заинтересовал <?=$car->model->label;?> <?=$car->model->brand->name;?> <?=$car->model->name;?> в комплектации <?=$car->complect->name?> 
 				(VIN <span style="text-transform: uppercase;"><?=$car->vin;?></span>). 
 				Дополнительную информацию о выбранном автомобиле Вы можете получить по телефону отдела продаж 8 (8212) 288 588 или задайте вопрос в форме ниже. Наши сотрудники свяжутся с Вами и постараются ответить на все вопросы.
 			</div>
@@ -683,7 +684,6 @@
 </div>
 <?php endif;?>
 <!--КОНЕЦ ФОРМЫ-->
-
 
 
 

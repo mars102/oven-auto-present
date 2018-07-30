@@ -100,6 +100,20 @@ Class car_2_model extends \app\core\Model
 		return $data;
 	}
 
+	public static function ModelForMenu($data=array())
+	{
+		$sql = "SELECT m.link,m.name,m.label,b.name as brand,m.id  FROM car_2_model as m JOIN car_1_mark as b on m.id_mark = b.id WHERE m.id_mark = ?";
+		$model = new \app\models\car_2_model();
+		$model = $model->getCustomSQLNonClass($sql,array(BRAND));
+		/*foreach ($model as $m)
+		{
+			$data[] = ;
+		}*/
+		if(is_array($model))
+			return $model;
+		return array();
+	}
+
 	public static function getOtgruz($country)
 	{
 		switch ($country) {

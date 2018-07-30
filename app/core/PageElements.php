@@ -15,7 +15,7 @@
 		public static function getDataList()
 		{
 			
-			$cars = \app\models\car_2_model::ModelLinkArray();
+			$cars = \app\models\car_2_model::ModelForMenu();
 			$menus = \app\models\page::getMenus();
 			return array('cars'=>$cars, 'menus'=>$menus);
 			
@@ -42,7 +42,7 @@
 						</a>";
 				$data .= "<ul class='dropdown-menu'>";
 				foreach ($param['cars'] as $key => $car) :
-					$data .= "<li><a href='/content/viewcar/".$key."'>".$car."</a></li>";
+					$data .= "<li><a href='/content/viewcar/".$car['link']."'>".$car['label'].' '.$car['name']."</a></li>";
 				endforeach;
 				$data .= "<li role='separator' class='divider'></li>";
 				$data .= "<li><a href='/content/availablelist'>Автомобили в продаже</a></li>";	
@@ -296,7 +296,7 @@
 				<h4>Модельный ряд</h4>
 					<ul>
 					<?php foreach ($param['cars'] as $key => $car) : ?>
-						<li><a href='/content/viewcar/<?=$key;?>'>Renault <?=$car;?></a></li>
+						<li><a href='/content/viewcar/<?=$car['link'];?>'><?=$car['label'].' '.$car['name'];?></a></li>
 					<?php endforeach;?>
 					<li><a href='/available/viewlist/'>Авто в продаже</a>
 				</ul>
@@ -435,7 +435,7 @@
 					</div>
 
 					<div class="col-sm-8" style="">
-						<p class="vidgets_head hidden-xs"><b>Испытай в движении Renault <?=$model->name;?> </b></p>
+						<p class="vidgets_head hidden-xs"><b>Испытай в движении <?=$model->label;?> Renault <?=$model->name;?> </b></p>
 						<p class="vidgets_title">Пробная поездка</p>
 
 				
@@ -500,7 +500,7 @@
 								<img src="http://admin.oven-auto.ru<?=$programm->banner;?>" style="width: 100%;">
 							</div>
 							<div class="col-sm-8 " style="">
-								<p class="vidgets_head hidden-xs"><b>Кредит на Renault <?=$model->name;?></b></p>
+								<p class="vidgets_head hidden-xs"><b>Кредит на <?=$model->label;?> Renault <?=$model->name;?></b></p>
 								<p class="vidgets_content hidden-xs">
 									Кредитные предложения от Renault Finance помогут Вам приобрести Renault <?=$model->name;?> на выгодных условиях и обеспечат качественную страховую защиту. 
 								</p>
