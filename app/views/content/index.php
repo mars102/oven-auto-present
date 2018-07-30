@@ -84,12 +84,13 @@
 			<?php foreach ($news as $key => $new) : ?>
 				<div class="col-sm-6 news-block">
 					<a class="news_link" href="/content/viewnew/<?= $new->id;?>">
+					<i class="news-date hidden-xs" style=""><?= $new->getBeginDate();?></i>
 						<div class="row">
-							<div class="col-sm-3  news-img-block">
+							<div class="col-sm-4  news-img-block">
 								<img src="http://admin.oven-auto.ru<?=$new->getMainPic();?>">
 							</div>
-							<div class="col-sm-9 " style="padding-left: 30px;padding-top: 10px;">
-								<i class="news-date"><?= $new->getBeginDate();?></i>
+							<div class="col-sm-8 news-content" style="padding-left: 30px;padding-top: 10px;">
+								<i class="news-date visible-xs"><?= $new->getBeginDate();?></i>
 								<h3 class="news-title">
 									<?= $new->title; ?>
 								</h3>
