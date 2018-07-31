@@ -380,6 +380,18 @@ Class company extends \app\core\Model
             </div>
             <div class="col-xs-12 company-text" style="font-size: 10px;display: none;">
                 <?=$this->text;?>
+                <?php if($this->timer) : ?>
+                    <?php //js не всегда парсит дату поэтому формат даты лучше задать через дефисы YYYY-MM-DD?>
+                    <div class="timer" data-deadline="<?=date('Y-m-d',$this->day_out);?>">
+                        <div class=''>
+                            <div>&nbsp</div> 
+                            <span><b>&nbsp</b><br/> &nbsp </span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                <?php endif;?>
             </div>
         </div>
     <?
