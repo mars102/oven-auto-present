@@ -168,7 +168,10 @@
 </style>
 
 <!--USER Modal -->
-<div class="modal fade userModal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+      
+
+<div class="modal fade userModal" id="exampleModal" tabindex="-1" role="dialog" onload="setFocus()" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -244,25 +247,7 @@
   <link rel="stylesheet" type="text/css" href="/lib/rippleria-master/css/jquery.rippleria.min.css">
   <script src="/lib/cart.js"></script>
 
-  <!--CALENDAR TCALL-->
-  <link href="/lib/air-datepicker-master/css/datepicker.min.css" rel="stylesheet" type="text/css">
-  <script src="/lib/air-datepicker-master/js/datepicker.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $(document).on('focus', '.date_', function(e){
-        $(this).addClass('datepicker-here');
-        $(this).datepicker({
-          changeMonth: true,
-          changeYear: true,
-          dateFormat: 'dd-mm-yy',
-          //yearRange: '1920:2020',
-          timepicker: true});
 
-
-          //.data('datepicker');
-      });
-    })
-  </script>
 
   
 
@@ -293,7 +278,11 @@
 
           $(".userModal").find(".modal-body").find("form").append(obj['html']);
           
-          
+         // $(this).attr("id", "kysa3");
+         // document.getElementById("kysa").focus();
+         $(".date_").trigger('click');
+        // $(".phone").trigger('click');
+        // document.getElementById("kysa2").focus(); 
         },
         error: function(){
           alert("Ошибка");
@@ -301,11 +290,14 @@
       });
       
       $(".userModal").modal("show");
+     
+      
     })
   })
   /*$('.userModal').on('shown.bs.modal', function (e) {
     alert('Модальное окно успешно показано!');
   });*/
+
 </script>
 
 <script type="text/javascript">
@@ -327,6 +319,27 @@
     })
 });
 </script>
+
+  <!--CALENDAR TCALL-->
+  <link href="/lib/air-datepicker-master/css/datepicker.min.css" rel="stylesheet" type="text/css">
+  <script src="/lib/air-datepicker-master/js/datepicker.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(document).on('click', '.date_', function(e){
+       
+          
+        $(this).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: 'dd-mm-yy',
+          //yearRange: '1920:2020',
+          timepicker: true});
+         
+
+          //.data('datepicker');
+      });
+    })
+  </script>
 
 
 <!--justyGallery-->

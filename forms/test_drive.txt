@@ -23,7 +23,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 		
 		$form .= '</select>';
 
-		$form .= '<input type="text" class="date_" required="" name="date" style="display: none;" placeholder="Выберите дату" value="">';
+		$form .= '<input type="text" class="date_" required="" name="date" style="" placeholder="Выберите дату" value="">';
 
 
 
@@ -44,7 +44,9 @@ $cars = \app\models\car_available::getTestDriveCars();
 						<div class="col-sm-4 col-sm-offset-8">
 							<button type="button" id="submit-button" class="button button-black">Отправить<i class="fa fa-angle-right"></i></button>
 						</div>
-				</div>';
+				</div>
+				
+				';
 
 		return $form;
 			
