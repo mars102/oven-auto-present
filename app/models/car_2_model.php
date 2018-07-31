@@ -147,7 +147,7 @@ Class car_2_model extends \app\core\Model
 	
 				<a class="tab-car hidden-xs" href="/content/viewcar/<?= $this->link;?>">
 					<img src="http://admin.oven-auto.ru<?= $this->icon; ?>">
-					<span class="car-name"><?= $this->name;?></span>
+					<span class="car-name"><?= $this->label;?> <?= $this->name;?></span>
 					<!--span class="number-circle" style="font-size: 14px;"><?//=\app\models\car_available::getCountModel($this->id);?></span-->
 					<span style="display:block;" class="car-name">
 						<small style="text-transform:lowercase !important;">от</small> 

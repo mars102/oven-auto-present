@@ -264,7 +264,7 @@
 				<?php if(!empty($_SESSION['cartcolor'])) : ?>
 					<form action="/content/compare" method="post" style="display:inline;">
 						<button style="<?=$_SESSION['cartcolor'];?>" class="filter-sort non-border" type="submit">
-							<i class="fa fa-sliders" aria-hidden="true"></i> Сравнить выбранные(<span class="cart-from"><?=\app\core\Html::getCountCart();?></span>)
+							<i class="fa fa-sliders" aria-hidden="true"></i> Сравнить выбранные (<span class="cart-from"><?=\app\core\Html::getCountCart();?></span>)
 						</button>
 					</form>
 				<?php endif;?>
