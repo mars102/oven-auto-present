@@ -333,7 +333,9 @@
           changeYear: true,
           dateFormat: 'dd-mm-yy',
           //yearRange: '1920:2020',
-          timepicker: true});
+          timepicker: true,
+          minDate: new Date()
+        });
          
 
           //.data('datepicker');
