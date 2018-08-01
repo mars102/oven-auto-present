@@ -275,7 +275,7 @@
 		    	<?php 
 		    	if($countCompany['company_sale']) : ?>
 		        	<span class="text-center hidden-xs" style="padding: 0px; position: relative;">
-		    			<a class="icon-hover scrollto" href="#tosale" style="pointer-events:auto;">
+		    			<a class="icon-hover scrollto" href="#tocompany" style="pointer-events:auto;">
 							<i  
 								class="hovicon effect-3 sub-b icon-img icofont icofont-sale-discount" 
 								style="font-size:40px;display:block;margin:auto;margin-top:0px;color:"#ddd";" >
@@ -296,7 +296,7 @@
 		    		
 		    	<?php if($countCompany['company_gift']) : ?>
     				<div class="text-center hidden-xs" style="padding: 0px; position: relative;">
-    					<a class="icon-hover scrollto" href="#tosurprise" style="pointer-events: auto;">
+    					<a class="icon-hover scrollto" href="#tocompany" style="pointer-events: auto;">
     						<i 
     							class="hovicon effect-3 sub-b icon-img icofont icofont-gift"
     							style="font-size:40px;display:block;margin:auto;margin-top:0px;color: #ddd;" 
@@ -318,7 +318,7 @@
 				<!--ACTION-->
 				<?php if($countCompany['company_action']) : ?>
 				    <div class="text-center hidden-xs" style="padding: 0px; position: relative;">
-						<a class="icon-hover scrollto" href="#" style="pointer-events: auto;">
+						<a class="icon-hover scrollto" href="#tocompany" style="pointer-events: auto;">
 							<i 
 								class="hovicon effect-3 sub-b icon-img icofont icofont-rocket"
 								style="font-size:40px;display:block;margin:auto;margin-top:0px;color: #ddd;" 
@@ -338,7 +338,7 @@
 				<!--Services-->
 				<?php if($countCompany['company_service']) : ?>
 		    		<div class="text-center hidden-xs" style="padding: 0px; position: relative;">
-						<a class="icon-hover scrollto" href="#" style="pointer-events: auto;">
+						<a class="icon-hover scrollto" href="#tocompany" style="pointer-events: auto;">
 							<i 
 								class="hovicon effect-3 sub-b icon-img icofont icofont-badge"
 								style="font-size:40px;display:block;margin:auto;margin-top:0px;color: #ddd;" 
@@ -546,7 +546,7 @@
 </div>
 <!--ABOUT CAR AGREGAT OPTION END-->
 
-
+<a id="tocompany"></a>
 <?php 
 	\app\models\company::getContainerCompany($company,$car);
 ?>

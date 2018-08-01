@@ -273,7 +273,7 @@ Class company extends \app\core\Model
         {
             if($skidka>$this->max && $this->max!=0)
                 $skidka = $this->max;
-            $skidka = round($skidka,-3);
+            $skidka = round($skidka,-2);
             $skidka = number_format($skidka,0,'',' ')." руб. ";
         }
 
@@ -371,7 +371,7 @@ Class company extends \app\core\Model
                         data-id="<?=$this->id;?>" 
                         style="width:100%;cursor: pointer;display: flex;align-items: center;"
                     >
-                        <div class="" style="font-size: 18px;width: 25px; height: 25px; border:1px solid #acacac;margin: auto;"></div>
+                        <div class="" style="font-size: 18px;width: 25px; height: 25px; border:1px solid #ccc;margin: auto;"></div>
                     </div>
                 </div>
                 <div class="col-xs-10" style="padding-left: 0px;">

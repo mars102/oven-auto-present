@@ -263,7 +263,7 @@
 
 				<?php if(!empty($_SESSION['cartcolor'])) : ?>
 					<form action="/content/compare" method="post" style="display:inline;">
-						<button style="<?=$_SESSION['cartcolor'];?>" class="filter-sort non-border" type="submit">
+						<button style="" class="filter-sort non-border" type="submit">
 							<i class="fa fa-sliders" aria-hidden="true"></i> Сравнить выбранные (<span class="cart-from"><?=\app\core\Html::getCountCart();?></span>)
 						</button>
 					</form>
@@ -272,10 +272,10 @@
 			</div>
 			<div class="col-sm-6 text-right" >
 				<button style="<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
-					<i class="fa fa-sort-amount-asc"></i> Сначала дешёвые
+					<i class="fa fa-sort-amount-asc"></i> Сначала дешевле
 				</button>
 				<button style="<?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
-					<i class="fa fa-sort-amount-desc"></i> Сначала дорогие
+					<i class="fa fa-sort-amount-desc"></i> Сначала дороже
 				</button>
 			</div>
 		</div>

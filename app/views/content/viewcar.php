@@ -22,7 +22,7 @@
 				</span>
 			</div>
 			<div class="col-sm-4 text-left">
-				<div class="small-price-info">Доступно для продажи</div>
+				<div class="small-price-info">Сейчас в продаже</div>
 				<div class="big-price">
 					<?=\app\models\car_available::getCountModel($models->id);?>
 					<?=\app\core\Html::getStrCars(\app\models\car_available::getCountModel($models->id));?>

@@ -57,8 +57,8 @@
 					<table class="table">
 						<tr><td class="location" style="font-size: 18px;">Этап поставки</td></tr>
 					<?php foreach ($option as $key => $value) : ?>
-						<tr>
-							<td class="option" main="true" data-sub-class="<?=$key;?>" style="font-size: 15px; display: block;"><?=$value;?></td>
+						<tr style="border:0px;">
+							<td class="option" main="true" data-sub-class="<?=$key;?>" style="border:0px;font-size: 15px; display: block;"><?=$value;?></td>
 						</tr>
 					<?php endforeach;?>
 					</table>
@@ -106,18 +106,18 @@
 							<span style="display: block;color: #333;font-size: 16px;"><?=$car->complect->name;?></span>
 							<span style="display: block;color: #333;font-size: 16px;"><?=$car->motor->getMotorForUser($car->model->type);?></span>	
 							<span style="display: block;color: #333;font-size: 16px;text-transform: uppercase;"><?=$car->complect->code;?></span>
-								<?php $color="#333";?>
-								<?php if(!empty($car->sale)) $color="red";?>
-								<span style="display: block;color: <?=$color;?>;font-size: 20px;font-weight: bold;">
-									<?=number_format($car->getCarPrice()-$car->sale,0,'',' ');?> руб.
-								</span>
+							<span style="display: block;color: #333;font-size: 20px;font-weight: bold;">
+								<?=number_format($car->getCarPrice(),0,'',' ');?> руб.
+							</span>
 						</div>
 
 						<table class="table"style="width: 100%;">
 							<tr><td class="location" style="font-size: 15px;"><?=$car->getLocation();?></td></tr>
 							<?php foreach ($car->compare as $key => $value) : ?>
-								<tr>
-									<td class="option" sub="true" data-sub-class="<?=$key;?>" style="font-size: 12px; color:#999;overflow: hidden; display: block;"><?=$value;?></td>
+								<tr style="border:0px;">
+									<td class="option" sub="true" data-sub-class="<?=$key;?>" style="border:0px;font-size: 12px; color:#999;overflow: hidden; vertical-align: middle;">
+										<?=$value;?>
+									</td>
 								</tr>
 							<?php endforeach;?>
 						</table>
@@ -134,12 +134,12 @@
 						</div>
 
 						<div class="col-sm-12" style="background: #fff; padding:0px;padding-top: 15px;">
-							<div class="col-sm-12" style="margin-bottom:5px;">
+							<div class="col-sm-12" style="margin-bottom:5px;padding: 0px;">
 								<button data-del-id="<?=$car->id;?>" class="delete-car-cart button button-black" style="margin-bottom:5px; position:relative;left:0px;">
 									Исключить<i class="icofont icofont-close-line"></i>
 								</button>
 							</div>
-							<div class="col-sm-12">
+							<div class="col-sm-12" style="padding: 0px;">
 								<a style="" target="_blank" class="button-yellow button" href="/content/viewavacar/<?=$car->id;?>">
 									Подробнее<i class="fa fa-angle-right"></i>
 								</a>
