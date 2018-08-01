@@ -360,7 +360,8 @@ Class AjaxController extends \app\core\Controller
 				" Комплектация: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.".
 				" Опции: ".number_format($packs,0,'',' ')." руб.".
 				" Аксессуары: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.".
-				'. '.strip_tags($saleman);
+				'. '.strip_tags($saleman).
+				'. Комментарий: '.$order->client_comment;
 				//" Действующая скидка: ".number_format($order->car->getParam('sale'),0,'',' ')." руб."
 			;
 		}
