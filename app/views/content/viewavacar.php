@@ -108,11 +108,13 @@
 							check="<?=$status;?>" 
 							data-param="<?=$car->id;?>"
 						>
+						<div class="">
 							<i 
 								class="hovicon effect-3 sub-b icon-img fa fa-star-o"  
 								style="font-size:40px;margin:auto;margin-top:0px;color: <?=$color;?>"
 							></i>
 							<span class="icon-text" style="color:#333">Запомнить</span>
+						</div>
 						</div>
 				</div>
 
