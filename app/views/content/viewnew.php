@@ -33,11 +33,12 @@
 			<?php endif;?>
 		</div-->
 
-		<div class="col-sm-4 col-sm-offset-8 text-right">
+		<div class="col-sm-4 col-sm-offset-4 text-center">
 			<div class="">
 				<a class="button button-yellow" href="<?= $_SERVER['HTTP_REFERER'];?>">Вернуться назад<i class="fa fa-angle-left"></i></a>
 			</div>
 		</div>
+		
 	</div>
 </div>
 
