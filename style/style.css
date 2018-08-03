@@ -162,16 +162,22 @@ a:focus{text-decoration: none; color: inherit;}
 }
 
 #top{
-	border: 50px solid transparent; border-right: 50px solid rgba(255, 204, 51, 0.7); border-bottom: 50px solid rgba(255, 204, 51, 0.7);
 	position:fixed;
-	bottom: 0px;
-	right: 0px;
+	bottom: 10px;
+	right: 10px;
 	z-index: 999;
-	display: none;
+	background: linear-gradient(45deg, rgba(200,30,40,0.9), rgba(240,30,40,0.7));
+	display: flex;align-items: center;
+	text-align: center;
+	border-radius: 100%;
+	width: 60px;
+	height: 60px;
+	/*display: none;*/
 	cursor:pointer;
+
 }
 #top i{
-	position:absolute;font-size: 50px;color:#fff;
+	font-size: 50px;color:#fff;margin: auto;
 }
 
 
