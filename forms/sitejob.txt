@@ -1,0 +1,17 @@
+<?php
+return '
+	<style>
+		@media screen and (min-width: 600px) {
+			#phoneform {border-left:0px !important;}
+
+		}
+	</style>
+
+	
+	<textarea required="true" name="comment" placeholder="Ваш комментарий"></textarea>
+	<div class="row">	
+			<div class="col-sm-12 ">
+				<button type="button" id="submit-button" class="button button-black">Отправить<i class="fa fa-angle-right"></i></button>
+			</div>
+	</div>
+	';
