@@ -55,7 +55,7 @@ Class AjaxController extends \app\core\Controller
 			if ($pos === false) {
 			    
 			} else {
-			    echo "Ошибка: нельзя передаватьссылки в письме.";
+			    echo "Ошибка: нельзя передавать ссылки в письме.";
 			    return;
 			}
 		}
