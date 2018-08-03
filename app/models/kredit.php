@@ -48,7 +48,7 @@ Class kredit extends \app\core\Model
 	public function getKreditByIdCar($id)
 	{
 		$sql = "SELECT k.id,k.day_in,k.day_out,k.contribution,k.rate,k.pay,k.period,k.disklamer,k.name,k.banner,k.dopoption 
-				FROM kredit as k join kredit_car as c on c.id_kredit = k.id WHERE c.id_model = ? GROUP bY k.id";
+				FROM kredit as k join kredit_car as c on c.id_kredit = k.id WHERE c.id_model = ? GROUP bY k.id ORDER BY k.day_in";
 		$mas = array($id);
 		$data = $this->getCustomSQL($sql,$mas);
 		return $data;
@@ -57,7 +57,7 @@ Class kredit extends \app\core\Model
 	public function getActualKreditList()
 	{
 		$model = new \app\models\car_2_model();
-		$sql = "SELECT * FROM `kredit` /*WHERE FROM_UNIXTIME(day_in)<=CURRENT_DATE() AND FROM_UNIXTIME(day_out)>=CURRENT_DATE()*/";
+		$sql = "SELECT * FROM `kredit` ORDER BY day_in /*WHERE FROM_UNIXTIME(day_in)<=CURRENT_DATE() AND FROM_UNIXTIME(day_out)>=CURRENT_DATE()*/";
 		$data = $this->getCustomSQL($sql);
 		foreach ($data as $key => $kredit) {
 			$sql = "SELECT GROUP_CONCAT(id_model) as model FROM kredit_car WHERE id_kredit = {$kredit->id}  ORDER BY id_model";
