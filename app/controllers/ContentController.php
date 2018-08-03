@@ -135,7 +135,8 @@ Class ContentController extends \app\core\Controller
 		$model->getBrand();
 		$model->complect = $complect;
 		$model->character = $character->getCharacterByIdModel($model->id);
-		$model->palette = $palette->getColorListByModelColorId($model->color);
+		$model->palette = $palette->getColorListByComplect($complect->id);
+		
 		$kredit = new \app\models\kredit();
 		$kredit = $kredit->getKreditByIdCar($model->id);
 		$test = \app\models\testdrive::getTestCar($model->id);
