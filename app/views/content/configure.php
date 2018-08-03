@@ -177,7 +177,7 @@
     </div>
     <!--END SMALL DISPLAY-->
 
-    <div class="col-sm-4" style="float: left;">
+    <div class="col-sm-4" style="">
         <?php if(is_array($model->complect->packs)) : ?>
         <div class="dop-option-block" >
           <div><b>Выберите опционное оборудование</b></div>
