@@ -500,6 +500,16 @@ Class ContentController extends \app\core\Controller
 		));
 	}
 
+	public function actionSitejob()
+	{
+		$form = new models\forms();
+		$form = $form->getFormsData(array(8),'pic')[0];
+		$this->view->render('viewform.php','head.php',array(
+			'title'=>$form->header,
+			'form'=>$form
+		));
+	}
+
 	public function actionContact()
 	{
 		$contacts = new models\contacts();

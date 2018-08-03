@@ -30,7 +30,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 		$form .= '<textarea required="" name="comment" placeholder="Ваш вопрос"></textarea>';
 		$form .= '<div class="row">
 			
-						<div class="col-sm-12 personal-check hidden-xs" style="padding-bottom:15px;">
+						<div class="col-sm-12 personal-check " style="padding-bottom:15px;">
 							<input type="checkbox" required="" name="valid" style="width:auto; display:none" id="check-client">
 							<i class="fa fa-circle-thin check-client" aria-hidden="true"></i>
 							<label for="check-client" >
