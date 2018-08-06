@@ -7,7 +7,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 				
 		$form .= '<div class="col-sm-4" style="padding-right: 0px; padding-left: 0px;"><input required="" type="text" class="phone" name="phone" placeholder="Ваш телефон"></div>';
 
-		$form .= '<select name="test" disabled>';
+		$form .= '<select name="test" >';
 			
 			$form .= '<option disabled="" selected="">Автомобиль для тест-драйва</option>';
 			if(is_array($cars)) :

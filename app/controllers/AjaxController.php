@@ -39,7 +39,7 @@ Class AjaxController extends \app\core\Controller
 	public function actionProcessor()
 	{
 		$sumpack = 0;
-		$packs = "";
+		$packs = 0;
 		if(empty($_POST['type']))
 		{
 			echo "Произошла ошибка, сообщение не доставлено.";
@@ -115,6 +115,7 @@ Class AjaxController extends \app\core\Controller
 		{
 			$order->getCar();
 			$packs = $order->getCustomSQLNonClass("SELECT price FROM packprice WHERE id = {$order->car->getParam('id')}")[0]['price'];
+			//echo "SELECT price FROM packprice WHERE id = {$order->car->getParam('id')}";
 		}
 		$test = $order->getParam('test');
 		if(!empty($test))
@@ -221,13 +222,13 @@ Class AjaxController extends \app\core\Controller
 				Желаемая дата проведения тест-драйва: ".$order->getParam('client_date')."
 			</div>";
 			$str .= "<div class=''>
-				Полная стоимость автомобиля: ".number_format($order->car->getTotalCarPrice(),0,'',' ')." руб.
+				Полная стоимость автомобиля: ".number_format($order->car->getCarPrice(),0,'',' ')." руб.
 			</div>";
 			$str .= "<div class=''>
 				Цена базы: ".number_format($order->car->complect->getParam('price'),0,'',' ')." руб.
 			</div>";
 			$str .= "<div class=''>
-				Цена опций: ".number_format($packs,0,'',' ')." руб.
+				Цена опций: ".number_format($order->car->getPackPrice(),0,'',' ')." руб.
 			</div>";
 			$str .= "<div class=''>
 				Цена доп. оборудования: ".number_format($order->car->getParam('dopprice'),0,'',' ')." руб.
