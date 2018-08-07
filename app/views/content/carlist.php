@@ -274,12 +274,25 @@
 				<button style="<?=$_SESSION['sortmincolor'];?>" class="filter-sort non-border" form="filter-form" name="sortmintomax" type="submit">
 					<i class="fa fa-sort-amount-asc"></i> Сначала дешевле
 				</button>
-				<button style="<?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
+				<button id="demo" style="<?=$_SESSION['sortmaxcolor'];?>" class="filter-sort" form="filter-form" name="sortmaxtomin" type="submit">
 					<i class="fa fa-sort-amount-desc"></i> Сначала дороже
 				</button>
 			</div>
 		</div>
-	
+		<script type="text/javascript">	
+				$(document).ready(function() {
+					  guiders.createGuider({
+    attachTo: "#demo",
+    buttons: [{name: "Закрыть",onclick:guiders.hideAll}],
+    title: "Нажми здесь чтобы переместиться к следующему элементу",
+    description: "Подсказки могут быть использованы для перемещения по элементам страницы",      
+    id: "tip",
+    overlay: true,
+    position:9,
+    autoFocus:true
+    }).show();
+				});
+				</script>
 
 
 		<!--КНОПКИ ДЛЯ МАЛОГО ДИСПЛЕЯ-->

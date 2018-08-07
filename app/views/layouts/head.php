@@ -242,6 +242,11 @@
   <script type="text/javascript" src="/lib/sweetalert/sweetalert.js"></script>
   <link rel="stylesheet" type="text/css" href="/lib/sweetalert/sweetalert.css">
 
+  <!--Всплывающие подсказки-->
+  <link rel="stylesheet" type="text/css" href="/lib/podskaz/css/guiders-1.3.0.css" />
+  <script type="text/javascript" src="/lib/podskaz/js/guiders-1.3.0.js"></script>
+ 
+
   <!--pulsar-->
   <script src="/lib/rippleria-master/js/jquery.rippleria.min.js"></script>
   <link rel="stylesheet" type="text/css" href="/lib/rippleria-master/css/jquery.rippleria.min.css">
@@ -249,7 +254,7 @@
 
 
 
-  
+  <?php require_once(ROOT.'/forms/animationmesege.php');?>
 
 <script>
   $(document).ready(function(){
@@ -281,6 +286,12 @@
          // $(this).attr("id", "kysa3");
          // document.getElementById("kysa").focus();
          $(".date_").trigger('click');
+                // <!--Календарь подменный фонд в случае с мобилками -->
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  
+alert(true);
+  } else { alert(false);}
         // $(".phone").trigger('click');
         // document.getElementById("kysa2").focus(); 
         },
@@ -334,7 +345,8 @@
           dateFormat: 'dd-mm-yy',
           //yearRange: '1920:2020',
           timepicker: true,
-          minDate: new Date()
+          minDate: new Date(),
+          beforeShow: function(){$('input').blur();}
         });
          
 
@@ -536,6 +548,7 @@
   
 
 </style>
+
 
 
 

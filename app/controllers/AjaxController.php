@@ -167,7 +167,7 @@ Class AjaxController extends \app\core\Controller
 			$send = mail($to, $subject, $htmlHead, $headers); 
 			if($send)
 			{
-				echo "Ваше сообщение успешно доставлено. В ближайшее время наш специалист с Вами свяжется.";
+				echo "1";
 				return;
 			}
 			else
