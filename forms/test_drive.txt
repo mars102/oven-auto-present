@@ -7,7 +7,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 				
 		$form .= '<div class="col-sm-4" style="padding-right: 0px; padding-left: 0px;"><input required="" type="text" class="phone" name="phone" placeholder="Ваш телефон"></div>';
 
-		$form .= '<select name="test" >';
+		$form .= '<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px; height:38px;"><select required="" name="test" >';
 			
 			$form .= '<option disabled="" selected="">Автомобиль для тест-драйва</option>';
 			if(is_array($cars)) :
@@ -16,14 +16,18 @@ $cars = \app\models\car_available::getTestDriveCars();
 					$car->model->name.' '.
 					$car->complect->name.' '.
 					$car->motor->getMotorForUser($car->model->type).
-				'</option>';
+				'</option> ';
 			endforeach;
 			endif;
 			
 		
-		$form .= '</select>';
+		$form .= '</select> </div>';
 
-		$form .= '<input type="text" class="date_" required="" name="date" style="" placeholder="Выберите дату" value="">';
+		$form .= '<div class="col-sm-4" style="padding-right: 0px; padding-left: 0px;">
+		<input id="data_mob" type="date" class="" required="" name="date" placeholder="Выберите дату" value="'.date('Y-m-d').'" max="'.date('Y-m-d',time()+60*60*24*30).'" min="'.date('Y-m-d').'" style="width: 100%; height:38px;">
+		<input id="data_desk"  type="text" class="date_" required="" name="date" placeholder="Выберите дату" value="" style="">
+
+		</div>';
 
 
 
