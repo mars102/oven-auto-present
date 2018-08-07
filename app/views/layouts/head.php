@@ -286,12 +286,17 @@
          // $(this).attr("id", "kysa3");
          // document.getElementById("kysa").focus();
          $(".date_").trigger('click');
+         $("#data_desk").trigger('click');
+         $("#data_mob").trigger('click');
                 // <!--Календарь подменный фонд в случае с мобилками -->
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
   
-alert(true);
-  } else { alert(false);}
+  $("#data_desk").remove();
+
+
+  } else { $("#data_mob").remove();}
+        
         // $(".phone").trigger('click');
         // document.getElementById("kysa2").focus(); 
         },
