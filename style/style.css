@@ -26,6 +26,7 @@ a:hover{text-decoration: none;}
 a:focus{text-decoration: none; color: inherit;}
 
 
+
 .navbar-fixed-top {
 	padding-right: 15px !important;
 	padding-left: 15px !important;
@@ -237,6 +238,11 @@ a:focus{text-decoration: none; color: inherit;}
 .mid-header img{
 	height: 50px;
 }
+@media screen and (min-width: 600px) {
+		.phone {border-left:0px !important;}
+		.datepicker-here {border-left:0px !important;}
+		#data_mob {border-left:0px !important;}
+}
 .mid-header .name, .mid-header .phone{
 	font-family: Renault;
 	font-size: 25px;
@@ -245,6 +251,7 @@ a:focus{text-decoration: none; color: inherit;}
 .mid-header .slogan, .mid-header .address{
 	font-family: Renault;
 }
+
 @media screen and (max-width: 500px){
 	.mid-header img{
 		height: 40px;
@@ -1284,7 +1291,7 @@ a:focus{text-decoration: none; color: inherit;}
 .modal-btn {text-decoration: none;}
 .modal-btn-active:hover{text-decoration: none;background: linear-gradient(to bottom,#FFCD00,#ff9900);color: #333;}
 .modal-body form input,.modal-body form textarea{ 
-	border:1px solid #ccc !important;
+	border:1px solid #ccc;
 	padding: 5px;
 	border-radius: 0 !important;
 }
