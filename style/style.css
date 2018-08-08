@@ -1656,6 +1656,13 @@ a:focus{text-decoration: none; color: inherit;}
 .checkbox:checked + label:before {
   background: #9FD468;
 }
+
+.red-check:checked + label:before {
+  background: #f00;
+  
+}
+
+
 /* Сдвигаем переключатель чекбокса, когда он включен. */
 .checkbox:checked + label:after {
   left: 15px;

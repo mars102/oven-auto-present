@@ -26,14 +26,26 @@ Class car_color extends \app\core\Model
 		$colcom = new \app\models\color_complect();
 
 		$colcom = $colcom->getCustomSQL("SELECT * FROM {$colcom->table} WHERE id_complect = ?",array($complect));
-
+		//\app\core\Html::prA($colcom);
 		foreach ($colcom as $key => $value) {
 			$str[] = $value->color; 
 		}
 		$str = implode(',',$str);
 
-		$sql = "SELECT * FROM $this->table WHERE id IN ({$str})";
+		$sql = "SELECT * FROM $this->table as color WHERE id IN ({$str})";
 		$result = $this->getCustomSQL($sql);
+
+		foreach ($colcom as $key => $color) {
+			foreach ($result as $tey => $value) {
+				if($value->id == $color->color)
+				{	
+					//echo "------------------------------ $value->id $color->color<br/>";
+					$result[$tey]->colorpack = $color->colorpack;
+					$result[$tey]->colorpack2 = $color->colorpack2;
+					$result[$tey]->colorpack3 = $color->colorpack3;
+				}
+			}
+		}
 		return $result;
 	}
 

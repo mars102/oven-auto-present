@@ -50,12 +50,16 @@
                       $button_1 .= '
                        <div'.
                         ' class="color-button"'.
+                        ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
                         ' data-color="'.$data_color.'"'.
                         ' data-type="'.$val.'"'.
                         ' data-double = "true" '.
                         ' style="background: '.$background.'"'.
-                        ' pay-color = "'.$pay_color.'" >'.
+                        ' pay-color = "'.$pay_color.'" '.
+                        ' color-pack = "'.$color->colorpack.'" '.
+                        ' color-pack2 = "'.$color->colorpack2.'" '.
+                        ' color-pack3 = "'.$color->colorpack3.'" >'.
                     '</div>';
                     }
                     else {
@@ -63,12 +67,16 @@
                       $button_3 .= '
                        <div'.
                         ' class="color-button"'.
+                        ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
                         ' data-color="'.$data_color.'"'.
                         ' data-double = "true" '.
                         ' data-type="'.$val.'"'.
                         ' style="background: '.$background.'"'.
-                        ' pay-color = "'.$pay_color.'" >'.
+                        ' pay-color = "'.$pay_color.'" '.
+                        ' color-pack = "'.$color->colorpack.'" '.
+                        ' color-pack2 = "'.$color->colorpack2.'" '.
+                        ' color-pack3 = "'.$color->colorpack3.'" >'.
                     '</div>';
                     }
                   }
@@ -76,11 +84,15 @@
                     $button_2 .= '
                       <div'.
                         ' class="color-button"'.
-                        'data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
-                        'data-color="'.$data_color.'"'.
-                        'data-type="'.$val.'"'.
-                        'style="background: '.$background.'"'.
-                        'pay-color = "'.$pay_color.'">'.
+                        ' data-job="1" '.
+                        ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
+                        ' data-color="'.$data_color.'"'.
+                        ' data-type="'.$val.'"'.
+                        ' style="background: '.$background.'"'.
+                        ' pay-color = "'.$pay_color.'" '.
+                        ' color-pack = "'.$color->colorpack.'" '.
+                        ' color-pack2 = "'.$color->colorpack2.'" '.
+                        ' color-pack3 = "'.$color->colorpack3.'" >'.
                     '</div>';
                   }
                 ?>
@@ -194,86 +206,7 @@
             <a style="float: left; padding: 0;" href="#colorlist" class="scrollto">Изменить цвет</a>
           </div>
 
-          <?php foreach ($model->complect->packs as $key => $pack) : ?>
-            <?php 
-              $check = "";
-              $znak = "+";
-              if(in_array($pack->id,$install_pack))
-              {
-                $check = "checked";
-                $znak = '-';
-              }
-            ?>
-            <?php if (strripos($pack->option_list, 'металлик') !== false) :?>
-
-              <div class=""><?=$pack->name;?></div>
-              <div class="pack-list text-left"><?=$pack->option_list;?></div>
-              <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
-                <div style="float: left;">
-                  
-                    <input 
-                      <?=$check;?>
-                      value="<?=$pack->id;?>" 
-                      type="checkbox" 
-                      name="packs[]" 
-                      class="checkbox " 
-                      id="checkbox<?=$pack->id;?>" 
-                      data-znak='<?=$znak;?>' 
-                      data-price="<?=$pack->price;?>"
-                      form = "userModal"
-                    >
-                    
-                    <label style="display: inline; " for="checkbox<?=$pack->id;?>"></label>
-                </div>
-                <div class="checkboxlabeldo">  
-                               
-                    <span class="checkboxlabelon"><?= $pack->code;?></span>
-                 
-                </div>
-                <div style="float: right;">
-                    <span style=""><?=number_format($pack->price,0,'',' ');?> руб.</span>
-                </div>
-              </div>
-              
-              <?php unset($model->complect->packs[$key]);?>
-
-            <?php endif;?>
-
-            <?php if (strripos($pack->option_list, 'двухцветная') !== false) :?>
-
-              <div class=""><?=$pack->name;?></div>
-              <div class="pack-list text-left"><?=$pack->option_list;?></div>
-              <div style="border-top:1px dashed #ccc"></div>
-              <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
-                <div style="float: left;">
-                   <input 
-                      <?=$check;?>
-                      value="<?=$pack->id;?>" 
-                      type="checkbox" 
-                      name="packs[]" 
-                      class="checkbox " 
-                      id="checkbox<?=$pack->id;?>" 
-                      data-znak='<?=$znak;?>' 
-                      data-price="<?=$pack->price;?>"
-                      form = "userModal"
-                    >
-                    
-                    <label style="display: inline; " for="checkbox<?=$pack->id;?>"></label>
-                </div>
-                <div class="checkboxlabeldo">   
-                  <span class="checkboxlabelon"><?= $pack->code;?></span>
-                </div>
-                <div style="float: right;">
-                  <span><?=number_format($pack->price,0,'',' ');?> руб.</span>
-                </div> 
-              </div>
-              
-              <?php unset($model->complect->packs[$key]);?>
-
-            <?php endif;?>
-          
-          <?php endforeach;?>
+         
 
           <?php foreach ($model->complect->packs as $pack) : ?>
             <?php 
@@ -292,6 +225,8 @@
               <div class="pack-price text-right " style="position: relative; display: inline-block; width: 100%;">
                 <div style="float: left;">
                   <input 
+                    data-code="<?=$pack->code;?>"
+                    data-type="<?=$pack->packtype;?>"
                     <?=$check;?>
                     value="<?=$pack->id;?>" 
                     type="checkbox" 
