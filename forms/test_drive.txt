@@ -7,7 +7,7 @@ $cars = \app\models\car_available::getTestDriveCars();
 				
 		$form .= '<div class="col-sm-4" style="padding-right: 0px; padding-left: 0px;"><input required="" type="text" class="phone" name="phone" placeholder="Ваш телефон"></div>';
 
-		$form .= '<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px; height:38px;"><select required="" name="test" >';
+		$form .= '<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px; "><select required="" name="test" style="height:38px;" >';
 			
 			$form .= '<option disabled="" selected="">Автомобиль для тест-драйва</option>';
 			if(is_array($cars)) :
@@ -24,14 +24,14 @@ $cars = \app\models\car_available::getTestDriveCars();
 		$form .= '</select> </div>';
 
 		$form .= '<div class="col-sm-4" style="padding-right: 0px; padding-left: 0px;">
-		<input id="data_mob" type="date" class="" required="" name="date" placeholder="Выберите дату" value="'.date('Y-m-d').'" max="'.date('Y-m-d',time()+60*60*24*30).'" min="'.date('Y-m-d').'" style="width: 100%; height:38px;">
-		<input id="data_desk"  type="text" class="date_" required="" name="date" placeholder="Выберите дату" value="" style="">
+		<input id="data_mob" type="date" class="" required="" name="date" placeholder="Выберите дату" value="'.date('Y-m-d').'" max="'.date('Y-m-d',time()+60*60*24*30).'" min="'.date('Y-m-d').'" style="width: 100%; height:38px; margin-bottom: 5px;">
+		<input id="data_desk"  type="text" class="datepicker-here" required="" name="date" placeholder="Выберите дату" value="" style="height:38px;" autocomplete="off">
 
 		</div>';
 
 
 
-		$form .= '<textarea required="" name="comment" placeholder="Ваш вопрос"></textarea>';
+		$form .= '<div class="row"><div class="col-sm-12"><textarea required="" name="comment" placeholder="Ваш вопрос"></textarea></div></div>';
 		$form .= '<div class="row">
 			
 						<div class="col-sm-12 personal-check " style="padding-bottom:15px;">
