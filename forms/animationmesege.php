@@ -142,7 +142,7 @@ function myanime () {
 
 	function resultMesege (result) {
    		$('.userModal .modal-body .send-form').html("");
-   		var count_modal = 0;
+   		
    		
 
          
