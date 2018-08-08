@@ -195,14 +195,16 @@
           <div><b>Выберите опционное оборудование</b></div>
           
           <div class="pack-list color-visible" style="font-weight: normal;">
-            <span id="current-code"></span>, <span id="current-color"></span><span id="current-type" ></span>
+            <span id="current-code"></span> <span id="current-color"></span><span id="current-type" ></span>
           </div>
               
           <div style="border-top:1px solid #fc3"></div>
 
           <div class="pack-list text-left" style="padding-bottom: 30px;padding-top: 3px;">
             
-            <span id="current-view-color" style="border:1px solid #bbb;width: 20px;height: 20px; border-radius: 100%; display: inline-block;float: right;"></span>
+            <span id="current-view-color" 
+                  style="border:1px solid #bbb;width: 20px;height: 20px; border-radius: 100%; display: block;float: left;margin-right: 20px;">
+            </span>
             <a style="float: left; padding: 0;" href="#colorlist" class="scrollto">Изменить цвет</a>
           </div>
 
