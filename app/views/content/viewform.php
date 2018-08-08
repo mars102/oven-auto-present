@@ -19,5 +19,13 @@
 	</div>
 <!--/div-->
 <script>
+
 	$("form h2").remove();
+	$(".date_").trigger('click');
+    $("#data_desk").trigger('click');
+    $("#data_mob").trigger('click');
+
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  	  $("#data_desk").remove();
+    } else { $("#data_mob").remove();}
 </script>
