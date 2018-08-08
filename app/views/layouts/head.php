@@ -288,14 +288,10 @@
          $(".date_").trigger('click');
          $("#data_desk").trigger('click');
          $("#data_mob").trigger('click');
-                // <!--Календарь подменный фонд в случае с мобилками -->
-
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  
-  $("#data_desk").remove();
-
-
-  } else { $("#data_mob").remove();}
+         // <!--Календарь подменный фонд в случае с мобилками -->
+         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+           $("#data_desk").remove();
+         } else { $("#data_mob").remove();}
         
         // $(".phone").trigger('click');
         // document.getElementById("kysa2").focus(); 
@@ -347,11 +343,11 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
         $(this).datepicker({
           changeMonth: true,
           changeYear: true,
-          dateFormat: 'dd-mm-yy',
+          dateFormat: 'dd.mm.yyyy',
           //yearRange: '1920:2020',
           timepicker: true,
           minDate: new Date(),
-          beforeShow: function(){$('input').blur();}
+
         });
          
 
