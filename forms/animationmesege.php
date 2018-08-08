@@ -102,7 +102,7 @@ function myanime () {
 		         myLoop1();             
 		      }                        
 		   }, 10)
-		 console.log(i1);
+		 //console.log(i1);
 		}
 
 		function myLoop2 () {           
@@ -139,6 +139,61 @@ function myanime () {
 		   }, 10)
 		}
 
+
+	function resultMesege (result) {
+   		$('.userModal .modal-body .send-form').html("");
+   		var count_modal = 0;
+   		
+
+         
+	        $(".userModal").modal();
+	      	
+	      	if (result==1){
+	        	$('.userModal .modal-title').html("<b>Ваше сообщение успешно отправлено!</b>");
+	        	document.getElementById("eror1").src="/images/complite4.png";
+	        	document.getElementById("zaliv2").style.background = '#080';
+	        	document.getElementById('sheme2').style.display="none";
+	            document.getElementById('sheme').style.display="block";
+	        } else{
+	        	$('.userModal .modal-title').html("<b>Произошла ошибка! Сообщение не доставлено!</b>");
+	        	document.getElementById("eror1").src="/images/complite5.png";
+	        	document.getElementById("zaliv2").style.background = 'red';
+	        	document.getElementById('sheme2').style.display="block";
+	            document.getElementById('sheme').style.display="none";
+	        }          
+	                  
+	        document.getElementById('zaliv1').style.height=0+"%";
+	        document.getElementById('zaliv2').style.height=0+"%";
+	        document.getElementById('zaliv3').style.height=0+"%";
+	                  
+	        var block = $("#smile").clone();
+	        block.css("display","inline-block");
+	        $(".userModal .modal-body .send-form").html(block);
+	        $(".userModal").modal('show');
+
+	        $('.userModal').on('shown.bs.modal', function() {
+	        	i1 = 1;                  
+	            i2 = 1; 
+	            i3 = 1;
+	            iy=1;
+	            ty=90;
+	            $("#zaliv1").trigger('click');
+	            $("#zaliv2").trigger('click');
+	            $("#zaliv3").trigger('click');
+	            myLoop1(); myLoop2();  myLoop3(); 
+	            
+	            if (result==1){
+	            	setTimeout(function() {
+	                	myanime ();
+	                }, 600);
+	                      
+	            }    
+
+        	});
+           
+    
+
+	}	
+
  
-	
-	</script>
+</script>
