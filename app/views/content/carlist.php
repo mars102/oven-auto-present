@@ -279,20 +279,21 @@
 				</button>
 			</div>
 		</div>
-		<script type="text/javascript">	
+		<!--Подсказка-->
+		<!--script type="text/javascript">	
 				$(document).ready(function() {
 					  guiders.createGuider({
     attachTo: "#demo",
     buttons: [{name: "Закрыть",onclick:guiders.hideAll}],
-    title: "Нажми здесь чтобы переместиться к следующему элементу",
+    
     description: "Подсказки могут быть использованы для перемещения по элементам страницы",      
     id: "tip",
-    overlay: true,
+    overlay: false,
     position:9,
     autoFocus:true
     }).show();
 				});
-				</script>
+				</script-->
 
 
 		<!--КНОПКИ ДЛЯ МАЛОГО ДИСПЛЕЯ-->
