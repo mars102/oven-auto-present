@@ -12,7 +12,7 @@
     <div class=" " style=" ">
     <a id="colorlist"></a>
     <div class="col-sm-6 col-sm-offset-3" style="padding:0px;">
-      <div class="blur" >
+      <div class="" >
         <img class="present a " src="http://admin.oven-auto.ru<?=$model->alpha;?>" style="z-index: 1; width: 100%; "/>
         <?php if($model->name=='Kaptur') : ?>
             <img  class="present w " src="http://admin.oven-auto.ru/content/cars/39/w.png" style="z-index: 1; width: 100%; display: none;"/>
