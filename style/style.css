@@ -242,6 +242,7 @@ a:focus{text-decoration: none; color: inherit;}
 		.phone {border-left:0px !important;}
 		.datepicker-here {border-left:0px !important;}
 		#data_mob {border-left:0px !important;}
+		.date_{border-left:0px !important;}
 }
 .mid-header .name, .mid-header .phone{
 	font-family: Renault;
