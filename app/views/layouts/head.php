@@ -292,6 +292,16 @@
          if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            $("#data_desk").remove();
          } else { $("#data_mob").remove();}
+
+         $(function () {
+     $('.date_').datetimepicker({
+        locale: 'ru',
+    stepping:10,
+    format: 'DD.MM.YYYY',
+    defaultDate: moment('01.11.2017').format('DD.MM.YYYY'),
+    daysOfWeekDisabled:[0,6]
+      });
+    });
         
         // $(".phone").trigger('click');
         // document.getElementById("kysa2").focus(); 
@@ -333,13 +343,14 @@
 </script>
 
   <!--CALENDAR TCALL-->
-  <link href="/lib/air-datepicker-master/css/datepicker.min.css" rel="stylesheet" type="text/css">
+  <!--link href="/lib/air-datepicker-master/css/datepicker.min.css" rel="stylesheet" type="text/css">
   <script src="/lib/air-datepicker-master/js/datepicker.min.js"></script>
   <script>
     $(document).ready(function(){
-      $(document).on('click', '.date_', function(e){
-       
-          
+         $(document).on('click', '.date_', function(e){
+
+    
+      
         $(this).datepicker({
           changeMonth: true,
           changeYear: true,
@@ -354,6 +365,18 @@
           //.data('datepicker');
       });
     })
+  </script-->
+  <script src="/lib/datapicer/js/moment-with-locales.min.js"></script>
+  <script src="/lib/datapicer/js/bootstrap-datetimepicker.min.js"></script>
+  
+
+  <link rel="stylesheet" href="/lib/datapicer/css/bootstrap-datetimepicker.min.css" />
+  <script type="text/javascript">
+   $(function () {
+     $('.date_').datetimepicker({
+        locale: 'ru'
+      });
+    });
   </script>
 
 
