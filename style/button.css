@@ -200,16 +200,15 @@
 }
 
 .color-button{
-	position:relative;width: 30px; height: 30px; display: inline-block; border-radius: 10px;border: 1px solid #aaa; margin: 0px;
+	position:relative;width: 30px; height: 30px; display: inline-block; border-radius: 10px;border: 1px solid #aaa; margin: 0px;transition: 0.2s linear transform;
 }
 .color-button:hover{
-	border-color: #000;
 	opacity: 1;
+	transform: scale(0.8,0.8);
 }
 .selbutton{
 	border-color:#aaa;
-	transform: scale(1.2,1.2);
-	margin: 0 5px;
+	transform: scale(0.8,0.8);
 }
 .basecolor{
 	position: absolute;right: 0px;top: 0px;width: 10px;height: 10px; border-radius: 10px;background: #090;
