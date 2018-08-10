@@ -95,6 +95,7 @@
 	            				' data-color="'.$data_color.'"'.
 					            ' data-type="'.$val.'"'.
 					            ' style="background: '.$background.'"'.
+					            ' color-pack="q" '.
 					            ' pay-color = "'.$pay_color.'" >'.
 					        '</div>';
 	            		}
@@ -107,6 +108,7 @@
 	            				' data-color="'.$data_color.'"'.
 					            ' data-type="'.$val.'"'.
 					            ' style="background: '.$background.'"'.
+					            ' color-pack="q" '.
 					            ' pay-color = "'.$pay_color.'" >'.
 					        '</div>';
 	            		}
@@ -115,11 +117,12 @@
 	            		$button_2 .= '
 	            			<div'.
 	            				' class="color-button"'.
-	            				'data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
-	            				'data-color="'.$data_color.'"'.
-					            'data-type="'.$val.'"'.
-					            'style="background: '.$background.'"'.
-					            'pay-color = "'.$pay_color.'">'.
+	            				' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
+	            				' data-color="'.$data_color.'"'.
+					            ' data-type="'.$val.'"'.
+					            ' style="background: '.$background.'"'.
+					            ' color-pack="q" '.
+					            ' pay-color = "'.$pay_color.'">'.
 					        '</div>';
 	            	}
 	            ?>

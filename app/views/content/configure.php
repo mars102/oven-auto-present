@@ -49,7 +49,7 @@
                       $val = 'w';
                       $button_1 .= '
                        <div'.
-                        ' class="color-button"'.
+                        ' class="color-button confbutton"'.
                         ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
                         ' data-color="'.$data_color.'"'.
@@ -66,7 +66,7 @@
                       $val = 'b';
                       $button_3 .= '
                        <div'.
-                        ' class="color-button"'.
+                        ' class="color-button confbutton"'.
                         ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
                         ' data-color="'.$data_color.'"'.
@@ -83,7 +83,7 @@
                   else{
                     $button_2 .= '
                       <div'.
-                        ' class="color-button"'.
+                        ' class="color-button confbutton"'.
                         ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
                         ' data-color="'.$data_color.'"'.
@@ -230,10 +230,11 @@
                     data-code="<?=$pack->code;?>"
                     data-type="<?=$pack->packtype;?>"
                     <?=$check;?>
+
                     value="<?=$pack->id;?>" 
                     type="checkbox" 
                     name="packs[]" 
-                    class="checkbox " 
+                    class="checkbox <?=($check)?"preinstall":"";?>" 
                     id="checkbox<?=$pack->id;?>" 
                     data-znak='<?=$znak;?>' 
                     data-price="<?=$pack->price;?>"
