@@ -76,6 +76,8 @@ Class ContentController extends \app\core\Controller
 				$_SESSION['install_pack'][] = $pack->id;
 			}
 		endif;
+		$_SESSION['install_color'] = $car->color;
+
 		$kredit = new \app\models\kredit();
 		$kredit = $kredit->getKreditByIdCar($car->model->id);
 		$test = \app\models\testdrive::getTestCar($car->model->id);
@@ -126,6 +128,15 @@ Class ContentController extends \app\core\Controller
 		if(is_array($_SESSION['install_pack']))
 			$install_pack = $_SESSION['install_pack'];
 		$_SESSION['install_pack'] = "";
+
+		$install_color="";
+		if(isset($_SESSION['install_color']))
+		{
+			$install_color = $_SESSION['install_color'];
+			
+		}
+		$_SESSION['install_color']="";
+
 		$model = new \app\models\car_2_model();
 		$complect = new \app\models\car_6_complect();
 		$character = new \app\models\car_8_character_list();
@@ -148,7 +159,8 @@ Class ContentController extends \app\core\Controller
 			'test'=>$test,
 			'kredit'=>$kredit,
 			'form'=>$form,
-			'install_pack'=>$install_pack
+			'install_pack'=>$install_pack,
+			'install_color'=>$install_color
 		));
 	}
 

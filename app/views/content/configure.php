@@ -12,11 +12,11 @@
     <div class=" " style=" ">
     <a id="colorlist"></a>
     <div class="col-sm-6 col-sm-offset-3" style="padding:0px;">
-      <div class="" >
-        <img class="present a " src="http://admin.oven-auto.ru<?=$model->alpha;?>" style="z-index: 1; width: 100%; "/>
+      <div class="blur" >
+        <img install-color="<?=$install_color;?>" class="present a " src="http://admin.oven-auto.ru<?=$model->alpha;?>" style="z-index: 1; width: 100%; "/>
         <?php if($model->name=='Kaptur') : ?>
-            <img  class="present w " src="http://admin.oven-auto.ru/content/cars/39/w.png" style="z-index: 1; width: 100%; display: none;"/>
-            <img  class="present b " src="http://admin.oven-auto.ru/content/cars/39/b.png" style="z-index: 1; width: 100%; display: none;"/>
+            <img  install-color="<?=$install_color;?>" class="present w " src="http://admin.oven-auto.ru/content/cars/39/w.png" style="z-index: 1; width: 100%; display: none;"/>
+            <img  install-color="<?=$install_color;?>" class="present b " src="http://admin.oven-auto.ru/content/cars/39/b.png" style="z-index: 1; width: 100%; display: none;"/>
           <?php endif;?>
       </div>
       <div class="color-block text-center" style="">
@@ -34,6 +34,7 @@
 
                 $search = ','.$color->id.',';
                 $string = $model->pay_color;
+
                 if(strripos($string,$search)!==false) $pay_color = "true";
                     else $pay_color = "false";
 
@@ -49,6 +50,7 @@
                       $val = 'w';
                       $button_1 .= '
                        <div'.
+                        ($color->id==$install_color)?"installcolor":"".
                         ' class="color-button confbutton"'.
                         ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
