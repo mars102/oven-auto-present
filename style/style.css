@@ -583,7 +583,7 @@ a:focus{text-decoration: none; color: inherit;}
 	/*transition: 0.4s linear transform;*/
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 776px){
 	.tab-block a.tab-car{
 	display: block;
 	width: 100%;
