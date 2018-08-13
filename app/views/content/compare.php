@@ -161,12 +161,12 @@
 						</div>
 
 						<div class="col-sm-12" style="background: #fff; padding:0px;padding-top: 15px;">
-							<div class="col-sm-12" style="margin-bottom:5px;padding: 0px;">
+							<div style="padding: 0 10px;background: #fff;">
 								<button data-del-id="<?=$car->id;?>" class="delete-car-cart button button-black" style="margin-bottom:5px; position:relative;left:0px;">
 									Исключить<i class="icofont icofont-close-line"></i>
 								</button>
 							</div>
-							<div class="col-sm-12" style="padding: 0px;">
+							<div style="padding: 5px 10px;background: #fff;">
 								<a style="" target="_blank" class="button-yellow button" href="/content/viewavacar/<?=$car->id;?>">
 									Подробнее<i class="fa fa-angle-right"></i>
 								</a>
