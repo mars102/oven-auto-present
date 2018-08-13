@@ -6,10 +6,10 @@
 		<div class="container">
 			<div class="row">
 				<div id="tabs" class="text-center">
-					<div class="col-sm-3"><a title="tab1" href="#">Все <br/>модели</a></div>
-					<div class="col-sm-3"><a title="tab2" href="#">Легковые<br/>автомобили</a></div>
-					<div class="col-sm-3"><a title="tab3" href="#">Кроссоверы <br/>и внедорожники</a></div>
-					<div class="col-sm-3"><a title="tab4" href="#">Коммерческие <br/>автомобили</a></div>
+					<div class="col-sm-3"><a id="1" href="#">Все <br/>модели</a></div>
+					<div class="col-sm-3"><a id="2" href="#">Легковые<br/>автомобили</a></div>
+					<div class="col-sm-3"><a id="3" href="#">Кроссоверы <br/>и внедорожники</a></div>
+					<div class="col-sm-3"><a id="4" href="#">Коммерческие <br/>автомобили</a></div>
 				</div>
 			</div>
 		</div>

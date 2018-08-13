@@ -333,7 +333,7 @@
         $("#content .tab-block").hide(); //Скрыть всё содержимое
         $("#tabs div").attr("id",""); //Сброс идентификаторов
         $(this).parent().attr("id","current"); // Активация идентификаторов
-        $('#' + $(this).attr('title')).fadeIn(); // Показать содержимое текущей вкладки
+        $('#tab' + $(this).attr('id')).fadeIn(); // Показать содержимое текущей вкладки
     });
 
     $(".deletext").click(function(){
