@@ -346,30 +346,28 @@ Class ContentController extends \app\core\Controller
 		$optionArray = array();
 		foreach ($carData as $key => $value) {
 			$data = $value->getCustomSQLNonClass("
-				SELECT co.id,co.name FROM caroption as co 
+				SELECT co.id,co.name,ol.parent FROM caroption as co 
 				JOIN car_5_option_list as ol 
 					ON ol.id = co.id 
-				WHERE co.car_id = {$value->id} 
-				order BY ol.parent,ol.name"
+				WHERE co.car_id = {$value->id} "
 			);//собираем оборудование на каждой машине
 			foreach($data as $row)
 			{
-				$optionArray[$row['id']] = $row['name'];
+				$optionArray[$row['id']] = array('option'=>$row['name'],'parent'=>$row['parent'],'id'=>$row['id']);
 				$carData[$key]->usedOption[]=$row['id'];
 			}
 		}
 
-		asort($optionArray);
-		//\app\core\Html::prA($optionArray);
+		\app\models\car_5_option_list::sortOption($optionArray);
 
-		foreach($optionArray as $id => $option)
+		foreach($optionArray as $option)
 		{
 			foreach($carData as $key => $car)
 			{
-				if(in_array($id,$car->usedOption))
-					$carData[$key]->compare[$id] = "<i class='fa fa-plus'></i>";
+				if(in_array($option['id'],$car->usedOption))
+					$carData[$key]->compare[$option['id']] = "<i class='fa fa-plus'></i>";
 				else
-					$carData[$key]->compare[$id] = "<i class='fa fa-minus'></i>
+					$carData[$key]->compare[$option['id']] = "<i class='fa fa-minus'></i>
 					";
 			}
 		}

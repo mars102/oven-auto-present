@@ -3,7 +3,7 @@
 	.car-slider h2,.car-slider h3,.car-slider h4 {padding: 0px;margin: 0px;}
 	.about{padding-bottom: 50px;}
 	.about span{border-bottom: 1px dotted #ccc;}
-	.table tr:nth-child(2n){background: rgba(0,0,0,0.05);}
+	.table tr:nth-child(2n){background: #f9f9f9;}
 	.autoplay {position: relative;}
 	.autoplay .slick-prev {position: fixed;top: 200px;left: 100px;}
 	.autoplay .slick-next {position: fixed;top: 200px;right: 100px;}
@@ -56,11 +56,29 @@
 					</div>
 					<table class="table">
 						<tr><td class="location" style="font-size: 18px;">Этап поставки</td></tr>
-					<?php foreach ($option as $key => $value) : ?>
-						<tr style="border:0px;">
-							<td class="option" main="true" data-sub-class="<?=$key;?>" style="border:0px;font-size: 15px; display: block;"><?=$value;?></td>
-						</tr>
-					<?php endforeach;?>
+
+						<?php 
+							$parent = "";
+							$empty = array();
+						?>
+						<?php foreach ($option as $key => $value) : ?>
+							
+							<?php if($value['parent']!=$parent) : ?>
+								<tr><td style="border:0px;background: #fff;font-size: 20px;" class="option" main="true">
+									<?=\app\models\car_5_option_list::getParentNameStatic($value['parent']);?>
+								</td></tr>
+								<?php
+									$parent = $value['parent'];
+									$empty[] = $value['id'];
+								?>
+							<?php endif;?>
+
+							<tr style="border:0px;">
+								<td class="option" main="true" data-sub-class="<?=$value['id'];?>" style="border:0px;font-size: 15px; display: block;">
+									<?=$value['option'];?>
+								</td>
+							</tr>
+						<?php endforeach;?>
 					</table>
 
 					<div style="font-size: 20px;font-weight: bold;padding-left: 10px;">
@@ -68,10 +86,10 @@
 					</div>
 				</div>
 
-				<div class="col-sm-7 " style="padding-left: 0px;">
+				<div class="col-sm-7 " style="padding: 0px;">
 				<div class="autoplay">
 				<?php foreach ($cars as $key => $car) : ?>
-					<div class="car-slider text-center" data-type="1" style="padding: 0px; padding-left: 6px; ">
+					<div class="car-slider text-center" data-type="1" style="padding: 0px; ">
 					
 					<?php 
 						$background = $car->getColorCar()->web_code;
@@ -90,14 +108,16 @@
 						endif;
 					?>
 
-						<div class="pic" style="position:relative;background:  <?= $background; ?>" >
-							<img style="width: 100%;" src="<?=$alpha;?>">
+						<div class="pic" style="position:relative;" >
+							<img style="width: 100%;background:  <?= $background; ?>" src="<?=$alpha;?>">
 							<button data-del-id="<?=$car->id;?>" class="delete-car-cart " style="margin-bottom: 5px;" >
 								<i class="icofont icofont-close-line"></i>
 							</button>
-							<a target="" class="button button-yellow" href="/content/viewavacar/<?=$car->id;?>">
-								Подробнее<i class="fa fa-angle-right"></i>
-							</a>
+							<div style="padding: 10px;background: #fff;">
+								<a target="" class="button button-yellow" href="/content/viewavacar/<?=$car->id;?>" >
+									Подробнее<i class="fa fa-angle-right"></i>
+								</a>
+							</div>
 						</div>
 
 						<div class="about" data-type="1" style="">
@@ -114,6 +134,13 @@
 						<table class="table"style="width: 100%;">
 							<tr><td class="location" style="font-size: 15px;"><?=$car->getLocation();?></td></tr>
 							<?php foreach ($car->compare as $key => $value) : ?>
+								
+								<?php if(in_array($key, $empty)) : ?>
+									<tr><td style="border:0px;background: #fff;font-size: 20px;" class="option">
+										&nbsp
+									</td></tr>
+								<?php endif;?>
+
 								<tr style="border:0px;">
 									<td class="option" sub="true" data-sub-class="<?=$key;?>" style="border:0px;font-size: 12px; color:#999;overflow: hidden; vertical-align: middle;">
 										<?=$value;?>

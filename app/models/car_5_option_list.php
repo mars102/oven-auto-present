@@ -128,4 +128,15 @@ Class car_5_option_list extends \app\core\Model
 				break;
 		}
 	}
+
+	public static function sortOption(&$optionList)
+	{
+
+		$data_parent = array();
+		foreach ($optionList as $key => $value) {
+			$data_parent[] = $value['parent'];
+		}
+		array_multisort($data_parent,$optionList);
+		
+	}
 }
