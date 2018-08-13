@@ -303,6 +303,7 @@
 
 <!--FORM BEGIN-->
 <?php if(is_array($form)) : ?>
+
   <!--ФОРМА ДЛЯ МОБИЛЬНЫХ-->  
   <div class="mobilzvonok visible-xs">
       <div class="block-title">
@@ -326,10 +327,11 @@
     <div class="clearfix"></div>
   </div>
   <!--END ФОРМА ДЛЯ МОБИЛЬНЫХ-->
+
   <div class="container-fluid hidden-xs" style="" id="animate-block">
     <div class="container" style="padding:0px;">
       <div class="row">
-        <div class="block-title">
+        <div class="block-title" id="scrollanimation"> 
           ЕСТЬ ВОПРОСЫ? МЫ ОТВЕТИМ!
         </div>
         <div class="col-sm-12 text-center " style="font-size: 20px;">
@@ -383,9 +385,7 @@
   })
 </script>
 
-<form action="/available/viewlist" method="POST" id='form-tab-car'>
-  <input type="hidden" value="" name="model">
-</form>
+
 
 
 <?php 
@@ -463,3 +463,7 @@
   });
   
 </script>
+
+<form action="/available/viewlist" method="POST" id='form-tab-car' style="padding: 0px;margin: 0px;height: 0px;">
+  <input type="hidden" value="" name="model">
+</form>
