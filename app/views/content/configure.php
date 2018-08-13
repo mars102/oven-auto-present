@@ -13,10 +13,10 @@
     <a id="colorlist"></a>
     <div class="col-sm-6 col-sm-offset-3" style="padding:0px;">
       <div class="blur" >
-        <img install-color="<?=$install_color;?>" class="present a " src="http://admin.oven-auto.ru<?=$model->alpha;?>" style="z-index: 1; width: 100%; "/>
+        <img install-color="<?=$install_color;?>" class="confpres present a " src="http://admin.oven-auto.ru<?=$model->alpha;?>" style="z-index: 1; width: 100%; "/>
         <?php if($model->name=='Kaptur') : ?>
-            <img  install-color="<?=$install_color;?>" class="present w " src="http://admin.oven-auto.ru/content/cars/39/w.png" style="z-index: 1; width: 100%; display: none;"/>
-            <img  install-color="<?=$install_color;?>" class="present b " src="http://admin.oven-auto.ru/content/cars/39/b.png" style="z-index: 1; width: 100%; display: none;"/>
+            <img  install-color="<?=$install_color;?>" class="confpres present w " src="http://admin.oven-auto.ru/content/cars/39/w.png" style="z-index: 1; width: 100%; display: none;"/>
+            <img  install-color="<?=$install_color;?>" class="confpres present b " src="http://admin.oven-auto.ru/content/cars/39/b.png" style="z-index: 1; width: 100%; display: none;"/>
           <?php endif;?>
       </div>
       <div class="color-block text-center" style="">
