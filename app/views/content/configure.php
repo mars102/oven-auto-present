@@ -50,7 +50,6 @@
                       $val = 'w';
                       $button_1 .= '
                        <div'.
-                        ($color->id==$install_color)?"installcolor":"".
                         ' class="color-button confbutton"'.
                         ' data-job="1" '.
                         ' data-color-name="'.$color->name.' ('.$color->rn_code.')"'.
