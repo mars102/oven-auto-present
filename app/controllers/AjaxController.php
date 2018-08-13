@@ -38,6 +38,8 @@ Class AjaxController extends \app\core\Controller
 
 	public function actionProcessor()
 	{
+
+
 		$sumpack = 0;
 		$packs = 0;
 		if(empty($_POST['type']))
@@ -60,13 +62,11 @@ Class AjaxController extends \app\core\Controller
 			}
 		}
 
+
 		$saleman = @str_replace("\\n", "", $_POST['saleman']); 
 		$saleman = @str_replace("\"", "", $saleman);
 		$saleman = @str_replace("Персональные условия", "Персональные условия:", $saleman);
-		/*$saleman = @str_replace("Акция", 	"", $saleman);
-		$saleman = @str_replace("Сервис", 	"", $saleman);
-		$saleman = @str_replace("Скидка", 	"", $saleman);
-		$saleman = @str_replace("Подарок", 	"", $saleman);*/
+		
 
 		$model = new \app\models\car_2_model();
 		$complect = new \app\models\car_6_complect();
@@ -90,6 +90,9 @@ Class AjaxController extends \app\core\Controller
 			$order->complect = @$_POST['id_complect'];
 			$order->model = @$_POST['id_model'];
 		}
+
+		
+
 		$order->color = @$_POST['id_color'];
 		$order->id_pack = @implode(',',$_POST['packs']);
 		$order->status = 1;
@@ -101,11 +104,15 @@ Class AjaxController extends \app\core\Controller
 
 		$result = $order->insertData();
 
-		/*MESSAGE*/
+		
+		
+
+		//MESSAGE/
 		$model = $order->getParam('model');
+
 		if(!empty($model))
 			$order->getModel();
-
+		
 		$complect = $order->getParam('complect');
 		if(!empty($complect))
 			$order->getComplect();
@@ -135,9 +142,10 @@ Class AjaxController extends \app\core\Controller
 			}
 			//$this->data['sumpack'] = $sumpack;
 		}
-		/*END MESSAGE*/
+		//END MESSAGE
 		
-		
+
+
 		if($result)
 		{
 			//\app\core\Html::prA($_POST);

@@ -25,7 +25,7 @@ Class orders extends \app\core\Model
 
 	public function getModel()
 	{
-		$model = new \app\models\car_2_models();
+		$model = new \app\models\car_2_model();
 		$this->model = $model->getCustomSQL("SELECT * FROM {$model->table} WHERE id = ?",array($this->model))[0];
 	}
 
