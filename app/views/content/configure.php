@@ -235,7 +235,7 @@
                     value="<?=$pack->id;?>" 
                     type="checkbox" 
                     name="packs[]" 
-                    class="checkbox <?=($check)?"preinstall":"";?>" 
+                    class="validinput checkbox <?=($check)?"preinstall":"";?>" 
                     id="checkbox<?=$pack->id;?>" 
                     data-znak='<?=$znak;?>' 
                     data-price="<?=$pack->price;?>"
