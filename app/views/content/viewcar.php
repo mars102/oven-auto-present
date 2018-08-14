@@ -150,7 +150,6 @@
 
 				<b class="hidden-xs" style="">Характеристики</b>
 				<i style="float: right;color: #777;padding-right: 2px; font-size: 28px" class="fa fa-angle-down hidden-xs"></i>
-				
 
 			</h3>
 		</div>
@@ -195,7 +194,6 @@
 						<?php endif;?>
 					</small>
 				</h3>
-
 			</div>
 
 			<div class="col-sm-4 col-xs-2 hidden-xs" style="padding-left: 0px;" >
@@ -222,10 +220,6 @@
 				</h3>
 			</div>
 			<!--ENDСтраница модели версия для мобильных -->
-
-
-
-
 		</div>
 		<!--БЛОК НАЗВАНИЕ КОМПЛЕКТАЦИЯ (КНОПКА РАЗВЕРТЫВАНИЯ)-->
 
@@ -372,13 +366,11 @@
 			</div>
 			<!--END BLOCK BUTTON COMPLECT-->
 		</div>
-
 	</div>
 	<?php endforeach; ?>
 <?php endif; ?>
 </div>
 <!--КОНЕЦ КОМПЛЕКТАЦИИ-->
-
 
 <!--TEST DRIVE VIDGET BEGIN-->
 	<?php 
@@ -391,7 +383,6 @@
 					$item->complect,
 					$item->motor,
 					$item->id
-					
 				);
 			}
 		endif;
@@ -410,10 +401,6 @@
 	?>
 <?php endif;?>
 <!--KREDIT PROGRAM END-->
-
-
-
-
 
 <!-- Модаль -->  
 <div class="modal fade get-link" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -443,8 +430,6 @@
   </div>
 </div>
 
-
-
 <?php if((isset($data['info'])) && ($data['info']!=false)) { ?>
 	<!--БЛОК АВТОМОБИЛИЙ INFO-->
 	<div class="container-fluid info-car">
@@ -472,16 +457,6 @@
     <!--КОНЕЦ БЛОКА-->
 <?php } ?>
 
-
-
-
-
-
-
-
-
-
-
 <!--BLOCK PHOTO-->
 <?php if(!empty($models->pictures)) : ?>
 <div class=" container " style="padding-bottom: 0px;">
@@ -497,18 +472,6 @@
 </div>
 <?php endif;?>
 <!--END PHOTOBLOCK-->
-
-<!--
-<?php //if( (!empty($data['car']->getParam('video')))) { ?>
-<div class="container-fluid" style="padding: 0px; margin:0px; ">
-	<div class="col-sm-6 col-sm-offset-3" >
-		<center style="padding: 0px; margin:0px;">
-			<iframe style="width: 100%; height: 400px; padding: 0px; margin: 0px;" src="<?= $model->video;?>" frameborder="0" gesture="media" allowfullscreen></iframe>
-		</center>
-	</div>
-</div>
-<?php //} ?>
--->
 
 <!--ФОРМЫ-->
 </div>
@@ -537,7 +500,6 @@
 </div>
 <!--END ФОРМА ДЛЯ МОБИЛЬНЫХ-->
 
-
 <div class="container-fluid  hidden-xs" style="" id="animate-block">
 	<div class="container" style="padding:0px;">
 		<div class="row">
@@ -565,8 +527,6 @@
 <?php endif;?>
 <!--КОНЕЦ ФОРМЫ-->
 
-
-
 <script>
 	$(document).ready(function(){
 		$("#available-car-id").click(function(){
@@ -580,5 +540,3 @@
 <form action="/available/viewlist" method="POST" id='form-tab-car'>
 	<input type="hidden" value="" name="model">
 </form>
-
-
