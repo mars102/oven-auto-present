@@ -297,8 +297,8 @@
      $('.date_').datetimepicker({
         locale: 'ru',
     stepping:10,
-    format: 'DD.MM.YYYY',
-    defaultDate: moment('01.11.2017').format('DD.MM.YYYY'),
+    format: 'DD.MM.YYYY HH:mm',
+    defaultDate: new Date(),
     daysOfWeekDisabled:[0,6]
       });
     });
@@ -333,7 +333,7 @@
         $("#content .tab-block").hide(); //Скрыть всё содержимое
         $("#tabs div").attr("id",""); //Сброс идентификаторов
         $(this).parent().attr("id","current"); // Активация идентификаторов
-        $('#tab' + $(this).attr('id')).fadeIn(); // Показать содержимое текущей вкладки
+        $('#' + $(this).attr('title')).fadeIn(); // Показать содержимое текущей вкладки
     });
 
     $(".deletext").click(function(){
