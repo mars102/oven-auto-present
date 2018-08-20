@@ -98,13 +98,35 @@ Class PdfController extends \app\core\Controller
 		$pdf->Output('doc.pdf', 'I');
 	}
 
-	public function actionPrintcar($car_id=NULL,$html = '<html><meta http-equiv="content-type" content="text/html; charset=utf-8" />')
+	public function actionPrintcar($car_id=NULL,$company_id="", $html = '<html><meta http-equiv="content-type" content="text/html; charset=utf-8" />')
 	{	
+		$arrayCompany = array();
+		if(!empty($company_id))
+		{
+			$company = new \app\models\company();
+			$company_id = explode("_",$company_id);
+			foreach ($company_id as $key => $value) {
+				if(!empty($value))
+				{
+					$company->getRowById($value);
+					$arrayCompany[] = clone($company);
+				}
+			}
+		}
+
+		include_once ROOT . '/app/components/QR/qrlib.php';
+		\QRcode::png("http://www.renault.oven-auto.ru/content/viewavacar/".$car_id, "qrcode.png", "L", 4, 4);
+
 		$html .= "<style>
 				* { 
 		            font-family: arial !important;
 		            font-size: 14px;
-		            line-height: 14px;
+		            line-height: 14px;		    
+		        }
+		        html,@page{
+		        	padding:0px 15px;
+		            margin:35px;
+		            color:#333;
 		        }
 				.grey{
 					padding:15px;
@@ -114,10 +136,12 @@ Class PdfController extends \app\core\Controller
 				}	
 				.black{
 					padding:15px;
-					background: #ddd;
 					color:#333;
-					font-size:20px;
+					font-size:12px !important;
 				}	
+				.black b{
+					margin-right:10px;
+				}
 				table{
 					width:100%;
 					border-collapse: collapse; 
@@ -126,10 +150,30 @@ Class PdfController extends \app\core\Controller
 				tr{width:100%;}
 				td{width:50%;}
 				.page{
-					padding-top:15px;
+					padding:15px;
+					padding-top:5px;
 					padding-bottom:5px;
-					margin-bottom:5px;
-					border-bottom:1px solid #000;
+					margin:10px 0px;;
+					background:#dfdfdf;
+					font-weight: 100;
+				}
+				.text-area{
+					padding: 0 15px;
+				}
+				.text-area td,.option{
+					vertical-align:top;width:33%; font-size:9px;color:#666;line-height:5px;
+				}
+				.option{
+					padding-bottom:7px;
+				}
+				.left{
+					display:inline-block;width:50%;text-align:right;
+				}
+				.right{
+					display:inline-block;width:50%;text-align:left;
+				}
+				.address{
+					font-size:12px;
 				}
 		</style>";
 		$html .= '<body style="">';
@@ -141,28 +185,92 @@ Class PdfController extends \app\core\Controller
 		//require_once(ROOT.'/app/components/PDF/dompdf/include/functions.inc.php');
 		//name
 		$html .= "<div class='grey'>";
-			$html .= '<div class="title">ООО "ФИРМА "ОВЕН-АВТО"</div>';
-			$html.="<div class='title'> г. Сыктывкар, ул. Гаражная, 1</div>";
-			$html .= '<div class="title">Телефон отдела продаж: 8 (8212) 288 588</div>';
+		$html.="<table>";
+			$html.="<tr>";
+
+					$html.='<td style="width:15%;text-align:left">';
+						$html.="<img src='".ROOT."/images/logo.png' style='width:70px;'>";
+					$html.="</td>";
+					
+					$html.='<td style="width:70%;text-align:left;">';
+						$html .= '<div class="title">ООО "ФИРМА "ОВЕН-АВТО"</div>';
+						$html.="<div class='address'> г. Сыктывкар, ул. Гаражная, 1</div>";
+						$html .= '<div class="address">Телефон отдела продаж: 8 (8212) 288 588</div>';
+						$html .= '<div class="address">Email: renault@oven-auto.ru</div>';
+					$html.="</td>";
+
+					$html.='<td style="width:15%;text-align:right;">';
+						$html.="<img src='".ROOT."/qrcode.png' style='width:70px;'>";
+					$html.="</td>";
+
+			$html.="</tr>";
+		$html.="</table>";
+		$html.="</div>";
+
+		
+		$html.="<div style='color:#333;background:#fc3;font-size:12px;text-align:center;padding: 10px 0;text-transform:uppercase;font-weight:bold;'>";
+			$html.="Коммерческое предложение на автомобиль";
 		$html.="</div>";
 
 		$html .= "<div class='black'>";
-			$html .= "<table>";
+			$html.="<table>";
 				$html.="<tr>";
-					$html .= '<td>';
-						$html .= '<div style="font-weight:bold;text-align:left;margin:5px;">Модель: Renault '.$car->model->getParam('name').'</div>';
-						$html .= '<div style="text-align:left;margin:5px;">VIN-номер: '.$car->getParam('vin').'</div>';
-						$html .= '<div style="text-align:left;margin:5px;">Комплектация: '.$car->complect->getParam('name').' '.$car->motor->getMotorForUser().'</div>';
-						$html .= '<div style="text-align:left;margin:5px;">Стоимость: '.number_format($car->getCarPrice()-$car->getParam('sale'),0,'',' ').' руб.</div>';
-					$html .= '</td>';
+						$html.='<td style="width:70%;">';
+							
+							$html .= '<div class="left">';
+								$html.='<b>Модель:</b> ';
+							$html.='</div>';
+							$html.='<div class="right">';
+								$html.=' Renault '.$car->model->getParam('name');
+							$html.='</div>';
 
-					$html .= '<td style="text-align:right;">
-						<img style="width:200px;border:1px solid #000;background:'.$car->getColorCar()->web_code.';" src="'.ROOT.$car->model->getParam('alpha').'">';
-					$html .= "</td>";
+							$html.="<div></div>";
+
+							$html .= '<div class="left">';
+								$html.='<b>Комплектация:</b> ';
+							$html.='</div>';
+							$html.='<div class="right">';
+								$html.=$car->complect->getParam('name').' '.$car->motor->getMotorForUser();
+							$html.='</div>';
+
+							$html.="<div></div>";
+
+							$html .= '<div class="left">';
+								$html.='<b>Цвет:</b> ';
+							$html.='</div>';
+							$html.='<div class="right">';
+								$html.=$car->getColorCar()->name;
+							$html.='</div>';
+
+							$html.="<div></div>";
+
+							$html .= '<div class="left">';
+								$html.='<b>VIN-номер:</b> ';
+							$html.='</div>';
+							$html.='<div class="right">';
+								$html.=$car->getParam('vin');
+							$html.='</div>';
+
+							//$html .= '<div style="text-align:left;margin:5px 0px;">Стоимость: '.number_format($car->getCarPrice()-$car->getParam('sale'),0,'',' ').' руб.</div>';
+						$html.="</td>";
+
+						$html.="<td style='width:30%;'>";
+							$html.="<div style='border:3px solid #dcdcdc;'>";
+							$html.='<img style="width:200px;border:0px solid #fff;background:'.$car->getColorCar()->web_code.';" src="'.'http://admin.oven-auto.ru'.$car->model->getParam('alpha').'">';
+							$html.="</div>";
+						$html.="</td>";
+
 				$html.="</tr>";
-			$html .= "</table>";
+			$html.="</table>";
 		$html.="</div>";
 
+
+		$html.="<div style='width:100%;font-size:9px;color:#666;padding: 0 15px;'>";
+			$html.="* - представленная фотография автомобиля носит информативный характер. Внешний вид автомобиля может изменяться в зависимости от комплектации и отличаться от данной фотографии";
+		$html.="</div>";
+
+
+		/*вывод стоковой комплектации*/
 		$html .= '<div class="page">
 			<table>
 				<tr>
@@ -171,47 +279,50 @@ Class PdfController extends \app\core\Controller
 				</tr>
 			</table>
 		</div>';
-		$html .= '<table>';
-		$i=0;
 
-		$step = round(count($car->complect->option)/3);
+		$html .= "<div class='text-area'>";
+			$html .= '<table>';
+			$i=0;
 
-		$col1 = 0 + $step;
-		$col2 = $col1 + $step;
-		$col3 = count($car->complect->option);
-			$html .= "<tr>";
+			$step = round(count($car->complect->option)/3);
 
-
-				$html .= "<td  style='vertical-align:top; width:33%; font-size:10px;'>";
-					for($i=0;$i<$col1+1;$i++){
-						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
-					}
-				$html .= "</td>";
+			$col1 = 0 + $step;
+			$col2 = $col1 + $step;
+			$col3 = count($car->complect->option);
+				$html .= "<tr>";
 
 
-				$html .= "<td style='vertical-align:top;width:33%; font-size:10px;'>";
-					for($i=$col1+1;$i<$col2+2;$i++){
-						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
-					}
-				$html .= "</td>";
+					$html .= "<td >";
+						for($i=0;$i<$col1+1;$i++){
+							$html .= $car->complect->option[$i]->getParam('name').'<br/>';
+						}
+					$html .= "</td>";
 
 
-				$html .= "<td  style='vertical-align:top;width:33%; font-size:10px;'>";
-					for($i=$col2+2;$i<$col3-1;$i++){
-						$html .= ($i+1).') '.$car->complect->option[$i]->getParam('name').'<br/>';
-					}
-				$html .= "</td>";
+					$html .= "<td >";
+						for($i=$col1+1;$i<$col2+2;$i++){
+							$html .= $car->complect->option[$i]->getParam('name').'<br/>';
+						}
+					$html .= "</td>";
 
 
-			$html .= "</tr>";
-		$html .= '</table>';
+					$html .= "<td>";
+						for($i=$col2+2;$i<$col3-1;$i++){
+							$html .= $car->complect->option[$i]->getParam('name').'<br/>';
+						}
+					$html .= "</td>";
 
+
+				$html .= "</tr>";
+			$html .= '</table>';
+		$html .= "</div>";
+		/*конец вывода стоковой комплектации*/
 		
 		
-		
+		/*вывод установленных пакетов опций*/	
 		if(is_array($car->packs)) :
 			
-			$html .= '<div>';
+			
 			$html .= '<div class="page">
 				<table>
 					<tr>
@@ -220,84 +331,145 @@ Class PdfController extends \app\core\Controller
 					</tr>
 				</table>
 			</div>';
+
+			$html.="<div class='text-area'>";
 			foreach ($car->packs as $obj) {
 				if(!empty($obj->name))
-					$name = $obj->name."<br/>".'<span style="font-size:10px;">'.$obj->getParam('option_list').'</span>';
+					$name = $obj->name."<br/>".'<span style="font-size:8px;line-height:8px;">'.$obj->getParam('option_list').'</span>';
 				else
 					$name = $obj->getParam('option_list');
 				$money = \app\core\Html::money($obj->getParam('price'));
 				$html .= "
-				<div>
-					<div style='display:inline-block;width: 10%;vertical-align:top;'>".$obj->code."</div>
-					<div style='display:inline-block;width: 65%;vertical-align:top;'>".$name."</div>
-					<div style='display:inline-block;width: 25%;vertical-align:top;text-align:right;'>".number_format($obj->price,0,'',' ')." руб.</div>
-				</div>";
+				
+					<div style='display:inline-block;width:33%;' class='option'>".$obj->code.' '.$name."</div>
+				";
 			}
-			$html .= '</div>';
+			$html.="</div>";
 		endif;
-		
+		/*конец вывода установленны опций*/
 
-		
+		/*вывод тюнинга авто*/
 		if(!empty($car->install)) :
-			$html .= '<div class="page">
-				<table>
-					<tr>
-						<td>Дополнительное оборудование</td>
-						<td style="text-align:right;"> Цена в допов: '.number_format($car->dopprice,0,'',' ').' руб.</td>
-					</tr>
-				</table>
-			</div>';
-			$html .= '<table style="width:100%;">';
-				foreach (explode(PHP_EOL, $car->getParam('install')) as $value) {
+			$html.="<div>";
+				$html .= '<div class="page">
+					<table>
+						<tr>
+							<td>Дополнительное оборудование</td>
+							<td style="text-align:right;"> Цена в допов: '.number_format($car->dopprice,0,'',' ').' руб.</td>
+						</tr>
+					</table>
+				</div>';
+				$html.="<div class='text-area'>";
+				$car->install = trim($car->install,',');
+				foreach (explode(',', $car->getParam('install')) as $key=>$value) {
 					if($value!="") :
-						$html.="<tr>";
-							$html .= '<td style="font-size:12px;border-bottom:1px solid #ddd;">'.$value.'</td>';
-						$html.="</tr>";
+						$dops = new \app\models\dop_ob();
+						$dops->getRowById($value);
+						if($key%3==0) 
+							$html.="<div></div>";
+						$html .= '<div style="display:inline-block;width: 33%;" class="option">'.$dops->name.'</div>';
 					endif;
 				}
-				
-			$html .= '</table>';
+				$html.="</div>";
+			$html.="</div>";
 		endif;
+		/*конец вывода тюнинга*/
 
-		//\app\core\Html::prA($car);
-
+		
+		/*вывод итоговой цены авто без выгод и кредитов*/
 		$total = \app\core\Html::money($car->getCarPrice());
 		$html .= "
-		<div style='margin-top:80px;'>
+		<div class='page' style='background:#fc3;'>
 			<table style='padding:0px;border-collapse: collapse; '>
 				<tr>
-					<td style='font-size:50px;'><b><i style='font-size:50px;'>Итого:</i></b> {$total} руб.</td>
+					<td style='font-size:15px;'>Итого коммерческое предложение:</td>
+					<td style='font-size:15px;text-align:right'>{$total} руб.</td>
 				</tr>
 			</table>
-		</div>
-		";
+		</div>";
+		/*конец вывода итоговой цены автомобиля*/
 
+		//разрыв страницы
+		$html.= '<div style="page-break-before: always;"></div>';
 
-		
+		/*начало вывода кредитов на данный авто*/
+		$kredit = new \app\models\kredit();
+		$kredit = $kredit->getKreditByIdCar($car->model->id);
+		if(!empty($kredit))
+		:
+			$html.="<h2 style='text-align:center;'>Кредитные программы</h2>";
+			foreach ($kredit as $key => $value) 
+			:
+				$html .= "<div style='border:1px dashed #a00;margin-bottom:20px;padding-bottom:15px;'>";
+					$html.="<div class='page' style='margin-top:0px;'>".$value->name."</div>";
+					$html.= "<table><tr>";
+						$html.="<td style='width:40%;text-align:center;'><img style='width:250px;' src='http://admin.oven-auto.ru".$value->banner."' style='width:100px;'></td>";
+						$html.="<td style='width:60%;' class='text-area' >";
+							$html.="<div style='color:#666;font-size:12px;' >".$value->disklamer."</div>";
+						$html.="</td>";
+					$html.="</tr></table>";
+				$html.="</div>";
+			endforeach;
+		endif;
+		/*конец вывода кредитов на данный авто*/
 
+		//разрыв страницы
+		$html.= '<div style="page-break-before: always;"></div>';
 
-		//echo $car->current_complect->getParam('name');
-		//Html::prA($car);
+		/*начало вывода выбранных выгод*/
+		if(!empty($arrayCompany)) :
+		$html.="<h2 style='text-align:center;'>Выбранные выгоды</h2>";
+		foreach ($arrayCompany as $key => $value) {
 
+			$value->replace($car);
+			$html .= "<div style='border:1px dashed #a00;margin-bottom:20px;padding-bottom:15px;'>";
+				$html.="<div class='page' style='margin-top:0px;'>".$value->title."</div>";
+
+				$html.= "<table><tr>";
+					$html.="<td style='width:40%;text-align:center;'><img src='".ROOT."/images/logo.png' style='width:100px;'></td>";
+					$html.="<td style='width:60%;' class='text-area' >";
+					$html.="<div style='margin-bottom:20px;' >".$value->ofer."</div>";
+					$html.="<div style='color:#666;font-size:12px;' >".$value->text."</div>";
+					$html.="</td>";
+				$html.="</tr></table>";
+			$html.="</div>";
+		}
+		endif;
+		/*конец вывода выбранных выгод*/
 
 		$html .= '</body></html>';
+
+		//$html = ob_get_clean();
 		
 		include_once ROOT . '/app/components/PDF/dompdf/autoload.inc.php';
+
 		$dompdf = new \Dompdf\Dompdf();
+
+		//даём возможность читать внешние ссылки (для отображения картинок извне)
+		//$dompdf->set_option('defaultFont', 'dejavu sans');
+		$dompdf->set_option('isRemoteEnabled', true);
+
 		$dompdf->loadHtml($html, 'UTF-8');
 		$dompdf->setPaper('A4', 'portrait');
 		$dompdf->render();
-
+		$dompdf->stream('лолкекчебурек.pdf',array('Attachment'=>0));
 		// Вывод файла в браузер:
-		$dompdf->stream('schet-10'); 
+		//$dompdf->stream('schet-10'); 
 
 		// Или сохранение на сервере:
-		$pdf = $dompdf->output(); 
-		file_put_contents(ROOT . '/schet-10.pdf', $pdf); 
+		//$pdf = $dompdf->output(); 
+		//file_put_contents(ROOT . '/schet-10.pdf', $pdf); 
 		/*$dompdf->load_html($html);
 		//$dompdf->load_html($html)
 		$dompdf->render();
 		//Html::prA($dompdf);
 		$dompdf->stream('x.pdf'); // Выводим результат (скачивание)*/
+
+	}
+
+	public function actionQrcode()
+	{
+		include_once ROOT . '/app/components/QR/qrlib.php';
+		\QRcode::png("http://www.ruseller.com", "qrcode.png", "L", 4, 4);
 	}
 }

@@ -251,6 +251,58 @@ Class company extends \app\core\Model
         }
     }
 
+    public function replace($car)
+    {
+        $skidka = 0;
+        if(!empty($this->base))
+            $skidka+=$car->complect->price;
+        if(!empty($this->optionlist))
+            $skidka+=$car->getPackPrice();
+        if(!empty($this->dop))
+            $skidka+=$car->dopprice;
+        
+
+        $skidka = $skidka*($this->value/100);
+
+        
+
+        if( ($skidka!=0))
+        {
+            if($skidka>$this->max && $this->max!=0)
+                $skidka = $this->max;
+            $skidka = round($skidka,-2);
+            $skidka = number_format($skidka,0,'',' ')." руб. ";
+        }
+
+        else{
+            $skidka = $this->value."% ";
+        }
+
+        $bydget = number_format($this->bydget,0,'',' ')." руб. ";
+
+        //$mas = explode(",", $car->install);
+        //\app\core\Html::prA($car->install_num);
+        
+
+        $this->title = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->title);
+        $this->title = str_replace("<bydjet>", $bydget, $this->title);
+        $this->title = str_replace("<procent>", $skidka, $this->title);
+        $this->title = str_replace("<vin>", $car->vin, $this->title);
+        $this->title = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->title);
+
+        $this->ofer = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->ofer);
+        $this->ofer = str_replace("<bydjet>", $bydget, $this->ofer);
+        $this->ofer = str_replace("<procent>", $skidka, $this->ofer);
+        $this->ofer = str_replace("<vin>", $car->vin, $this->ofer);
+        $this->ofer = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->ofer);
+
+        $this->text = str_replace("<model>", $car->model->brand->name.' '.$car->model->name, $this->text);
+        $this->text = str_replace("<bydjet>", $bydget, $this->text);
+        $this->text = str_replace("<procent>", $skidka, $this->text);
+        $this->text = str_replace("<vin>", $car->vin, $this->text);
+        $this->text = str_replace("<nomen>", \app\models\dop_ob::getDopFromMas(\app\models\company_dop::getDopByIdSynonim($this->id)), $this->text);
+    }
+
     /*HTML*/
     public function getBlock($car)
     {
@@ -451,6 +503,7 @@ Class company extends \app\core\Model
                         
                         <div style="padding: 15px;float: left;width: 100%">
                             <?=\app\core\Html::modalPay();?>
+                            <button class="button button-black" id="commer_offer">Коммерческое предложение</button>
                         </div>
                     </div>
                 </div>

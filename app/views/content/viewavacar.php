@@ -43,7 +43,7 @@
 							<span class="icon-text">Скачать</span>
 						</a>
 					</div-->
-					<a target="_blank" href="/pdf/printcar/<?=$car->id;?>">
+					<a id="offer_download" target="_blank" href="/pdf/printcar/<?=$car->id;?>">
 						<i 
 							class="hovicon effect-3 sub-b icon-img icofont icofont-paper"
 							style="font-size:40px;display:block;margin:auto;margin-top:0px;" 
