@@ -296,10 +296,10 @@
          $(function () {
      $('.date_').datetimepicker({
         locale: 'ru',
-    stepping:10,
-    format: 'DD.MM.YYYY HH:mm',
-    defaultDate: new Date(),
-    daysOfWeekDisabled:[0,6]
+        stepping:10,
+        format: 'DD.MM.YYYY HH:mm',
+        defaultDate: new Date(),
+        daysOfWeekDisabled:[0,6]
       });
     });
         
@@ -425,6 +425,19 @@
     if(parent.height()<300)
       parent.height(400);
     $("#filter-block form").width(width);
+
+
+    /*ОТПРАВКА ТИТЛА СТРАНИЦЫ*/
+    $.ajax({
+      url: '/api/pagecounter',
+      type:'POST',
+      data:{"param":document.title,"url":window.location.href},
+      success: function(data){
+        console.log(data);
+      }
+    })
+
+
   });
 </script>
 

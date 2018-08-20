@@ -25,18 +25,22 @@ Class userCounter extends \app\core\Model
 			$this->ip->ip_ad = $_SERVER['REMOTE_ADDR'];
 			$this->ip->info = $_SERVER['HTTP_USER_AGENT'];
 			$this->ip->insertData();
-
-			$stack = mb_strtolower($_SERVER['HTTP_USER_AGENT']);
-			$find = "bot";
-			$res = mb_strpos($stack, $find);
-			if($res===false)
+			
+			if($this->botFind()===false)
 			{
 				$this->visit->host = $this->visit->host+1;
 				$this->visit->updateData();
 			}
 				
 		}
-		
-		
+
+	}
+
+	private function botFind()
+	{
+		$stack = mb_strtolower($_SERVER['HTTP_USER_AGENT']);
+		$find = "bot";
+		$res = mb_strpos($stack, $find);
+		return $res;
 	}
 }

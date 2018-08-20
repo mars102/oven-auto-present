@@ -55,7 +55,7 @@ Class ContentController extends \app\core\Controller
 		$form = new \app\models\forms();
 		$form = $form->getFormsData(array(1));
 		$this->view->render('viewcar.php','head.php',array(
-			'title'=>$models->name,
+			'title'=>'Прайс-лист '.$models->name,
 			'models'=>$models,
 			'kredit'=>$kredit,
 			'test'=>$test,
@@ -112,7 +112,7 @@ Class ContentController extends \app\core\Controller
 		);
 
 		$this->view->render('viewavacar.php','head.php',array(
-			'title'=>$car->model->name,
+			'title'=>$car->model->name.' '.$car->vin,
 			'car'=>$car,
 			'kredit'=>$kredit,
 			'test'=>$test,
@@ -154,7 +154,7 @@ Class ContentController extends \app\core\Controller
 		$form = new \app\models\forms();
 		$form = $form->getFormsData(array(1));
 		$this->view->render('configure.php','head.php',array(
-			'title'=>$model->name,
+			'title'=>'Конфигуратор '.$model->name.' '.$model->complect->name,
 			'model'=>$model,
 			'test'=>$test,
 			'kredit'=>$kredit,
@@ -408,7 +408,7 @@ Class ContentController extends \app\core\Controller
 		else
 			$form = $form->getFormsData(array(1));
 		$this->view->render('viewnew.php','head.php',array(
-			'title'=>$new->title,
+			'title'=>'Новость '.$new->title,
 			'new'=>$new,
 			'form'=>$form
 		));
@@ -441,7 +441,7 @@ Class ContentController extends \app\core\Controller
 		else
 			$form = $form->getFormsData(array(1));
 		$this->view->render('viewpage.php','head.php',array(
-			'title'=>$pages->title,
+			'title'=>'Акция'.$pages->title,
 			'pages'=>$pages,
 			'form'=>$form
 		));
@@ -466,7 +466,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(4),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}
@@ -476,7 +476,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(3),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}
@@ -486,7 +486,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(2),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}
@@ -496,7 +496,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(8),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}
@@ -506,7 +506,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(1),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}
@@ -516,7 +516,7 @@ Class ContentController extends \app\core\Controller
 		$form = new models\forms();
 		$form = $form->getFormsData(array(8),'pic')[0];
 		$this->view->render('viewform.php','head.php',array(
-			'title'=>$form->header,
+			'title'=>'Формы ОС'.$form->header,
 			'form'=>$form
 		));
 	}

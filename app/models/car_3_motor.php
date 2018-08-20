@@ -129,7 +129,7 @@ Class car_3_motor extends \app\core\Model
 				return 'Передний';
 				break;
 			case '4WD':
-				return 'Подключаемы полный';
+				return 'Подключаемый полный';
 				break;
 			case 'AWD':
 				return 'Постоянный полный';
