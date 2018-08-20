@@ -64,7 +64,7 @@
 						<?php foreach ($option as $key => $value) : ?>
 							
 							<?php if($value['parent']!=$parent) : ?>
-								<tr><td style="border:0px;background: #fff;font-size: 20px;" class="option" main="true">
+								<tr><td style="border:0px;background: #fff;font-weight: bold;font-size: 20px;" class="option" main="true">
 									<?=\app\models\car_5_option_list::getParentNameStatic($value['parent']);?>
 								</td></tr>
 								<?php
