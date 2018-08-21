@@ -137,7 +137,7 @@
 					<div class="contact-param">г. Сыктывкар ул. <div class="forbr"></div>Гаражная 1</div>
 					<span class="contact-title">Телефон</span>
 					<div style="padding-bottom: 12px;" class="contact-param"><a href="tel:88212288588"> 8 (8212) 288-588</a></div>
-					<a class="button button-yellow" href="http://test.myhost/content/viewpage/26/contactinfo">Все контакты<i class="fa fa-angle-right"></i></a>
+					<a class="button button-yellow" href="/content/contact">Все контакты<i class="fa fa-angle-right"></i></a>
 
 			</div>
 
