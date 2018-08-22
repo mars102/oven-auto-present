@@ -17,7 +17,6 @@ Class ApiController extends \app\core\Controller
 		if($res===false)
 		{
 	    	$page_counter = new \app\models\page_counter();
-			$url = "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 			$page_counter->title = $_POST['param'];
 			$page_counter->url = $_POST['url'];
 			$page_counter->checkURL();
