@@ -163,22 +163,22 @@
 
 <!--КОМПЛЕКТАЦИИ-->
 <br><br><br>
-<div class="container " >
+<div class="container  hidden-xs" >
 	<div class="row" >
 		<div class="col-sm-9" style="padding-left:0px;">
-		    <div  id="buttonV" class="col-sm-2 complectButton complectDostyp buttonmodelON" data-form='complect_vse' cheked='true' 
+		    <div  id="buttonV" class="col-sm-3 col-md-2 complectButton complectDostyp buttonmodelON" data-form='complect_vse' cheked='true' 
 		    style=" "
 
 		    >
 		    	<a class="button button-white " >Все типы<i id="indicatV" class="fa fa-angle-right"></i></a>
 		    </div>
-		    <div style="" id="buttonM" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_m' cheked='false'>
+		    <div style="" id="buttonM" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_m' cheked='false'>
 		    	<a class="button button-white " >Механика<i id="indicatM" class="fa fa-angle-right"></i></a>
 		    </div>
-		    <div style="" id="buttonC" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_c' cheked='false'>
+		    <div style="" id="buttonC" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_c' cheked='false'>
 		    <a class="button button-white " >Вариатор<i id="indicatC" class="fa fa-angle-right"></i></a>
 		    </div>
-		    <div style="" id="buttonA" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_a' cheked='false'>
+		    <div style="" id="buttonA" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_a' cheked='false'>
 		    <a class="button button-white" >Автомат<i id="indicatA" class=" fa fa-angle-right"></i></a>
 		    </div>
 		    <!--div style="border-bottom: 2px solid #dfdfdf; padding-top: 24px;height: 52px;" class="col-sm-2" >
@@ -187,7 +187,7 @@
 		</div>
 		
 		<div class="col-sm-3" style="padding-right:0px;">
-		    <div style=" padding-top: 14px; padding-right:0px;" id='gruppa' class="col-sm-12 complectButton complectDostyp" data-form='complect_g' cheked-g='false' style="">
+		    <div style=" padding-top: 11px; padding-right:0px;" id='gruppa' class="col-sm-12 complectButton complectDostyp" data-form='complect_g' cheked-g='false' style="">
 		    <a class="button button-seryi "  ><span id="gruppirovka"> Группировать</span><i id="grupirov" class="fa fa fa-object-group"></i></a>
 		    </div>
 		</div>
