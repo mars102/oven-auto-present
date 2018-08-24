@@ -162,22 +162,465 @@
 <!--КОНЕЦ ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ-->
 
 <!--КОМПЛЕКТАЦИИ-->
-<div class="container" style="margin-top: 20px;margin-bottom: 30px;">
-	<div class="row">
-		<div class="col-sm-12">
-			<h3 class="hidden-xs"><b style="">Комплектации</b></h3>
-			<h3 class="visible-xs"><b style="font-size: 15px">Комплектации</b></h3>
+<br><br><br>
+<div class="container " >
+	<div class="row" >
+		<div class="col-sm-9" style="padding-left:0px;">
+		    <div  id="buttonV" class="col-sm-2 complectButton complectDostyp buttonmodelON" data-form='complect_vse' cheked='true' 
+		    style=" "
+
+		    >
+		    	<a class="button button-white " >Все типы<i id="indicatV" class="fa fa-angle-right"></i></a>
+		    </div>
+		    <div style="" id="buttonM" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_m' cheked='false'>
+		    	<a class="button button-white " >Механика<i id="indicatM" class="fa fa-angle-right"></i></a>
+		    </div>
+		    <div style="" id="buttonC" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_c' cheked='false'>
+		    <a class="button button-white " >Вариатор<i id="indicatC" class="fa fa-angle-right"></i></a>
+		    </div>
+		    <div style="" id="buttonA" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_a' cheked='false'>
+		    <a class="button button-white" >Автомат<i id="indicatA" class=" fa fa-angle-right"></i></a>
+		    </div>
+		    <!--div style="border-bottom: 2px solid #dfdfdf; padding-top: 24px;height: 52px;" class="col-sm-2" >
+		    
+		    </div-->
+		</div>
+		
+		<div class="col-sm-3" style="padding-right:0px;">
+		    <div style=" padding-top: 14px; padding-right:0px;" id='gruppa' class="col-sm-12 complectButton complectDostyp" data-form='complect_g' cheked-g='false' style="">
+		    <a class="button button-seryi "  ><span id="gruppirovka"> Группировать</span><i id="grupirov" class="fa fa fa-object-group"></i></a>
+		    </div>
 		</div>
 	</div>
+	</div>
+	
+<div class="container" id="compl" style="margin-top: 0px;margin-bottom: 30px; ">
+<!--?php \app\core\Html::prA($models);?-->
+
+	
+
+<script>
+//МАССИВЫ С МОДЕЛЯМИ
+	var models = [];
+	var allo = [];
+	var savemas=[];
+	var datchik=[];
+
+	
+	$(document).ready(function(){
+		//ДАТЧИКИ
+		var complect_m=0;
+		var complect_a=0;
+		var complect_c=0;
+		var complect_sum=0;
+		var chek=0;
+		
+		
+		$('.complect1').each(
+			function(element, index) {
+		   		if($(this).attr('data-transmission').substr(0, 1)=='М'){
+		   			complect_m=1;
+		   		} else if ($(this).attr('data-transmission').substr(0, 1)=='А'){
+		   			complect_a=1;
+		   		} else if ($(this).attr('data-transmission').substr(0, 1)=='C'){
+		   			complect_c=1;
+		   		}		 			
+		   				
+
+		   	}
+		);	
+
+		//сКРЫТЬ ПОКАЗАТЬ КНОПКИ ПРИ НАЛИЧИИ ВАРИАТОР МЕХАНИК АВТОМАТ
+	   	complect_sum=complect_m+complect_a+complect_c;
+            
+        $('.complectButton').each(
+			function(element, index) {
+		  		if(complect_m==0 && $(this).attr('data-form')=='complect_m' ||$(this).attr('data-form')=='complect_m'&& complect_sum==1)
+		  			{$(this).remove();
+		   		
+		   		} else if (complect_a==0 && $(this).attr('data-form')=='complect_a' || complect_sum==1&& $(this).attr('data-form')=='complect_a')
+		   			{$(this).remove();
+		   		
+		   		} else if (complect_c==0 && $(this).attr('data-form')=='complect_c' || complect_sum==1&& $(this).attr('data-form')=='complect_c')
+		   			{$(this).remove();
+		   		} else if (complect_sum==0 && $(this).attr('data-form')=='complect_vse')
+		   			{$(this).remove();
+		   		}
+
+		   	}
+		);
+        //ПОДГОТОВКА МАССИВОВ
+		$('.complect1').each(
+			function(index, element) {
+		   		models[index]=this;
+		   		savemas[index]=this;
+
+		    }
+		);
+		models=models.sort(CompareForSort);
+		allo=models.slice();
+
+		// Сортировка обекта.
+		function CompareForSort(first, second){
+			if (first.getAttribute("data-sort") == second.getAttribute("data-sort"))
+				return 0;
+			if (first.getAttribute("data-sort") < second.getAttribute("data-sort"))
+			    return -1;
+			else
+			    return 1; 
+		}
+
+		var razdelitel; 
+		
+		
+
+		for (var daf = 0; daf < allo.length; daf++) {
+  			
+
+  			if(daf>0){
+
+  				if(allo[daf].getAttribute("data-transmission").substr(0, 1)!=
+  			   allo[daf-1].getAttribute("data-transmission").substr(0, 1))
+  			{
+  				//datchik=datchik+1;
+  			}
+
+
+
+  				if(allo[daf].getAttribute("data-sort")!=allo[daf-1].getAttribute("data-sort")){
+  					
+  					razdelitel= document.createElement('div');
+  					razdelitel.setAttribute('data-transmission', 'Н')
+  					razdelitel.setAttribute('data-razd', 'Н')
+					razdelitel.className = "complect1 row razdelitel";
+					razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'<span></h3>';
+  					models.splice(daf+chek,0,razdelitel);
+  					
+  					chek =chek+1;
+  					datchik[chek]=daf+chek-1;
+				}
+			} else{
+				razdelitel= document.createElement('div');
+				razdelitel.className = "complect1 row razdelitel";
+				razdelitel.setAttribute('data-razd', 'Н')
+				razdelitel.setAttribute('data-transmission', 'Н')
+				razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'<span></h3>';
+				models.splice(daf+chek,0,razdelitel);
+  				chek =chek+1;
+  				datchik[chek]=daf+chek-1;
+
+			}			
+  					
+  	    }	
+  	    var komi=1;
+		datchik[chek+1]= models.length; 	    
+		
+  	     	    
+
+	});
+
+
+		$('.complectButton').click(function(){
+		  
+		    	var z=0;
+		    	var x=0;
+		    	var cont = $('#compl')
+		    	var complectButton=$(this).attr('data-form');
+		   		var complectButtonG=$(this).attr('cheked-g');
+
+		   		//ВПИСЫВАЕМ СГРУПИРОВАННЫЙ МАССИВ			
+		   		if(complectButton=='complect_g'){
+		   			
+		   			var olga;
+		   			
+		   			/*if(complectButtonG=='true'){
+		   				$('.razdelitel').each(
+		   				function(index, element) {
+		   					$(this).css("display", "none");
+		   				})
+		   			} else {
+
+
+		   				$('.razdelitel').each(
+		   				function(index, element) {
+		   							
+		   						//$(this).css("display", "block");
+		   					
+		   				})
+
+		   			}*/
+
+
+					if($(this).attr('cheked-g')=='false'){
+						
+
+						//console.log("/");
+
+						for (var z = 0; z < models.length; z++) {
+							//console.log(models[z]);
+  							cont.append(models[z]);
+  						}
+  					  this.setAttribute('cheked-g', 'true');
+  					  $("#gruppirovka").text("Разгрупировать");
+  					  $("#grupirov").removeClass("fa-object-group").addClass("fa-object-ungroup");
+  					  grupirov
+  					}else{
+  						//cont.remove();
+  						$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).remove();
+			   					})
+  						for (var x = 0; x < savemas.length; x++) {
+  							
+  							cont.append(savemas[x]);
+  						}
+  						this.setAttribute('cheked-g', 'false');
+  						$("#gruppirovka").text("Групировать");
+  						$("#grupirov").removeClass("fa-object-ungroup").addClass("fa-object-group");
+  					}
+  				}
+
+
+		   		$('.complect1').each(
+		   			function(index, element) {
+		   				
+		   					   				
+		   				if (complectButton=='complect_m'){
+
+
+		   					$("#buttonV").attr("cheked","false");
+		   					$("#buttonM").attr('cheked','true');
+		   					$("#buttonC").attr('cheked','false');
+		   					$("#buttonA").attr('cheked','false');
+
+		   					$("#buttonM").removeClass("buttonmodelOF").addClass("buttonmodelON");
+		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					
+		   					$("#indicatM").removeClass("fa-angle-right").addClass("fa-angle-down");
+		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
+
+		   					//childNodes[0]
+
+		   					if($(this).attr('data-transmission').substr(0, 1)!='М'){
+		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
+		   							$(this).css("display", "none");
+		   							$('.razdelitel').each(
+						   				function(index, element) {
+						   					$(this).css("display", "none");
+						   				})
+		   							
+		   						}
+		   					} else {$(this).css("display", "block");}
+		   					if($('#gruppa').attr('cheked-g')=='false'){
+			   					$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).css("display", "none");
+			   					})
+							}
+
+		   				} else if(complectButton=='complect_a'){
+		   					$("#buttonV").attr("cheked","false");
+		   					$("#buttonM").attr('cheked','false');
+		   					$("#buttonC").attr('cheked','false');
+		   					$("#buttonA").attr('cheked','true');
+		   					
+		   					$("#buttonA").removeClass("buttonmodelOF").addClass("buttonmodelON");
+		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
+
+		   					$("#indicatA").removeClass("fa-angle-right").addClass("fa-angle-down");
+		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
+
+
+		   					if($(this).attr('data-transmission').substr(0, 1)!='А'){
+		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
+		   							$(this).css("display", "none");
+		   						}
+		   					} else {$(this).css("display", "block");}
+		   					if($('#gruppa').attr('cheked-g')=='false'){
+			   					$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).css("display", "none");
+			   					})
+							}
+
+		   				} else if(complectButton=='complect_c'){
+		   					$("#buttonV").attr("cheked","false");
+		   					$("#buttonM").attr('cheked','false');
+		   					$("#buttonC").attr('cheked','true');
+		   					$("#buttonA").attr('cheked','false');
+
+
+		   					$("#buttonC").removeClass("buttonmodelOF").addClass("buttonmodelON");
+		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
+
+		   					$("#indicatC").removeClass("fa-angle-right").addClass("fa-angle-down");
+		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					
+		   					if($(this).attr('data-transmission').substr(0, 1)!='C'){
+		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
+		   							$(this).css("display", "none");
+		   						}
+		   					} else {$(this).css("display", "block");}
+		   					if($('#gruppa').attr('cheked-g')=='false'){
+			   					$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).css("display", "none");
+			   					})
+							}
+
+		   				} else if(complectButton=='complect_vse'){
+		   					$("#buttonV").attr("cheked","true");
+		   					$("#buttonM").attr('cheked','false');
+		   					$("#buttonC").attr('cheked','false');
+		   					$("#buttonA").attr('cheked','false');
+
+		   					$("#buttonV").removeClass("buttonmodelOF").addClass("buttonmodelON");
+		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
+
+		   					$("#indicatV").removeClass("fa-angle-right").addClass("fa-angle-down");
+		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					
+		   					if($(this).attr('data-transmission').substr(0, 1)!='Н'){
+		   					$(this).css("display", "block");	}
+		   					if($('#gruppa').attr('cheked-g')=='false'){
+			   					$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).css("display", "none");
+			   					})
+							}
+
+		   				} else if(complectButton=='complect_g'){
+		   					
+
+		   					if(complectButtonG=='false'){
+			   					$('.complectDostyp').each(
+			   					function(index, element) {
+			   						if($(this).attr("cheked")=='true'){
+			   						
+			   							olga=$(this).attr("id");	 	
+			   						}
+			   					})
+			   					if(olga=="buttonV"){
+			   						$(this).css("display", "block")
+			   					}
+			   					else if(olga=="buttonM"){
+			   						if($(this).attr('data-transmission').substr(0, 1)!='М'){
+
+										$(this).css("display", "none")
+									} else{$(this).css("display", "block")}
+
+
+			   					}
+			   					else if(olga=="buttonA"){
+			   						if($(this).attr('data-transmission').substr(0, 1)!='А'){
+
+										$(this).css("display", "none")
+									} else{$(this).css("display", "block")}
+
+
+			   					}
+			   					else if(olga=="buttonC"){
+			   						if($(this).attr('data-transmission').substr(0, 1)!='C'){
+
+										$(this).css("display", "none")
+									} else{$(this).css("display", "block")}
+
+
+			   					}
+
+							} else {
+								$('.razdelitel').each(
+			   						function(index, element) {
+			   							$(this).css("display", "none");
+			   					})
+							}
+		   					
+		   					//$(this).css("display", "none");	
+
+		   				}
+
+		   				
+		   				
+		   		});
+		   	 	
+
+				
+
+//console.log(models[0]);
+		   		//models.sort(function(){return models. - b});
+		   		//console.log(models[index].getAttribute("data-power"));
+
+		   				   				//console.log(datchik.length+"----");
+
+		   	for (var y = 1; y < datchik.length-1; y++){
+		   		
+			var chit =0;
+			if(y!=datchik.length-1){
+				//console.log(datchik[y]+"++++");
+				//	console.log(datchik[y+1]+"//////");
+				for (var v = datchik[y]+1; v < datchik[y+1]; v++) {
+  					if(typeof models[v].style.display && models[v].style.display=='block') {
+  						chit++
+
+  					};
+  					
+  				}
+  				
+  			
+  				
+
+  			//console.log("---------");
+  			//console.log(datchik[y]);
+  			}
+  			if(typeof models[datchik[y]]){
+  			
+  			if(chit>0 ){	
+  				//console.log(chit+'|||||||||');
+  				models[datchik[y]].style.display='block';
+  			} else{models[datchik[y]].style.display='none';}
+		}
+	}
+
+		   	});
+			$('.disainClac').click(function(){
+
+
+			});
+			
+		    </script>
+	<?php ?>
 <?php if(is_array($models->complect)) :
 	$i=0;
-	foreach ($models->complect as $key => $complect) : ?>
-	<div class="row">
 
+	foreach ($models->complect as $key => $complect) : ?>
+
+	<div class="row complect1" 
+		data-transmission="<?=$complect->motor->transmission;?>" 
+		data-power="<?=$complect->motor->power;?>"
+		data-size="<?=$complect->motor->size;?>"
+		data-sort="<?=$complect->motor->size+$complect->motor->power;?>"
+	>
+		
 		<!--БЛОК НАЗВАНИЕ КОМПЛЕКТАЦИЯ (КНОПКА РАЗВЕРТЫВАНИЯ)-->
 		<div style="float:left;width:100%;border-bottom: 1px solid #dfdfdf; z-index:100;" class="open_complect" data-role="1">
 			<div class="col-sm-8 col-xs-10 hidden-xs" style="padding-right:0px;">
-				<h3 class="complect-name-link">
+				<h3 class="complect-name-link" >
 					<?=$complect->name;?> <?= $complect->motor->getMotorForUser($models->type);?> 
 					<small class="smallcount" >
 						
@@ -367,6 +810,7 @@
 			<!--END BLOCK BUTTON COMPLECT-->
 		</div>
 	</div>
+		
 	<?php endforeach; ?>
 <?php endif; ?>
 </div>
@@ -540,3 +984,5 @@
 <form action="/available/viewlist" method="POST" id='form-tab-car'>
 	<input type="hidden" value="" name="model">
 </form>
+
+public fun
