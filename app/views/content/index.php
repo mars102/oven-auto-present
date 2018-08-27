@@ -14,7 +14,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<div class="container">
 		<div class="row text-center">
 			<div id="content">

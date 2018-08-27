@@ -435,7 +435,7 @@
     var last = pageUrl[pageUrl.length-1];
     if(last == '/')
       pageUrl = pageUrl.slice(0,-1);
-    //alert(pageUrl);
+   
     $.ajax({
       url: '/api/pagecounter',
       type:'POST',
