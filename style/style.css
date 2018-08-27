@@ -523,6 +523,14 @@ a:focus{text-decoration: none; color: inherit;}
     outline: 0;
 }
 
+.tab-car img{
+	background: #aaa;
+	transition: background 0.3s linear;
+}
+.tab-car img:hover{
+	background: red;
+}
+
 @media screen and (min-width: 700px){
 	#tabs #current a
 	{

@@ -146,7 +146,7 @@ Class car_2_model extends \app\core\Model
 		<div class=" col-sm-3 col-lg-3">
 	
 				<a class="tab-car hidden-xs" href="/content/viewcar/<?= $this->link;?>">
-					<img src="http://admin.oven-auto.ru<?= $this->icon; ?>">
+					<img src="http://admin.oven-auto.ru<?= $this->alpha; ?>">
 					<span class="car-name"><?= $this->label;?> <?= $this->name;?></span>
 					<!--span class="number-circle" style="font-size: 14px;"><?//=\app\models\car_available::getCountModel($this->id);?></span-->
 					<span style="display:block;" class="car-name">
@@ -159,7 +159,7 @@ Class car_2_model extends \app\core\Model
 
 			<?php if(\app\models\car_available::getCountModel($this->id)!=0) : ?>
 				<a class="tab-car count-car visible-xs" data-tab-car="<?=$this->id;?>">
-					<img src="http://admin.oven-auto.ru<?= $this->icon; ?>">
+					<img src="http://admin.oven-auto.ru<?= $this->alpha; ?>">
 					<span class="car-name"><?= $this->name;?></span>
 					<!--span class="number-circle" style="font-size: 14px;"><?//=\app\models\car_available::getCountModel($this->id);?></span-->
 					<span style="display:block;" class="car-name">
@@ -175,7 +175,7 @@ Class car_2_model extends \app\core\Model
 				</a>
 			<?php else: ?>
 				<a class="tab-car visible-xs" href="/content/viewcar/<?= $this->link;?>">
-					<img src="http://admin.oven-auto.ru<?= $this->icon; ?>">
+					<img src="http://admin.oven-auto.ru<?= $this->alpha; ?>">
 					<span class="car-name"><?= $this->name;?></span>
 					<!--span class="number-circle" style="font-size: 14px;"><?//=\app\models\car_available::getCountModel($this->id);?></span-->
 					<span style="display:block;" class="car-name">
