@@ -1769,6 +1769,17 @@ select::-ms-expand {
 	box-shadow: 0 0 15px #888;
 }
 
+.fixed-tacka-price{
+	position: fixed;
+	/*left: 0px;*/
+	top:50px;/*
+	background: rgba(240,240,240,0.8);
+	border-bottom: 1px solid #eee;
+	z-index: 500;
+	border-radius:0 0 10px 10px ;
+	box-shadow: 0 0 15px #888;*/
+}
+
 .head-filter{font-size:20px;font-family: Renault;margin:0px;padding-left: 5px;margin-bottom: 10px;}
 
 /*fixed-filter*/
