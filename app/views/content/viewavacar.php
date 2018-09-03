@@ -6,7 +6,7 @@
 <input type="hidden" form="userModal" value="<?=$car->id;?>" name="id_avacar">
 
 <div class="container block" style="padding-bottom: 10px;">
-	<div class="col-sm-12 hidden-xs" style="padding:0px;">
+	<div class="col-sm-12 hidden-xs" id = "fixed-tachka" style="padding:0px;">
 	<!--<?php \app\core\Html::prA($car);?>-->
 
 		<div class="col-sm-4">
