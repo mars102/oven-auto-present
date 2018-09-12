@@ -15,39 +15,79 @@ Class car_docs extends \app\core\Model{
 			<div class="col-sm-12 ">
 			
 				<div class="col-sm-2 col-sm-offset-2 col-sm-xs-offset-0 col-xs-6 text-center">
-					<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
-						<img src="/images/icons/b.jpg">
-					</a>
-					<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
-						<span class="sub-title">Брошюра</span>
-					</a>
+					<?php if(empty($this->brochure)) : ?>
+						<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
+							<img src="/images/icons/b.jpg">
+						</a>
+						<a style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
+							<span class="sub-title">Брошюра</span>
+						</a>
+					<?php else:?>
+						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
+							<img src="/images/icons/b.jpg">
+						</a>
+						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
+							<span class="sub-title">Брошюра</span>
+						</a>
+
+					<?php endif;?>
+
 
 				</div>
 				<div class="col-sm-2 col-xs-6 text-center">
-					<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->price;?>" >
-						<img src="/images/icons/p.jpg">
-					</a>
-					<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->price;?>" >
-						<span class="sub-title">Прайс-лист</span>
-					</a>
+					<?php if(empty($this->price)) : ?>
+						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->price;?>" >
+							<img src="/images/icons/p.jpg">
+						</a>
+						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->price;?>" >
+							<span class="sub-title">Прайс-лист</span>
+						</a>
+					<?php else:?>
+						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->price;?>" >
+							<img src="/images/icons/p.jpg">
+						</a>
+						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->price;?>" >
+							<span class="sub-title">Прайс-лист</span>
+						</a>
+
+					<?php endif;?>
 
 				</div>
 				<div class="col-sm-2 col-xs-6 text-center">
-					<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
-						<img src="/images/icons/m.jpg">
-					</a>
-					<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
-						<span class="sub-title">Инструкции</span>
-					</a>
+					<?php if(empty($this->manual)) : ?>
+					  	<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
+							<img src="/images/icons/m.jpg">
+						</a>
+						<a  style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
+							<span class="sub-title">Инструкции</span>
+						</a>
 
+					<?php else:?>
+					<a style="" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
+							<img src="/images/icons/m.jpg">
+						</a>
+						<a  style="" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
+							<span class="sub-title">Инструкции</span>
+						</a>
+
+					<?php endif;?>
 				</div>
 				<div class="col-sm-2 col-xs-6 text-center">
-					<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
-						<img src="/images/icons/c.jpg">
-					</a>
-					<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
-						<span class="sub-title">Аксессуары</span>
-					</a>
+					<?php if(empty($this->toys)) : ?>
+						<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
+							<img src="/images/icons/c.jpg">
+						</a>
+						<a style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
+							<span class="sub-title">Аксессуары</span>
+						</a>
+					<?php else:?>
+						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
+							<img src="/images/icons/c.jpg">
+						</a>
+						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
+							<span class="sub-title">Аксессуары</span>
+						</a>
+					<?php endif;?>
 
 				</div>
 			</div>
