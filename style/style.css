@@ -528,7 +528,7 @@ a:focus{text-decoration: none; color: inherit;}
 	transition: background 0.3s linear;
 }
 .tab-car img:hover{
-	background: red;
+	background: black;
 }
 
 @media screen and (min-width: 700px){
@@ -2144,7 +2144,7 @@ select::-ms-expand {
 		padding-left: 50px; 
 	}
 	.mid-header{
-		padding-left: 50px;
+		padding-left: 0px;
 	}
 	.cbp-vimenu{
 		display: block;
@@ -2526,17 +2526,17 @@ select::-ms-expand {
 /*ВЕЛИКИЙ И УЖАСНЫЙ Разделитель*/
 .razdelitel{
 	width:100%;
-	  
+	padding-left: 15px; 
 	z-index:100;
 }
 .buttonmodelON{
-	border-top: 2px solid #dfdfdf; 
-	border-left: 2px solid #dfdfdf; 
-	border-right: 2px solid #dfdfdf; 
+	border-top: 1px solid #dfdfdf; 
+	border-left: 1px solid #dfdfdf; 
+	border-right: 1px solid #dfdfdf; 
 	padding-top: 10px;
 }
 .buttonmodelOF{
-	border-bottom: 2px solid #dfdfdf; 
+	border-bottom: 1px solid #dfdfdf; 
 	padding-top: 10px;
 }
 /*ВЕЛИКИЙ И УЖАСНЫЙ новый дизайн*/
@@ -2545,4 +2545,7 @@ canvas {
   width: 100%;
   height: 250px;
   cursor: pointer; 
+}
+.adnazemle {
+	height: 100%;
 }

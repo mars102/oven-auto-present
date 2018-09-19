@@ -132,10 +132,11 @@
 
 		public static function getMenu() { ?>
 
-			<div class="container-fluid bot-header" style="padding:0px;">
+			<div class="container-fluid bot-header" style="padding:0px;  background-color:#323232;">
 		      <div class="col-sm-12" style="padding:0px;">
 		      <nav class="navbar  ">
-		      <div class="container-fluid">
+		      <div class="container">
+		
 		        
 		        <!-- Brand and toggle get grouped for better mobile display -->
 		        <div class="navbar-header">

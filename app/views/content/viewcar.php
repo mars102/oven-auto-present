@@ -165,32 +165,42 @@
 <br><br><br>
 <div class="container  hidden-xs" >
 	<div class="row" >
-		<div class="col-sm-9" style="padding-left:0px;">
-		    <div  id="buttonV" class="col-sm-3 col-md-2 complectButton complectDostyp buttonmodelON" data-form='complect_vse' cheked='true' 
+		<div class="col-sm-12" id="knopochki" style="padding-left:0px; padding-right: 0px; padding-bottom: 20px">
+		    <div  id="buttonV" class="col-sm-2 complectButton complectDostyp buttonmodelON" data-form='complect_vse' cheked='true' 
 		    style=" "
 
 		    >
-		    	<a class="button button-white " >Все типы<i id="indicatV" class="fa fa-angle-right"></i></a>
+		    	<a class="button button-white " >Все комплектации<i id="indicatV" class="fa fa-angle-down"></i></a>
 		    </div>
-		    <div style="" id="buttonM" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_m' cheked='false'>
-		    	<a class="button button-white " >Механика<i id="indicatM" class="fa fa-angle-right"></i></a>
+		    <div style="" id="buttonM" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_m' cheked='true'>
+		    	<a class="button button-white button_small" >Механика<i id="indicatM" class="fa fa-angle-right"></i></a>
 		    </div>
-		    <div style="" id="buttonC" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_c' cheked='false'>
+		    <!--div style="" id="buttonC" class="col-sm-3  complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_c' cheked='false'>
 		    <a class="button button-white " >Вариатор<i id="indicatC" class="fa fa-angle-right"></i></a>
+		    </div-->
+		    <div style="" id="buttonA" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_a' cheked='false'>
+		    <a class="button button-white button_small" >Автомат<i id="indicatA" class=" fa fa-angle-right"></i></a>
 		    </div>
-		    <div style="" id="buttonA" class="col-sm-3 col-md-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_a' cheked='false'>
-		    <a class="button button-white" >Автомат<i id="indicatA" class=" fa fa-angle-right"></i></a>
+		    <div style="" id="buttonF" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_f' cheked='false'>
+		    <a class="button button-white" >Передний привод<i id="indicatF" class=" fa fa-angle-right"></i></a>
 		    </div>
+		    <div style="" id="buttonR" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_r' cheked='false'>
+		    <a class="button button-white" >Задний привод<i id="indicatR" class=" fa fa-angle-right"></i></a>
+		    </div>
+		    <div style="" id="buttonFUL" class="col-sm-2 complectButton complectDostyp disainClac buttonmodelOF" data-form='complect_ful' cheked='false'>
+		    <a class="button button-white" >Полный привод<i id="indicatFUL" class=" fa fa-angle-right"></i></a>
+		    </div>
+
 		    <!--div style="border-bottom: 2px solid #dfdfdf; padding-top: 24px;height: 52px;" class="col-sm-2" >
 		    
 		    </div-->
 		</div>
 		
-		<div class="col-sm-3" style="padding-right:0px;">
+		<!--div class="col-sm-3" style="padding-right:0px;">
 		    <div style=" padding-top: 11px; padding-right:0px;" id='gruppa' class="col-sm-12 complectButton complectDostyp" data-form='complect_g' cheked-g='false' style="">
 		    <a class="button button-seryi "  ><span id="gruppirovka"> Группировать</span><i id="grupirov" class="fa fa fa-object-group"></i></a>
 		    </div>
-		</div>
+		</div-->
 	</div>
 	</div>
 	
@@ -202,17 +212,24 @@
 <script>
 //МАССИВЫ С МОДЕЛЯМИ
 	var models = [];
+	var models1 = [];
 	var allo = [];
 	var savemas=[];
 	var datchik=[];
 
 	
 	$(document).ready(function(){
-		//ДАТЧИКИ
+		//ДАТЧИКИ Наличия Механики автоматики вариатора
 		var complect_m=0;
 		var complect_a=0;
 		var complect_c=0;
 		var complect_sum=0;
+		//ДАТЧИКИ Наличия переднего привода, заднего, и полного
+		var privod_f=0;
+		var privod_r=0;
+		var privod_ful=0;
+		var privod_sum=0;
+
 		var chek=0;
 		
 		
@@ -224,14 +241,56 @@
 		   			complect_a=1;
 		   		} else if ($(this).attr('data-transmission').substr(0, 1)=='C'){
 		   			complect_c=1;
-		   		}		 			
+		   		}	
+
+		   		if($(this).attr('data-privod').substr(0, 1)=='F'){
+		   			privod_f=1;
+		   		} else if ($(this).attr('data-privod').substr(0, 1)=='R'){
+		   			privod_r=1;
+		   		} else if ($(this).attr('data-privod').substr(0, 1)=='4'||$(this).attr('data-privod').substr(0, 1)=='A'){
+		   			privod_ful=1;
+		   		}	 			
 		   				
 
 		   	}
 		);	
 
 		//сКРЫТЬ ПОКАЗАТЬ КНОПКИ ПРИ НАЛИЧИИ ВАРИАТОР МЕХАНИК АВТОМАТ
-	   	complect_sum=complect_m+complect_a+complect_c;
+	   	complect_sum=complect_m+complect_a;
+
+	   	privod_sum=privod_f+privod_r+privod_ful;
+
+	   //	console.log(complect_sum);
+	  // 	console.log('/////');
+	  // 	console.log(privod_sum);
+
+	   	var newZagluh = document.createElement('div');
+	   	var sum_control=0;
+	   	
+	   	if (complect_sum>1 && privod_sum>1){
+	   		sum_control =6-(complect_sum + privod_sum);
+	   	} else if (complect_sum==1 && privod_sum>1) {
+	   		sum_control =8-(privod_sum);
+	   	} else if (complect_sum>1 && privod_sum==1) {
+	   		sum_control =8-(complect_sum);
+	   	} else if (complect_sum==1 && privod_sum==1) {
+	   		sum_control =12;
+	   	}
+
+	   	if (sum_control ==12){
+	   		newZagluh.setAttribute('class', 'col-sm-'+sum_control+' buttonmodelOF');
+	   		newZagluh.innerHTML='<h3><b>Все комплектации</b></h3>';
+
+	   		knopochki.appendChild(newZagluh);
+	   	} else { 
+	   		newZagluh.setAttribute('class', 'col-sm-'+sum_control+' buttonmodelOF');
+	   		newZagluh.setAttribute('style', 'height:'+Number($('#buttonV').outerHeight())+'px' );
+  			knopochki.appendChild(newZagluh);
+
+	   	}
+
+	   //	console.log($('#buttonV').outerHeight());
+	   	//console.log(document.getElementById('menu_bottom').clientHeight);
             
         $('.complectButton').each(
 			function(element, index) {
@@ -243,8 +302,25 @@
 		   		
 		   		} else if (complect_c==0 && $(this).attr('data-form')=='complect_c' || complect_sum==1&& $(this).attr('data-form')=='complect_c')
 		   			{$(this).remove();
-		   		} else if (complect_sum==0 && $(this).attr('data-form')=='complect_vse')
+		   		} else if (complect_sum==1 && $(this).attr('data-form')=='complect_vse')
+		   			{	
+		   				$(this).remove();
+		   		} else if (complect_sum==1 && $(this).attr('data-form')=='complect_g')
+		   			{	
+		   				$(this).remove();
+		   		}
+
+		   		if(privod_f==0 && $(this).attr('data-form')=='complect_f' ||$(this).attr('data-form')=='complect_f'&& privod_sum==1)
+		  			{$(this).remove();
+		   		
+		   		} else if (privod_r==0 && $(this).attr('data-form')=='complect_r' || privod_sum==1&& $(this).attr('data-form')=='complect_r')
 		   			{$(this).remove();
+		   		
+		   		} else if (privod_ful==0 && $(this).attr('data-form')=='complect_ful' || privod_sum==1&& $(this).attr('data-form')=='complect_ful')
+		   			{$(this).remove();
+		   		}  else if (privod_sum==1 && $(this).attr('data-form')=='complect_ful')
+		   			{	
+		   				$(this).remove();
 		   		}
 
 		   	}
@@ -262,49 +338,75 @@
 
 		// Сортировка обекта.
 		function CompareForSort(first, second){
-			if (first.getAttribute("data-sort") == second.getAttribute("data-sort"))
+			if (Number(first.getAttribute("data-sort")) == Number(second.getAttribute("data-sort")))
 				return 0;
-			if (first.getAttribute("data-sort") < second.getAttribute("data-sort"))
+			if (Number(first.getAttribute("data-sort")) < Number(second.getAttribute("data-sort")))
 			    return -1;
 			else
 			    return 1; 
 		}
+
+		function CompareForSortPrice(first, second){
+			if (Number(first.getAttribute("data-price")) == Number(second.getAttribute("data-price")))
+				return 0;
+			if (Number(first.getAttribute("data-price")) < Number(second.getAttribute("data-price")))	
+			    return -1;
+			else
+			    return 1; 
+		}
+
+
 
 		var razdelitel; 
 		
 		
 
 		for (var daf = 0; daf < allo.length; daf++) {
-  			
+  			var type_privoda;
 
   			if(daf>0){
 
-  				if(allo[daf].getAttribute("data-transmission").substr(0, 1)!=
-  			   allo[daf-1].getAttribute("data-transmission").substr(0, 1))
-  			{
-  				//datchik=datchik+1;
-  			}
-
-
-
+  			
   				if(allo[daf].getAttribute("data-sort")!=allo[daf-1].getAttribute("data-sort")){
   					
+
+  					if (allo[daf].getAttribute("data-type")==1){
+  						type_privoda="бензиновый "
+  					} else if (allo[daf].getAttribute("data-type")==2){
+  						type_privoda="дизельный ";
+  					} else {type_privoda="неопределен "}
+
   					razdelitel= document.createElement('div');
   					razdelitel.setAttribute('data-transmission', 'Н')
+  					//razdelitel.style.display='block';
+
   					razdelitel.setAttribute('data-razd', 'Н')
+  					razdelitel.setAttribute('data-sort', '0')
+  					razdelitel.setAttribute('data-type', allo[daf].getAttribute("data-type"))
 					razdelitel.className = "complect1 row razdelitel";
-					razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'<span></h3>';
+					razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+type_privoda + allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'</h3>';
+  					
   					models.splice(daf+chek,0,razdelitel);
   					
   					chek =chek+1;
   					datchik[chek]=daf+chek-1;
+
 				}
 			} else{
+
+				if (allo[daf].getAttribute("data-type")==1){
+  						type_privoda="бензиновый "
+  					} else if (allo[daf].getAttribute("data-type")==2){
+  						type_privoda="дизельный ";
+  					} else {type_privoda="неопределен "}
 				razdelitel= document.createElement('div');
 				razdelitel.className = "complect1 row razdelitel";
+				//razdelitel.style.display='block';
 				razdelitel.setAttribute('data-razd', 'Н')
 				razdelitel.setAttribute('data-transmission', 'Н')
-				razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'<span></h3>';
+				razdelitel.setAttribute('data-sort', '0')
+				razdelitel.setAttribute('data-type', allo[daf].getAttribute("data-type"))
+				razdelitel.innerHTML = '<h3 style="color:#000;">Двигатель '+type_privoda+allo[daf].getAttribute("data-size")+' л. '+allo[daf].getAttribute("data-power") +' л.с.'+'</h3>';
 				models.splice(daf+chek,0,razdelitel);
   				chek =chek+1;
   				datchik[chek]=daf+chek-1;
@@ -312,10 +414,29 @@
 			}			
   					
   	    }	
+
+
   	    var komi=1;
-		datchik[chek+1]= models.length; 	    
 		
-  	     	    
+  	    // СОРТИРОВКА ВНУТРИ ГРУПИРОВОК ПО ЦЕНЕ
+		var masiv_dacha;
+		var serega=[];
+		var y=0;
+
+		for (var z = datchik.length; z >1; z--) {
+			var olga=[];
+			olga=models.splice(datchik[z-1],models.length-datchik[z-1]);
+			y++;
+			olga=olga.sort(CompareForSortPrice);
+			serega=olga.concat(serega); 
+		}
+
+		models = [];
+
+		// Записываем в основной отсортированный массив данные после сортировки по цене
+		models=serega;
+
+		datchik[chek+1]= models.length; //это для того чтобы исчезали пустые групировки
 
 	});
 
@@ -328,45 +449,20 @@
 		    	var complectButton=$(this).attr('data-form');
 		   		var complectButtonG=$(this).attr('cheked-g');
 
-		   		//ВПИСЫВАЕМ СГРУПИРОВАННЫЙ МАССИВ			
-		   		if(complectButton=='complect_g'){
-		   			
-		   			var olga;
-		   			
-		   			/*if(complectButtonG=='true'){
-		   				$('.razdelitel').each(
-		   				function(index, element) {
-		   					$(this).css("display", "none");
-		   				})
-		   			} else {
+		   		// Функция стирает все комплектации и выводит или сгрупировкой или без в зависимоти от поданного параметра true false
 
-
-		   				$('.razdelitel').each(
-		   				function(index, element) {
-		   							
-		   						//$(this).css("display", "block");
-		   					
-		   				})
-
-		   			}*/
-
-
-					if($(this).attr('cheked-g')=='false'){
-						
-
-						//console.log("/");
-
-						for (var z = 0; z < models.length; z++) {
+		   		function grupirovka(indicat){
+  				    if(indicat == 'false'){
+  				    	for (var z = 0; z < models.length; z++) {
 							//console.log(models[z]);
   							cont.append(models[z]);
   						}
-  					  this.setAttribute('cheked-g', 'true');
-  					  $("#gruppirovka").text("Разгрупировать");
+  					  //colya.setAttribute('cheked-g', 'true');
+  					  //$("#gruppirovka").text("Разгрупировать");
   					  $("#grupirov").removeClass("fa-object-group").addClass("fa-object-ungroup");
-  					  grupirov
-  					}else{
-  						//cont.remove();
-  						$('.razdelitel').each(
+
+  				    } else if(indicat == 'true') {
+  				       $('.razdelitel').each(
 			   						function(index, element) {
 			   							$(this).remove();
 			   					})
@@ -374,37 +470,48 @@
   							
   							cont.append(savemas[x]);
   						}
-  						this.setAttribute('cheked-g', 'false');
-  						$("#gruppirovka").text("Групировать");
+  						//colya.setAttribute('cheked-g', 'false');
+  						//$("#gruppirovka").text("Групировать");
   						$("#grupirov").removeClass("fa-object-ungroup").addClass("fa-object-group");
-  					}
-  				}
 
+
+  				    }
+
+  				}
+  				// функция работает с окантовкой кнопок при нажатии, а также с индикаторами нажатости той или инойкнопки групировки
+  				function klac (param) {
+  					//V M C A F R FUL входящие параметры
+  						var mas_param =['V','M','A','F','R','FUL'];
+  					
+						mas_param.splice(mas_param.indexOf(param), 1);
+
+						$("#button"+param).attr('cheked','true');
+						$("#button"+param).removeClass("buttonmodelOF").addClass("buttonmodelON");
+						$("#indicat"+param).removeClass("fa-angle-right").addClass("fa-angle-down");
+
+  						var i;
+
+						for (i = 0; i < mas_param.length; i++) {
+							$("#button"+mas_param[i]).attr("cheked","false");
+							$("#button"+mas_param[i]).removeClass("buttonmodelON").addClass("buttonmodelOF");
+							$("#indicat"+mas_param[i]).removeClass("fa-angle-down").addClass("fa-angle-right");
+						  
+						}	
+
+					
+  				};
+
+				
 
 		   		$('.complect1').each(
 		   			function(index, element) {
-		   				
-		   					   				
+		   				var dataComplect = String($(this).attr('data-transmission')).substr(0, 1);
+		   				var dataPrivod = String($(this).attr('data-privod')).substr(0, 1);
+		   			
 		   				if (complectButton=='complect_m'){
-
-
-		   					$("#buttonV").attr("cheked","false");
-		   					$("#buttonM").attr('cheked','true');
-		   					$("#buttonC").attr('cheked','false');
-		   					$("#buttonA").attr('cheked','false');
-
-		   					$("#buttonM").removeClass("buttonmodelOF").addClass("buttonmodelON");
-		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
+		   					grupirovka('false');
+		   					klac('M');
 		   					
-		   					$("#indicatM").removeClass("fa-angle-right").addClass("fa-angle-down");
-		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
-
-		   					//childNodes[0]
-
 		   					if($(this).attr('data-transmission').substr(0, 1)!='М'){
 		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
 		   							$(this).css("display", "none");
@@ -415,165 +522,65 @@
 		   							
 		   						}
 		   					} else {$(this).css("display", "block");}
-		   					if($('#gruppa').attr('cheked-g')=='false'){
-			   					$('.razdelitel').each(
-			   						function(index, element) {
-			   							$(this).css("display", "none");
-			   					})
-							}
-
+		   					
 		   				} else if(complectButton=='complect_a'){
-		   					$("#buttonV").attr("cheked","false");
-		   					$("#buttonM").attr('cheked','false');
-		   					$("#buttonC").attr('cheked','false');
-		   					$("#buttonA").attr('cheked','true');
-		   					
-		   					$("#buttonA").removeClass("buttonmodelOF").addClass("buttonmodelON");
-		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
-
-		   					$("#indicatA").removeClass("fa-angle-right").addClass("fa-angle-down");
-		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   					grupirovka('false');
+		   					klac('A');
 
 
-		   					if($(this).attr('data-transmission').substr(0, 1)!='А'){
-		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
-		   							$(this).css("display", "none");
-		   						}
+		   					if(dataComplect!='А' && dataComplect!='C' && dataComplect!='Н'){
+		   						$(this).css("display", "none");
+		   						
 		   					} else {$(this).css("display", "block");}
-		   					if($('#gruppa').attr('cheked-g')=='false'){
-			   					$('.razdelitel').each(
-			   						function(index, element) {
-			   							$(this).css("display", "none");
-			   					})
-							}
+		   				
 
-		   				} else if(complectButton=='complect_c'){
-		   					$("#buttonV").attr("cheked","false");
-		   					$("#buttonM").attr('cheked','false');
-		   					$("#buttonC").attr('cheked','true');
-		   					$("#buttonA").attr('cheked','false');
-
-
-		   					$("#buttonC").removeClass("buttonmodelOF").addClass("buttonmodelON");
-		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonV").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
-
-		   					$("#indicatC").removeClass("fa-angle-right").addClass("fa-angle-down");
-		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatV").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   				}else if(complectButton=='complect_f'){
+		   					grupirovka('false');
+		   					klac('F');
 		   					
-		   					if($(this).attr('data-transmission').substr(0, 1)!='C'){
-		   						if($(this).attr('data-transmission').substr(0, 1)!='Н'){
-		   							$(this).css("display", "none");
-		   						}
+		   				 	if(dataPrivod!='F' &&  dataPrivod!='Н'){
+		   						$(this).css("display", "none");
+		   						
 		   					} else {$(this).css("display", "block");}
-		   					if($('#gruppa').attr('cheked-g')=='false'){
-			   					$('.razdelitel').each(
-			   						function(index, element) {
-			   							$(this).css("display", "none");
-			   					})
-							}
+		   					
+		   				
 
-		   				} else if(complectButton=='complect_vse'){
-		   					$("#buttonV").attr("cheked","true");
-		   					$("#buttonM").attr('cheked','false');
-		   					$("#buttonC").attr('cheked','false');
-		   					$("#buttonA").attr('cheked','false');
+		   				}
+		   				else if(complectButton=='complect_r'){
+		   					grupirovka('false');
+		   					klac('R');
+		   					if(dataPrivod!='R' &&  dataPrivod!='Н'){
+		   						$(this).css("display", "none");
+		   						
+		   					} else {$(this).css("display", "block");}
+		   				}
+		   				else if(complectButton=='complect_ful'){
+		   					grupirovka('false');
+		   					klac('FUL');
+		   					if(dataPrivod!='4' && dataPrivod!='A' && dataPrivod!='Н'){
+		   						$(this).css("display", "none");
+		   						
+		   					} else {$(this).css("display", "block");}
+		   				}
 
-		   					$("#buttonV").removeClass("buttonmodelOF").addClass("buttonmodelON");
-		   					$("#buttonM").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonC").removeClass("buttonmodelON").addClass("buttonmodelOF");
-		   					$("#buttonA").removeClass("buttonmodelON").addClass("buttonmodelOF");
-
-		   					$("#indicatV").removeClass("fa-angle-right").addClass("fa-angle-down");
-		   					$("#indicatM").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatC").removeClass("fa-angle-down").addClass("fa-angle-right");
-		   					$("#indicatA").removeClass("fa-angle-down").addClass("fa-angle-right");
+		   				 else if(complectButton=='complect_vse'){
+		   					grupirovka('true');
+		   					klac('V');
 		   					
 		   					if($(this).attr('data-transmission').substr(0, 1)!='Н'){
 		   					$(this).css("display", "block");	}
-		   					if($('#gruppa').attr('cheked-g')=='false'){
-			   					$('.razdelitel').each(
-			   						function(index, element) {
-			   							$(this).css("display", "none");
-			   					})
-							}
-
-		   				} else if(complectButton=='complect_g'){
 		   					
 
-		   					if(complectButtonG=='false'){
-			   					$('.complectDostyp').each(
-			   					function(index, element) {
-			   						if($(this).attr("cheked")=='true'){
-			   						
-			   							olga=$(this).attr("id");	 	
-			   						}
-			   					})
-			   					if(olga=="buttonV"){
-			   						$(this).css("display", "block")
-			   					}
-			   					else if(olga=="buttonM"){
-			   						if($(this).attr('data-transmission').substr(0, 1)!='М'){
-
-										$(this).css("display", "none")
-									} else{$(this).css("display", "block")}
-
-
-			   					}
-			   					else if(olga=="buttonA"){
-			   						if($(this).attr('data-transmission').substr(0, 1)!='А'){
-
-										$(this).css("display", "none")
-									} else{$(this).css("display", "block")}
-
-
-			   					}
-			   					else if(olga=="buttonC"){
-			   						if($(this).attr('data-transmission').substr(0, 1)!='C'){
-
-										$(this).css("display", "none")
-									} else{$(this).css("display", "block")}
-
-
-			   					}
-
-							} else {
-								$('.razdelitel').each(
-			   						function(index, element) {
-			   							$(this).css("display", "none");
-			   					})
-							}
-		   					
-		   					//$(this).css("display", "none");	
-
-		   				}
+		   				} 
 
 		   				
 		   				
 		   		});
 		   	 	
-
-				
-
-//console.log(models[0]);
-		   		//models.sort(function(){return models. - b});
-		   		//console.log(models[index].getAttribute("data-power"));
-
-		   				   				//console.log(datchik.length+"----");
-
 		   	for (var y = 1; y < datchik.length-1; y++){
 		   		
 			var chit =0;
 			if(y!=datchik.length-1){
-				//console.log(datchik[y]+"++++");
-				//	console.log(datchik[y+1]+"//////");
 				for (var v = datchik[y]+1; v < datchik[y+1]; v++) {
   					if(typeof models[v].style.display && models[v].style.display=='block') {
   						chit++
@@ -581,27 +588,18 @@
   					};
   					
   				}
-  				
   			
-  				
-
-  			//console.log("---------");
-  			//console.log(datchik[y]);
   			}
   			if(typeof models[datchik[y]]){
   			
   			if(chit>0 ){	
-  				//console.log(chit+'|||||||||');
-  				models[datchik[y]].style.display='block';
+  			  models[datchik[y]].style.display='block';
   			} else{models[datchik[y]].style.display='none';}
 		}
 	}
 
 		   	});
-			$('.disainClac').click(function(){
-
-
-			});
+		
 			
 		    </script>
 	<?php ?>
@@ -614,7 +612,10 @@
 		data-transmission="<?=$complect->motor->transmission;?>" 
 		data-power="<?=$complect->motor->power;?>"
 		data-size="<?=$complect->motor->size;?>"
-		data-sort="<?=$complect->motor->size+$complect->motor->power;?>"
+		data-sort="<?=$complect->motor->size+$complect->motor->power+$complect->motor->type;?>"
+		data-privod="<?=$complect->motor->privod;?>"
+		data-price="<?= $complect->price;?>"
+		data-type="<?=$complect->motor->type;?>"
 	>
 		
 		<!--БЛОК НАЗВАНИЕ КОМПЛЕКТАЦИЯ (КНОПКА РАЗВЕРТЫВАНИЯ)-->
