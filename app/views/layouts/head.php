@@ -86,7 +86,7 @@
     </div>
 
 
-  <div class="container-fluid mid-header" style="border-bottom: 1px solid #ddd;">
+  <div class="container mid-header" style="border-bottom: 1px solid #ddd;">
     <div class="row">
       <div class="col-sm-1 col-xs-4 text-center">
         <a href="/"><img src="/images/logo.png" alt="Логотип"></a>

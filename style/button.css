@@ -52,6 +52,7 @@
 		text-align: left;
 
 	}
+	
 
 	.button-white:hover{
 		background: #fff;
@@ -256,6 +257,33 @@
 	}
 }
 
+@media screen and (max-width: 1024px){	
+
+		.button-white{
+			background: #fff !important;
+			color: #333;
+			padding: 3px;
+			text-align: left;
+			font-size: 13px;
+
+		}
+	
+		.button i{
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		padding: 4px;
+	}
+
+}
+@media screen and (max-width: 800px){	
+	.button_small{
+			
+			padding-bottom: 21px;
+			
+
+		}
+}
 
 
 

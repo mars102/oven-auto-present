@@ -14,6 +14,7 @@ Class banner extends \app\core\Model
 		$data .= '<div class="banner-main hidden-xs">';
 			foreach ($banners as $key => $ban) {
 				$data .= '<div class="car-slider" style="background-image: url(http://admin.oven-auto.ru'.$ban->img.'); ">';
+				
 					$data .= '<div class="banner-content text-center">';
 					if($ban->title!="") :
 						$data .= "<div class='banner-title'>";
@@ -30,6 +31,7 @@ Class banner extends \app\core\Model
 						$data .= '<a class="btn button-main-page" href="'.$ban->link.'">Подробнее</a>';
 						$data .= "</div>";
 					endif;
+				
 					$data .= '</div>';
 				$data .= '</div>';
 			}

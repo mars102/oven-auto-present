@@ -12,86 +12,78 @@ Class car_docs extends \app\core\Model{
 	{
 	?>
 		<div class="container  document-car block" style="padding-bottom: 0px;">
-			<div class="col-sm-12 ">
-			
-				<div class="col-sm-2 col-sm-offset-2 col-sm-xs-offset-0 col-xs-6 text-center">
-					<?php if(empty($this->brochure)) : ?>
-						<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
-							<img src="/images/icons/b.jpg">
-						</a>
-						<a style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
-							<span class="sub-title">Брошюра</span>
-						</a>
-					<?php else:?>
-						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
+			<div class="col-sm-12 " id="doki">
+			<?php if(!empty($this->brochure)) : ?>
+				<div class="col-sm-2  col-sm-xs-offset-0 col-xs-6 text-center" id="regulator">
+					<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
 							<img src="/images/icons/b.jpg">
 						</a>
 						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->brochure;?>" >
 							<span class="sub-title">Брошюра</span>
 						</a>
+					</div>
+			<?php endif;?>
 
-					<?php endif;?>
 
-
-				</div>
-				<div class="col-sm-2 col-xs-6 text-center">
-					<?php if(empty($this->price)) : ?>
+				
+				<?php if(!empty($this->price)) : ?>
+					<div class="col-sm-2 col-xs-6 text-center tor">
 						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->price;?>" >
 							<img src="/images/icons/p.jpg">
 						</a>
 						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->price;?>" >
 							<span class="sub-title">Прайс-лист</span>
 						</a>
-					<?php else:?>
-						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->price;?>" >
-							<img src="/images/icons/p.jpg">
-						</a>
-						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->price;?>" >
-							<span class="sub-title">Прайс-лист</span>
-						</a>
+					</div>
+				<?php endif;?>
+				
+				<?php if(!empty($this->manual)) : ?>
 
-					<?php endif;?>
-
-				</div>
-				<div class="col-sm-2 col-xs-6 text-center">
-					<?php if(empty($this->manual)) : ?>
-					  	<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
-							<img src="/images/icons/m.jpg">
-						</a>
-						<a  style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
-							<span class="sub-title">Инструкции</span>
-						</a>
-
-					<?php else:?>
+				<div class="col-sm-2  col-xs-6 text-center tor">
 					<a style="" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
 							<img src="/images/icons/m.jpg">
 						</a>
 						<a  style="" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->manual;?>" >
 							<span class="sub-title">Инструкции</span>
 						</a>
-
-					<?php endif;?>
+					  	
 				</div>
-				<div class="col-sm-2 col-xs-6 text-center">
-					<?php if(empty($this->toys)) : ?>
-						<a style="pointer-events: none; opacity: 0.6;" target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
-							<img src="/images/icons/c.jpg">
-						</a>
-						<a style="pointer-events: none; opacity: .3;" target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
-							<span class="sub-title">Аксессуары</span>
-						</a>
-					<?php else:?>
+				<?php endif;?>
+				<?php if(!empty($this->toys)) : ?>
+					<div class="col-sm-2 col-xs-6 text-center tor">
+					
+					
 						<a target="_bank" class="document-block" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
 							<img src="/images/icons/c.jpg">
 						</a>
 						<a target="_bank" class="document-block item-file" href="http://admin.oven-auto.ru<?= $this->toys;?>" >
 							<span class="sub-title">Аксессуары</span>
 						</a>
-					<?php endif;?>
-
-				</div>
+					</div>
+				<?php endif;?>
 			</div>
 		</div>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			console.log();
+			var dok = document.getElementById('doki')
+
+			if (dok.children.length==4){
+
+				doki.firstElementChild.className="col-sm-offset-2 col-sm-2  col-sm-xs-offset-0 col-xs-6 text-center";
+
+			} else if(document.getElementById('doki').children.length==3){
+
+				doki.firstElementChild.className="col-sm-offset-3 col-sm-2  col-sm-xs-offset-0 col-xs-6 text-center";
+
+			} else if(document.getElementById('doki').children.length==2){
+
+				doki.firstElementChild.className="col-sm-offset-4 col-sm-2  col-sm-xs-offset-0 col-xs-6 text-center";
+
+			}
+
+		});
+		</script>>
 	<?php
 	}
 }
